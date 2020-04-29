@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 342134307}
   - component: {fileID: 342134306}
   - component: {fileID: 342134311}
+  - component: {fileID: 342134312}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Player
@@ -249,6 +250,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &342134312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342134305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270b32725013bf24da8ce8edb27afb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  hurt: 0
+  attack_range: 0
+  attack_type: 
+  skill: 0
+  mask: 0
+  metal: 0
+  fund: 0
+  meat: 0
+  meat_type: 
 --- !u!1 &511321680
 GameObject:
   m_ObjectHideFlags: 0
