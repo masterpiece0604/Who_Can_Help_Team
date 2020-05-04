@@ -17,4 +17,12 @@ public class Scene_Controll : MonoBehaviour
     {
         SceneManager.LoadScene("開始介面");
     }
+
+    #region 遊戲關閉
+    public void Quit()
+    {
+        // 輸出成遊戲執行檔才可以進行測試
+        Application.Quit();
+    }
+    #endregion
 }
