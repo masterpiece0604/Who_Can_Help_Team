@@ -18,6 +18,16 @@ public class Scene_Controll : MonoBehaviour
         SceneManager.LoadScene("開始介面");
     }
 
+    public void StartUI_Option()
+    {
+        SceneManager.LoadScene("開始介面的設定");
+    }
+
+    public void HotKey()
+    {
+        SceneManager.LoadScene("按鍵設定");
+    }
+
     #region 遊戲關閉
     public void Quit()
     {
