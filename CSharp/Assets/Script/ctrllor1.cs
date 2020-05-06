@@ -10,6 +10,9 @@ public class ctrllor1 : MonoBehaviour
     public Camera main_camera;
     public Ray ray;
     public GameObject look_at_point;
+    [Header("玩家背包")]
+    public GameObject playerbag;
+    bool openbag;
 
     //上一次點擊順移的時間
     private float lastTouchTime = 0f;
@@ -65,7 +68,10 @@ public class ctrllor1 : MonoBehaviour
             
         
         }
-        
+
+        openplayerbag();
+
+
 
     }
 
@@ -106,6 +112,18 @@ public class ctrllor1 : MonoBehaviour
         run = false;
     }
 
+
+    void openplayerbag()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            openbag = !openbag;
+            playerbag.SetActive(openbag);
+        }
+
+    }
+
+
    public bool Set_Emove(bool E)
     {
         if(Time.realtimeSinceStartup-lastTouchTime>3f)
@@ -124,4 +142,5 @@ public class ctrllor1 : MonoBehaviour
 
 
     }
+
 }
