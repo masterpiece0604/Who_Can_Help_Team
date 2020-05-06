@@ -11,7 +11,10 @@ public class ctrllor1 : MonoBehaviour
     public Ray ray;
     public GameObject look_at_point;
 
-    
+    //上一次點擊順移的時間
+    private float lastTouchTime = 0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,12 +71,57 @@ public class ctrllor1 : MonoBehaviour
 
     void moving(float speed)
     {
-        transform.Translate(new Vector3(0, 0, playerspeed * Time.deltaTime), Space.Self);
+        // 加入順移功能
+        var E_move = Input.GetKeyDown(KeyCode.E);
+        // 順移的冷卻時間
+        var E_colling = false;
+
+        // 順移判斷
+        if (E_move)
+        {
+            //判斷冷卻時間
+            E_colling=Set_Emove(E_colling);
+
+            if(E_colling)
+            {
+                transform.Translate(new Vector3(0, 0, speed * Time.deltaTime + 3f), Space.Self);
+
+            }
+            else
+            {
+                print("正在冷卻中"+ Time.realtimeSinceStartup+"上次時間"+ lastTouchTime);
+            }
+
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+        }
+
     }
 
     void set_allstate_false()
     {
         wait = false;
         run = false;
+    }
+
+   public bool Set_Emove(bool E)
+    {
+        if(Time.realtimeSinceStartup-lastTouchTime>3f)
+         {
+            lastTouchTime = Time.realtimeSinceStartup;
+            E = true;
+            return E ;
+
+        }
+        else
+        {
+            E = false;
+            return E;
+        }
+        
+
+
     }
 }
