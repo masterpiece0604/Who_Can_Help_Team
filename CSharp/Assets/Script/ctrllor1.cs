@@ -10,6 +10,9 @@ public class ctrllor1 : MonoBehaviour
     public Camera main_camera;
     public Ray ray;
     public GameObject look_at_point;
+    [Header("玩家背包")]
+    public GameObject playerbag;
+    bool openbag;
 
     
     // Start is called before the first frame update
@@ -62,7 +65,10 @@ public class ctrllor1 : MonoBehaviour
             
         
         }
-        
+
+        openplayerbag();
+
+
 
     }
 
@@ -76,4 +82,15 @@ public class ctrllor1 : MonoBehaviour
         wait = false;
         run = false;
     }
+
+    void openplayerbag()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            openbag = !openbag;
+            playerbag.SetActive(openbag);
+        }
+
+    }
+
 }
