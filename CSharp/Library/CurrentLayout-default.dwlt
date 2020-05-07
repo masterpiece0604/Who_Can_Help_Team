@@ -71,10 +71,14 @@ MonoBehaviour:
     y: 0
     width: 1425
     height: 1307
-  m_MinSize: {x: 201, y: 442}
-  m_MaxSize: {x: 4001, y: 8042}
+  m_MinSize: {x: 201, y: 421}
+  m_MaxSize: {x: 4001, y: 8021}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 102
+=======
+  controlID: 107
+>>>>>>> Stashed changes
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,10 +147,14 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 709, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MinSize: {x: 708, y: 492}
+  m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 101
+=======
+  controlID: 155
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,8 +195,8 @@ MonoBehaviour:
     y: 0
     width: 1425
     height: 663
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -385,9 +393,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: 64350000
     m_LastClickedID: 13668
     m_ExpandedIDs: 00000000183500001a350000263500002835000000ca9a3b
+=======
+    m_SelectedIDs: ba3d0000
+    m_LastClickedID: 15802
+    m_ExpandedIDs: 000000006e3d0000703d0000723d0000743d000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Script
@@ -415,7 +429,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 00000000183500001a350000
+=======
+    m_ExpandedIDs: 000000006e3d0000703d0000723d0000743d0000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -596,9 +614,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 99.34952, y: 530.0736, z: 0}
+    m_Target: {x: 30, y: 0.78999996, z: 4.23}
     speed: 2
-    m_Value: {x: 99.34952, y: 530.0736, z: 0}
+    m_Value: {x: 30, y: 0.78999996, z: 4.23}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,13 +662,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: 0.22692566, y: 0.06859466, z: -0.01602482, w: 0.97136164}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: 0.22692558, y: 0.068594635, z: -0.016024815, w: 0.9713613}
   m_Size:
-    m_Target: 206.83525
+    m_Target: 31.541405
     speed: 2
+<<<<<<< Updated upstream
     m_Value: 206.83527
+=======
+    m_Value: 31.541405
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -704,9 +726,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
       m_SelectedIDs: 48460000
       m_LastClickedID: 0
       m_ExpandedIDs: 72e6ffff9ee7ffffc6e8ffffe0e8fffff6e8ffff0ce9ffff24e9ffff8cf9ffffa2f9ffffb8f9ffffcef9ffffa0faffffb6faffffccfaffff70fbffff
+=======
+      m_SelectedIDs: 0a440000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 70fbffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: Image
