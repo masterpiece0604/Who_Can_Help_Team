@@ -2774,9 +2774,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44472518fd867914b9de2d8e7b6db6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alertRadius: 0
+  defendRadius: 5
+  alertRadius: 6
+  wanderRadius: 4
   action_weight: 0300000007000000
-  attackRange: 0
+  chaseDistance: 10
+  attackRange: 0.1
   walkspeed: 2
 --- !u!54 &134023873
 Rigidbody:

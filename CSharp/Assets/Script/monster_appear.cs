@@ -36,7 +36,7 @@ public class monster_appear : MonoBehaviour
                 z = Random.Range(30, 35);
                 // 隨機生成Z座標，範圍(30~35)
 
-                Instantiate(monster, new Vector3(x, 0.6f, z), Quaternion.identity);
+                Instantiate(monster, new Vector3(x, 1.3f, z), Quaternion.identity);
                 Monster_total++;
                 //clonemonster = Instantiate(monster) as GameObject;
                 if (Monster_total >= Monster_most_total)
