@@ -2681,6 +2681,7 @@ GameObject:
   - component: {fileID: 134023868}
   - component: {fileID: 134023872}
   - component: {fileID: 134023873}
+  - component: {fileID: 134023874}
   m_Layer: 0
   m_Name: "\u602A\u7378"
   m_TagString: "\u602A\u7378"
@@ -2779,8 +2780,10 @@ MonoBehaviour:
   wanderRadius: 4
   action_weight: 0300000007000000
   chaseDistance: 10
-  attackRange: 0.1
+  attackRange: 2
   walkspeed: 2
+  monster: {fileID: 134023874}
+  role: {fileID: 342134312}
 --- !u!54 &134023873
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2797,6 +2800,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &134023874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134023867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270b32725013bf24da8ce8edb27afb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  hurt: 3
+  attack_range: 2
+  attack_frequency: 2
+  attack_type: 
+  skill: 0
+  mask: 0
+  metal: 0
+  fund: 0
+  meat: 0
+  meat_type: 
 --- !u!1001 &143700812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8442,19 +8468,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 342134305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270b32725013bf24da8ce8edb27afb1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c15944f352070141b3a9eb8ac368847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  hurt: 0
-  attack_range: 0
-  attack_type: 
-  skill: 0
-  mask: 0
-  metal: 0
-  fund: 0
-  meat: 0
-  meat_type: 
+  health: 200
+  hungry: 100
+  guilt: 0
+  prop: "\u6B66\u5668"
+  arms:
+  - "\u842C\u80FD\u6B66\u5668"
+  - "\u528D"
+  - "\u93AC"
+  - "\u65A7"
 --- !u!1 &342783123
 GameObject:
   m_ObjectHideFlags: 0

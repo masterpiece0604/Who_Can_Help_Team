@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 public class monster_move : MonoBehaviour
 {
@@ -38,6 +39,12 @@ public class monster_move : MonoBehaviour
     public float walkspeed;
     private GameObject player;
 
+    public enemy monster;//引用怪物身上的數據
+    public Role_quality role; // 引用角色身上的數據
+    private float lastAtkTime; //上一次攻擊時間
+
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -62,7 +69,7 @@ public class monster_move : MonoBehaviour
         {
             currentState = MonsterState.STAND;
 
-            print("怪物靜止中");
+           // print("怪物靜止中");
 
             // 如果有動作動畫可以放在這裡
         }
@@ -71,7 +78,7 @@ public class monster_move : MonoBehaviour
             currentState = MonsterState.WALK;
             targetRotation = Quaternion.Euler(0, Random.Range(1, 5) * 90, 0);
 
-            print("怪物走動中");
+           // print("怪物走動中");
         }
     }
     private void Update()
@@ -107,14 +114,14 @@ public class monster_move : MonoBehaviour
                 }
 
                 // 怪會轉向玩家方向
-                print("怪獸看向主角哩~");
+               // print("怪獸看向主角哩~");
                 targetRotation = Quaternion.LookRotation(player.transform.position);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
                 WarnCheck();
                 break;
 
             case MonsterState.CHASE:
-                print("追追追");
+               // print("追追追");
                 if(!is_run)
                 {
                     //跑步動畫放這兒
@@ -128,7 +135,7 @@ public class monster_move : MonoBehaviour
                 break;
 
             case MonsterState.RETURN:
-                print("我回去啦");
+                //print("我回去啦");
                 targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
@@ -148,7 +155,8 @@ public class monster_move : MonoBehaviour
 
         if (diatanceToPlay < attackRange)
         {
-            print("已進入怪物攻擊範圍");
+            //print("已進入怪物攻擊範圍");
+            monster_attack();
 
         }
         else if (diatanceToPlay < defendRadius)
@@ -171,7 +179,8 @@ public class monster_move : MonoBehaviour
         diatanceToInt = Vector3.Distance(transform.position, initialPos); //物件跟原始位置的距離
         if (diatanceToPlay < attackRange)
         {
-            print("已進入怪物攻擊範圍");
+           // print("已進入怪物攻擊範圍");
+            monster_attack();
 
         }
         else if (diatanceToPlay < defendRadius)
@@ -183,9 +192,9 @@ public class monster_move : MonoBehaviour
             currentState = MonsterState.WARN;
         }
 
-        if (diatanceToInt > wanderRadius)
+        if (diatanceToInt > wanderRadius)  
         {
-            print("我跑太遠啦");
+           // print("我跑太遠啦");
             targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
         }
     }
@@ -211,11 +220,12 @@ public class monster_move : MonoBehaviour
         diatanceToInt = Vector3.Distance(transform.position, initialPos); //物件跟原始位置的距離
         if (diatanceToPlay < attackRange)
         {
-            print("已進入怪物攻擊範圍");
+            //print("已進入怪物攻擊範圍");
+            monster_attack();
 
         }
         // 超過距離怪物要回去
-        if (diatanceToPlay > chaseDistance)
+        if (diatanceToInt > wanderRadius) //如果想讓怪物一直追著主角跑調整這裡(diatanceToPlay>chaseDistance)
         {
             currentState = MonsterState.RETURN;
         }
@@ -231,6 +241,23 @@ public class monster_move : MonoBehaviour
             is_run = false;
             RandomAct();
         }
+    }
+    void monster_attack()
+    {
+
+        // 怪物攻擊動畫擺這裡
+       
+        // 設定兩秒攻擊一次
+
+        if (Time.time - lastAtkTime > monster.attack_frequency)
+        {
+            role.health -= monster.hurt;
+            lastAtkTime = Time.time;
+        }
+      
+
+
+
     }
 }
 
