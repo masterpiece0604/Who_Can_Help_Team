@@ -17,6 +17,11 @@ public class Scene_Controll : MonoBehaviour
     {
         SceneManager.LoadScene("開始介面");
     }
+    
+    public void Guild()
+    {
+        SceneManager.LoadScene("新手教學關卡");
+    }
 
     public void StartUI_Option()
     {
