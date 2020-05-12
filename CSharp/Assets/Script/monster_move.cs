@@ -127,6 +127,11 @@ public class monster_move : MonoBehaviour
                     //跑步動畫放這兒
                     is_run = true;
                 }
+                if(Vector3.Distance(player.transform.position,transform.position)<1f)
+                {
+                    break;
+                }
+
                 transform.Translate(Vector3.forward*Time.deltaTime*walkspeed);
                 // 轉向玩家
                 targetRotation = Quaternion.LookRotation(player.transform.position - transform.position, Vector3.up);

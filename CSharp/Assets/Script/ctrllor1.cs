@@ -49,7 +49,7 @@ public class ctrllor1 : MonoBehaviour
                 }
                 else if (raycasthit[i].collider.tag == "怪獸")
                 {
-                    this.transform.LookAt(monster.transform);
+                   // this.transform.LookAt(monster.transform);
                     this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
                     set_allstate_false();
                     run = true;

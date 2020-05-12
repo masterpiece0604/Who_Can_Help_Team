@@ -22,7 +22,7 @@ public class monster_appear : MonoBehaviour
         //clonemonster = Instantiate(monster) as GameObject;
         int MonsterNum = 1;
         // 一次生成一個
-        print("執行第" + Monster_total + "次");
+        //print("執行第" + Monster_total + "次");
         if (Monster_total < 3)
         {
             for (int i = 0; i < MonsterNum; i++)
