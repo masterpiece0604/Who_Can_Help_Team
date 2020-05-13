@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject emptySlot;
     public Text itemInformation;
 
+
     public List<GameObject> slots = new List<GameObject> ();
 
     private void Awake()
@@ -21,6 +22,18 @@ public class InventoryManager : MonoBehaviour
             Destroy(this);
         instance = this;
     }
+
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    
 
     private void OnEnable()
     {
