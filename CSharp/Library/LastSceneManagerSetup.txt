@@ -1,5 +1,5 @@
 sceneSetups:
-- path: "Assets/BagTest/Scenes/\u6E2C\u8A66\u80CC\u5305\u7CFB\u7D71.unity"
+- path: "Assets/Scenes/\u52D5\u8D77\u4F86\u6E2C\u8A66.unity"
   isLoaded: 1
   isActive: 1
   isSubScene: 0
