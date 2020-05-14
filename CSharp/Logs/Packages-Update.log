@@ -44,7 +44,11 @@ The following packages were added:
   com.unity.timeline@1.2.14
   com.unity.ugui@1.0.0
 
+<<<<<<< HEAD
 === Mon May 11 09:46:30 2020
+=======
+=== Wed May 13 14:01:55 2020
+>>>>>>> 道具欄開發
 
 Packages were changed.
 Update Mode: updateDependencies
