@@ -5,22 +5,32 @@ using UnityEngine.Video;
 
 public class video_end : MonoBehaviour
 {
-    VideoPlayer VP = new VideoPlayer();
+    public VideoPlayer Movie_;
 
     void Start()
     {
-        VP = transform.GetComponent<VideoPlayer>();
-        VP.loopPointReached += EndReached;
+        // VP = transform.GetComponent<VideoPlayer>();
+        //VP.loopPointReached += EndReached;
+        InvokeRepeating("CheckMovie", 3f, 0.1f);
 
     }
 
-    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    void CheckMovie()
     {
-        SceneManager.LoadScene("開始介面");
+        if (Movie_.isPlaying == false)
+        {
+            SceneManager.LoadScene("開始介面");
+        }
     }
 
-    public void starter()
+
+    public void Nextscene()
     {
+        // Application.LoadLevel("場景名稱");
+        // Application.LoadLevel(場景名稱ID);
+        // Application.loadLevel讀取當前關卡名稱
+        // Application.LoadLevel(Application.loadLevel);重新遊戲
+
         SceneManager.LoadScene("開始介面");
     }
 }

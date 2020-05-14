@@ -13,6 +13,7 @@ public class ctrllor1 : MonoBehaviour
     [Header("玩家背包")]
     public GameObject playerbag;
     bool openbag;
+    public GameObject monster;
 
     //上一次點擊順移的時間
     private float lastTouchTime = 0f;
@@ -45,6 +46,13 @@ public class ctrllor1 : MonoBehaviour
                     set_allstate_false();
                     run = true;
 
+                }
+                else if (raycasthit[i].collider.tag == "怪獸")
+                {
+                   // this.transform.LookAt(monster.transform);
+                    this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+                    set_allstate_false();
+                    run = true;
                 }
 
             }
@@ -79,6 +87,7 @@ public class ctrllor1 : MonoBehaviour
     {
         // 加入順移功能
         var E_move = Input.GetKeyDown(KeyCode.E);
+        var S_stand = Input.GetKeyDown(KeyCode.S);
         // 順移的冷卻時間
         var E_colling = false;
 
@@ -102,6 +111,10 @@ public class ctrllor1 : MonoBehaviour
         else
         {
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+        }
+        if(S_stand)
+        {
+            Sstand();
         }
 
     }
@@ -141,6 +154,12 @@ public class ctrllor1 : MonoBehaviour
         
 
 
+    }
+    public void Sstand()
+    {
+        this.transform.LookAt(this.transform);
+        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+        set_allstate_false();
     }
 
 }

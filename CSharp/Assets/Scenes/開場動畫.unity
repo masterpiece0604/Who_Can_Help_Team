@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fb55bffa277bf46b8e7c2c95413085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movie_: {fileID: 0}
 --- !u!4 &658703704
 Transform:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717792868}
   - component: {fileID: 717792867}
+  - component: {fileID: 717792869}
   m_Layer: 0
   m_Name: y2mate.com - Coffin Dance Boys Waiting For You To Sneeze_360_5pkIOPc_360p
   m_TagString: Untagged
@@ -328,6 +330,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717792869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717792866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fb55bffa277bf46b8e7c2c95413085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Movie_: {fileID: 717792867}
 --- !u!1 &924596286
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +461,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -562,6 +578,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -598,8 +615,8 @@ MonoBehaviour:
   leftClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658703703}
-        m_MethodName: starter
+      - m_Target: {fileID: 717792869}
+        m_MethodName: Nextscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -615,8 +632,8 @@ MonoBehaviour:
   rightClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658703703}
-        m_MethodName: starter
+      - m_Target: {fileID: 717792869}
+        m_MethodName: Nextscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

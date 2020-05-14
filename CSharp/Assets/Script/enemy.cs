@@ -22,6 +22,9 @@ public class enemy : MonoBehaviour
     [Header("機掰人的攻擊範圍"), Tooltip("這個欄位是用來機掰人的攻擊範圍")]
     public int attack_range;
 
+    [Header("機掰人的攻擊頻率"),Tooltip("每幾秒攻擊一次")]
+    public float attack_frequency;
+
     /// <summary>
     /// 機掰人的類型
     /// </summary>
