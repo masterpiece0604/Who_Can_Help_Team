@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public Text itemInformation;
 
 
+
     public List<GameObject> slots = new List<GameObject> ();
 
     private void Awake()
@@ -44,6 +45,7 @@ public class InventoryManager : MonoBehaviour
     public static void UpdateItemInfo(string itemDescription)
     {
         instance.itemInformation.text = itemDescription;
+        print(instance.itemInformation.text);
     }
 
     /*public static void CreateNewItem(Item item)
