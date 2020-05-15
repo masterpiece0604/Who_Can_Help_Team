@@ -77,6 +77,7 @@ public class ctrllor1 : MonoBehaviour
         
         }
 
+        //開啟玩家背包
         openplayerbag();
 
 
@@ -125,7 +126,7 @@ public class ctrllor1 : MonoBehaviour
         run = false;
     }
 
-
+    //設定玩家背包開關
     void openplayerbag()
     {
         if (Input.GetKeyDown(KeyCode.I))
