@@ -38950,6 +38950,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3729043427079376405, guid: 7f855fbd27cfecc448d9cbf7d6bbedb9,
+        type: 3}
+      propertyPath: m_StartCorner
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729043427079376405, guid: 7f855fbd27cfecc448d9cbf7d6bbedb9,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729043427079376405, guid: 7f855fbd27cfecc448d9cbf7d6bbedb9,
+        type: 3}
+      propertyPath: m_StartAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729043427079376405, guid: 7f855fbd27cfecc448d9cbf7d6bbedb9,
+        type: 3}
+      propertyPath: m_Constraint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6383480547953185073, guid: 7f855fbd27cfecc448d9cbf7d6bbedb9,
         type: 3}
       propertyPath: m_AnchorMin.y
