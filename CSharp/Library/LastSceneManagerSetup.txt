@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: "Assets/Scenes/\u958B\u59CB\u4ECB\u9762\u7684\u8A2D\u5B9A.unity"
-=======
-- path: "Assets/Scenes/\u52D5\u8D77\u4F86\u6E2C\u8A66.unity"
->>>>>>> 道具欄開發
+- path: "Assets/Scenes/\u65B0\u624B\u6559\u5B78\u95DC\u5361.unity"
   isLoaded: 1
   isActive: 1
   isSubScene: 0

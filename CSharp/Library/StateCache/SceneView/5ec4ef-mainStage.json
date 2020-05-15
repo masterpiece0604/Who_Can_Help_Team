@@ -1,5 +1,0 @@
-<<<<<<< HEAD:CSharp/Library/StateCache/SceneView/5ec4ef-mainStage.json
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":391.6826171875,"y":414.2086181640625,"z":107.3125},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":429.4233093261719,"orthographic":true}
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":574.4281005859375,"y":455.3443603515625,"z":-160.34156799316407},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":455.7643737792969,"orthographic":true}
->>>>>>> 道具欄開發:CSharp/Library/StateCache/SceneView/56562f-mainStage.json

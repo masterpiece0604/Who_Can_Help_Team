@@ -6606,15 +6606,27 @@ GameObject:
   - component: {fileID: 342134306}
   - component: {fileID: 342134311}
   - component: {fileID: 342134312}
-<<<<<<< HEAD
+
   - component: {fileID: 342134313}
   - component: {fileID: 342134314}
   m_Layer: 8
   m_Name: "\u4E3B\u89D2"
-=======
+
   m_Layer: 0
+
+
   m_Name: player1
->>>>>>> 道具欄開發
+
+
+  m_Name: "\u4E3B\u89D2"
+
+
+  m_Name: player1
+
+
+
+
+
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6774,7 +6786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6154dd370dcc444850d7afb71b78bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
+
 --- !u!1 &342783123
 GameObject:
   m_ObjectHideFlags: 0
@@ -6811,7 +6823,7 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -280}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
-=======
+
   HP: 0
   hurt: 0
   attack_range: 0
@@ -6822,7 +6834,7 @@ RectTransform:
   fund: 0
   meat: 0
   meat_type: 
->>>>>>> 道具欄開發
+
 --- !u!1001 &349864238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12234,7 +12246,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 593476548}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+
 --- !u!1 &598798307
 GameObject:
   m_ObjectHideFlags: 0
@@ -12463,8 +12475,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 道具欄開發
+
 --- !u!1001 &608863079
 PrefabInstance:
   m_ObjectHideFlags: 0
