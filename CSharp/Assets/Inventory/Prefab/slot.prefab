@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -163,7 +163,9 @@ GameObject:
   - component: {fileID: 4336635726889994586}
   - component: {fileID: 8194036423234515312}
   - component: {fileID: 4718853613075987504}
-  - component: {fileID: 8028410786541108172}
+  - component: {fileID: 2326977586797210549}
+  - component: {fileID: 241290807299725929}
+  - component: {fileID: 2282601792519188411}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -218,7 +220,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -243,8 +245,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8028410786541108172}
-        m_MethodName: mouseClick
+      - m_Target: {fileID: 3524856380367664025}
+        m_MethodName: clickItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -254,7 +256,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8028410786541108172
+--- !u!114 &2326977586797210549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,12 +265,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 6000734031364369347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1764c3505370c9e43a54ac32c4db6fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c1e20d88b6516842ae7d1e9b56758c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Information: {fileID: 331299040953098112}
-  slotItem: {fileID: 0}
-  itemInSlot: {fileID: 6000734031364369347}
+  originalParent: {fileID: 0}
+--- !u!225 &241290807299725929
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000734031364369347}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2282601792519188411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000734031364369347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad1a0b1ac10f13429c03e2a7e7d1bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7734532694786045501
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,8 +388,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotItem: {fileID: 0}
-  slotImage: {fileID: 7734532695534650315}
+  slotImage: {fileID: 3370181999524319826}
   slotNum: {fileID: 7734532695394186177}
+  slotInfo: 
+  Item_Information: {fileID: 331299040953098112}
+  ItemInfoText: {fileID: 542830916}
   itemInSlot: {fileID: 6000734031364369347}
 --- !u!1 &7734532695394186183
 GameObject:

@@ -5,48 +5,41 @@ using UnityEngine.UI;
 
 public class ClickItem : MonoBehaviour
 {
-    public Image item_Information;
+    static ClickItem instance1;
     bool controlText = false;
-    public Item slotItem;
-    public GameObject itemInSlot;
-    static InventoryManager instance;
+    [Header("物品介紹")]
+    public Image Item_Information;
+    public Text ItemInfoText;
+    public Transform originalParent;
 
-
-
-    private void Start()
+    private void OnEnable()
     {
-        item_Information.gameObject.SetActive(false);
-
-        
+        instance1.ItemInfoText.text = "";
     }
 
-    public void mouseClick()
+    void Update()
     {
-        
+        Item_Information.gameObject.SetActive(controlText);
+        //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
+    }
+
+    public void clickItem()
+    {
+        originalParent = transform.parent;
         controlText = !controlText;
-        
-           /* for (int i = 0; i < instance.myBag.itemList.Count; i++)
-            {
-                //CreateNewItem(instance.myBag.itemList[i]);
-
-                instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
-                
-            }*/
-        
-        item_Information.gameObject.SetActive(controlText);
-        InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-        print(slotItem.itemInfo);
-    }
-
-    public void SetupSlot(Item item)
-    {
-        if (item == null)
+        if (controlText == true)
         {
-            itemInSlot.SetActive(false);
-            return;
+            Item_Information.transform.SetParent(transform.parent.parent);
         }
-
+        
     }
+
+    public static void UpdateItemInfo(string itemDescription)
+    {
+        instance1.ItemInfoText.text = itemDescription;
+        //print(instance.itemInformation.text);
+    }
+
     
 
 }

@@ -13,11 +13,9 @@ public class InventoryManager : MonoBehaviour
     public GameObject emptySlot;
     public Text itemInformation;
 
-
-
     public List<GameObject> slots = new List<GameObject> ();
 
-    private void Awake()
+    void Awake()
     {
         if (instance != null)
             Destroy(this);
@@ -34,7 +32,13 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    
+    public static void UpdateItemInfo(string itemDescription)
+    {
+        instance.itemInformation.text = itemDescription;
+        //print(instance.itemInformation.text);
+    }
+
+
 
     private void OnEnable()
     {
@@ -42,12 +46,7 @@ public class InventoryManager : MonoBehaviour
         instance.itemInformation.text = "";
     }
 
-    public static void UpdateItemInfo(string itemDescription)
-    {
-        instance.itemInformation.text = itemDescription;
-        print(instance.itemInformation.text);
-    }
-
+    
     /*public static void CreateNewItem(Item item)
     {
         Slot newItem = Instantiate(instance.slotPrefab, instance.slotGrid.transform.position, Quaternion.identity);
