@@ -22,14 +22,10 @@ public class InventoryManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        
-    }
-
-    private void Update()
-    {
-        
+        RefreshItem();
+        instance.itemInformation.text = "";
     }
 
     public static void UpdateItemInfo(string itemDescription)
@@ -37,15 +33,6 @@ public class InventoryManager : MonoBehaviour
         instance.itemInformation.text = itemDescription;
         //print(instance.itemInformation.text);
     }
-
-
-
-    private void OnEnable()
-    {
-        RefreshItem();
-        instance.itemInformation.text = "";
-    }
-
     
     /*public static void CreateNewItem(Item item)
     {
