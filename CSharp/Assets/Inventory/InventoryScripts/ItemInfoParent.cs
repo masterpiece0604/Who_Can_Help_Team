@@ -5,10 +5,21 @@ using UnityEngine.UI;
 
 public class ItemInfoParent : MonoBehaviour
 {
-    /*public Image itemInfoImage;
+    public Transform informationOldParent;
+    public Slot slot;
 
     private void Update()
     {
-        itemInfoImage.transform.SetParent(transform.parent);
-    }*/
+
+        if (slot.controlText == true)
+        {
+            informationOldParent = transform.parent;
+            transform.SetParent(transform.parent.parent);
+        }
+        else
+        {
+            transform.SetParent(informationOldParent);
+            transform.position = informationOldParent.position;
+        }
+    }
 }

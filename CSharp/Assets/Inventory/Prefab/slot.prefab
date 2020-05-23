@@ -113,7 +113,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6058917588176151160
 CanvasRenderer:
@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 4718853613075987504}
   - component: {fileID: 2326977586797210549}
   - component: {fileID: 241290807299725929}
-  - component: {fileID: 2282601792519188411}
   - component: {fileID: 560729994034685367}
   m_Layer: 5
   m_Name: Item
@@ -284,18 +283,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2282601792519188411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6000734031364369347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad1a0b1ac10f13429c03e2a7e7d1bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &560729994034685367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +360,7 @@ MonoBehaviour:
   slotImage: {fileID: 3370181999524319826}
   slotNum: {fileID: 7734532695394186177}
   slotInfo: 
+  controlText: 0
   Item_Information: {fileID: 331299040953098112}
   ItemInfoText: {fileID: 542830916}
   itemInSlot: {fileID: 6000734031364369347}
@@ -460,8 +448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12, y: -14}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5, y: -6}
+  m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7734532695394186176
 CanvasRenderer:
@@ -492,10 +480,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 6
     m_AlignByGeometry: 0

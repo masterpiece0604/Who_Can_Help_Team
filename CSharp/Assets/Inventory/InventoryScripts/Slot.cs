@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +12,8 @@ public class Slot : MonoBehaviour
     public Image slotImage;
     public Text slotNum;
     public string slotInfo;
-    
-    bool controlText = false;
+
+    public bool controlText = false;
     [Header("物品介紹")]
     public Image Item_Information;
     public Text ItemInfoText;
@@ -31,12 +32,15 @@ public class Slot : MonoBehaviour
         //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
     }
 
+
+
     public void clickItem()
     {
+        
         controlText = !controlText;
         InventoryManager.UpdateItemInfo(slotInfo);
         ItemInfoText.text = slotInfo;
-        
+
 
         //transform.SetParent(transform.parent.parent, true);
 
