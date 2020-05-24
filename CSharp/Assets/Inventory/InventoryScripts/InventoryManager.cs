@@ -13,28 +13,14 @@ public class InventoryManager : MonoBehaviour
     public GameObject emptySlot;
     public Text itemInformation;
 
-
-
     public List<GameObject> slots = new List<GameObject> ();
 
-    private void Awake()
+    void Awake()
     {
         if (instance != null)
             Destroy(this);
         instance = this;
     }
-
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
-
-    
 
     private void OnEnable()
     {
@@ -45,9 +31,9 @@ public class InventoryManager : MonoBehaviour
     public static void UpdateItemInfo(string itemDescription)
     {
         instance.itemInformation.text = itemDescription;
-        print(instance.itemInformation.text);
+        //print(instance.itemInformation.text);
     }
-
+    
     /*public static void CreateNewItem(Item item)
     {
         Slot newItem = Instantiate(instance.slotPrefab, instance.slotGrid.transform.position, Quaternion.identity);
@@ -72,6 +58,7 @@ public class InventoryManager : MonoBehaviour
             //CreateNewItem(instance.myBag.itemList[i]);
             instance.slots.Add(Instantiate(instance.emptySlot));
             instance.slots[i].transform.SetParent(instance.slotGrid.transform);
+            instance.slots[i].GetComponent<Slot>().slotID = i;
             instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
         }
     }

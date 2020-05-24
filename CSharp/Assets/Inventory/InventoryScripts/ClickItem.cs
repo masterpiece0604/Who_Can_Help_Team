@@ -5,48 +5,49 @@ using UnityEngine.UI;
 
 public class ClickItem : MonoBehaviour
 {
-    public Image item_Information;
+    static ClickItem instance1;
     bool controlText = false;
-    public Item slotItem;
-    public GameObject itemInSlot;
-    static InventoryManager instance;
+    [Header("物品介紹")]
+    public Image Item_Information;
+    public Text ItemInfoText;
+    public string slotInfo;
+    public Transform originalParent;
 
-
-
-    private void Start()
+    /*private void OnEnable()
     {
-        item_Information.gameObject.SetActive(false);
+        instance1.ItemInfoText.text = "";
+    }*/
 
-        
+    void Update()
+    {
+        Item_Information.gameObject.SetActive(controlText);
+        //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
     }
+    
 
-    public void mouseClick()
+    public void clickItem()
     {
-        
         controlText = !controlText;
-        
-           /* for (int i = 0; i < instance.myBag.itemList.Count; i++)
-            {
-                //CreateNewItem(instance.myBag.itemList[i]);
+        //InventoryManager.UpdateItemInfo(slotInfo);
 
-                instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
-                
-            }*/
-        
-        item_Information.gameObject.SetActive(controlText);
-        InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-        print(slotItem.itemInfo);
-    }
-
-    public void SetupSlot(Item item)
-    {
-        if (item == null)
+        transform.SetParent(transform.parent.parent, true);
+        if (controlText == false)
         {
-            itemInSlot.SetActive(false);
-            return;
+            originalParent = transform.parent;
         }
 
+        //ItemInfoText.text = (slotItem.itemInfo);
+        //UpdateItemInfo(slotItem.itemInfo);
+        //print(slotItem.itemInfo);
     }
+    
+
+    public static void UpdateItemInfo(string itemDescription)
+    {
+        instance1.ItemInfoText.text = itemDescription;
+        //print(instance.itemInformation.text);
+    }
+
     
 
 }
