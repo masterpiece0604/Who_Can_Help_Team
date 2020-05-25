@@ -8,7 +8,7 @@ public class enemy : MonoBehaviour
     /// 機掰人的血量
     /// </summary>
     [Header("機掰人的血量"), Tooltip("這個欄位是用來機掰人的血量")]
-    public int HP;
+    public float HP;
 
     /// <summary>
     /// 機掰人的傷害值
