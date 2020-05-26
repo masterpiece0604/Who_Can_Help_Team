@@ -12,14 +12,14 @@ public class InventoryManager : MonoBehaviour
     //public Slot slotPrefab;
     public GameObject emptySlot;
     public Text itemInformation;
-    [Header("物品介紹")]
+    /*[Header("物品介紹")]
     public Image Item_Information;
     public Slot slot;
-    public bool controlText = false;
+    public bool controlText = false;*/
 
     public List<GameObject> slots = new List<GameObject> ();
 
-    void Update()
+    /*void Update()
     {
         Item_Information.gameObject.SetActive(controlText);
         //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
@@ -30,7 +30,7 @@ public class InventoryManager : MonoBehaviour
     {
 
         controlText = !controlText;
-    }
+    }*/
 
         void Awake()
     {

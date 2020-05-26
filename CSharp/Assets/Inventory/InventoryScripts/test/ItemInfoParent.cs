@@ -8,7 +8,7 @@ public class ItemInfoParent : MonoBehaviour
     public Transform informationOldParent;
     public Slot slot;
 
-    private void Update()
+    /*private void Update()
     {
 
         if (slot.controlText == true)
@@ -21,5 +21,5 @@ public class ItemInfoParent : MonoBehaviour
             transform.SetParent(informationOldParent);
             transform.position = informationOldParent.position;
         }
-    }
+    }*/
 }
