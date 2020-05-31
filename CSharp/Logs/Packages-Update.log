@@ -1,13 +1,13 @@
 
-=== Fri Apr 24 09:12:59 2020
+=== Wed May 20 19:57:23 2020
 
 Packages were changed.
-Update Mode: mergeDefaultDependencies
+Update Mode: resetToDefaultDependencies
 
 The following packages were added:
   com.unity.collab-proxy@1.2.16
   com.unity.ide.rider@1.1.4
-  com.unity.ide.vscode@1.1.4
+  com.unity.ide.vscode@1.2.0
   com.unity.modules.ai@1.0.0
   com.unity.modules.androidjni@1.0.0
   com.unity.modules.animation@1.0.0
@@ -43,29 +43,3 @@ The following packages were added:
   com.unity.textmeshpro@2.0.1
   com.unity.timeline@1.2.14
   com.unity.ugui@1.0.0
-
-<<<<<<< HEAD
-=== Mon May 11 09:46:30 2020
-=======
-=== Wed May 13 14:01:55 2020
->>>>>>> 道具欄開發
-
-Packages were changed.
-Update Mode: updateDependencies
-
-The following packages were updated:
-  com.unity.ide.vscode from version 1.1.4 to 1.2.0
-
-=== Fri May 15 08:31:08 2020
-
-Packages were changed.
-Update Mode: updateDependencies
-
-The following packages were added:
-  com.unity.2d.sprite@1.0.0
-  com.unity.2d.tilemap@1.0.0
-  com.unity.ads@3.4.4
-  com.unity.analytics@3.3.5
-  com.unity.multiplayer-hlapi@1.0.4
-  com.unity.purchasing@2.0.6
-  com.unity.xr.legacyinputhelpers@2.1.3
