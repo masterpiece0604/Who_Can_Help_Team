@@ -13,7 +13,7 @@ public class ctrllor1 : MonoBehaviour
     [Header("玩家背包")]
     public GameObject playerbag;
     bool openbag;
-    public GameObject monster;
+    
 
     //上一次點擊順移的時間
     private float lastTouchTime = 0f;
