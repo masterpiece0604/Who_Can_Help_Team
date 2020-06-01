@@ -3,7 +3,6 @@
 public class monster_appear : MonoBehaviour
 {
     public GameObject monster;
-    GameObject clonemonster;
     [Header("此怪物最高數量")]
     public int Monster_most_total;
     private int Monster_total;
@@ -11,6 +10,7 @@ public class monster_appear : MonoBehaviour
 
     void Start()
     {
+
         InvokeRepeating("monstercreator", 5, 2);
         // 重複執行(方案,第一次執行秒數,下次執行間隔秒數)
         Monster_total = 0;
@@ -30,10 +30,10 @@ public class monster_appear : MonoBehaviour
                 float x;
                 float z;
 
-                x = Random.Range(30, 35);
-                // 隨機生成X座標，範圍(30~35)
+                x = Random.Range(transform.position.x, transform.position.x + 5f);
+                // 隨機生成X座標，範圍空物件的+5f內
 
-                z = Random.Range(30, 35);
+                z = Random.Range(transform.position.z, transform.position.z + 5f);
                 // 隨機生成Z座標，範圍(30~35)
 
                 Instantiate(monster, new Vector3(x, 1.3f, z), Quaternion.identity);

@@ -49,8 +49,9 @@ public class monster_move : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         initialPos = gameObject.GetComponent<Transform>().position;
+        role = player.GetComponent<Role_quality>();
 
-        RandomAct();
+     
 
 
     }

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - floor
+  - "\u602A\u7378"
+  - "\u6A5F\u63B0\u4EBA"
+  - "\u6B66\u5668"
   layers:
   - Default
   - TransparentFX
@@ -13,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - "\u89D2\u8272"
+  - "\u602A\u7269"
+  - "\u5716\u7247"
   - 
   - 
   - 
