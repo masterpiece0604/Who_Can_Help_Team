@@ -8,9 +8,11 @@ public class monster_hurt : MonoBehaviour
     public Image HP;
     public Ray ray;
     public Camera main_camera;
-    //public GameObject monster_appear;
 
-    private float HP_ori;
+    public GameObject monster_empty;
+    
+
+    
     private float Last_Attack;
 
     private void Start()
@@ -18,7 +20,8 @@ public class monster_hurt : MonoBehaviour
         Last_Attack = Time.time;
         Role = GameObject.FindGameObjectWithTag("Player");
         main_camera = Camera.FindObjectOfType<Camera>();
-        HP_ori = monster.HP;
+        monster_empty = GameObject.FindGameObjectWithTag(gameObject.tag+"空物件");
+        
     }
     
     private void FixedUpdate()
@@ -43,7 +46,9 @@ public class monster_hurt : MonoBehaviour
             HP.fillAmount = ((int)monster.HP - Role.GetComponent<Role_attak>().WAttak) / 100;
             if (HP.fillAmount <= 0)
             {
-                GameObject.Find("機掰人空物件").SendMessage("re_appear");
+
+                monster_empty.GetComponent<monster_appear>().monstercreator(2);
+
                 Destroy(gameObject);
                
             }

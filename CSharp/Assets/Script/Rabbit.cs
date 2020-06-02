@@ -2,10 +2,6 @@
 
 public class Rabbit : MonoBehaviour
 {
-    [Header("怪物偵測的半徑")]
-    public float defendRadius; //怪物偵測的半徑，如果角色走入這個半徑，怪物就要追擊
-    [Header("怪物偵測到主角面向主角的距離")]
-    public float alertRadius; // 角色走進這個半徑，怪物就看向主角
     [Header("怪物遊走範圍")]
     public float wanderRadius; // 怪物有沒有跑出範圍
 
@@ -16,7 +12,7 @@ public class Rabbit : MonoBehaviour
     /// 怪物的狀態
     /// </summary>
     // 原地不動,隨機走動,面向玩家,追擊玩家,返回原點
-    private enum MonsterState { STAND, WALK, WARN, RETURN }
+    private enum MonsterState { STAND, WALK, RUN }
 
     private MonsterState currentState = MonsterState.STAND;
     // 預設怪物狀態為原地不走動
@@ -30,18 +26,19 @@ public class Rabbit : MonoBehaviour
     private float lastActTime; //上一次執行指令的時間
     private float restTime = 5f; //兩個指令間的休息時間
     [Header("追擊範圍")]
-    public float chaseDistance; //被追超過這個距離要放棄攻擊返回
-
-    private bool is_warn = false;
-    private bool is_run = false;
+    public float chaseDistance; //被追超過這個距離要返回
 
     [Header("怪物的移動速度")]
     public float walkspeed;
     private GameObject player;
 
+    private bool is_run; 
+
     public Animal monster;//引用怪物身上的數據
-    public Role_quality role; // 引用角色身上的數據
+    public GameObject role; // 引用角色身上的數據
     private float lastAtkTime; //上一次攻擊時間
+
+    public GameObject rabbit_empty;
 
 
 
@@ -49,6 +46,8 @@ public class Rabbit : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         initialPos = gameObject.GetComponent<Transform>().position;
+        rabbit_empty = GameObject.FindGameObjectWithTag(gameObject.tag + "空物件");
+        role = GameObject.FindGameObjectWithTag("Player");
 
         RandomAct();
 
@@ -106,21 +105,35 @@ public class Rabbit : MonoBehaviour
                 WanderRadiusCheck();
                 break;
 
-            case MonsterState.WARN:
-                transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
-                // 不要轉向玩家
-                targetRotation = Quaternion.LookRotation(-(player.transform.position - transform.position), Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
-                ChaseRadiusCheck();
+            case MonsterState.RUN:
+                transform.Translate(Vector3.back * Time.deltaTime * walkspeed);
+                targetRotation = Quaternion.LookRotation(player.transform.position - transform.position - Vector3.back, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,0.1f);
+                RunCheck();
                 break;
-            case MonsterState.RETURN:
-                //print("我回去啦");
-                targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
-                transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
+            
 
-                ReturnCheck();
-                break;
+        }
+    }
+
+    void RunCheck()
+    {
+        diatanceToPlay = Vector3.Distance(player.transform.position, transform.position);
+        diatanceToInt = Vector3.Distance(transform.position, initialPos); //物件跟原始位置的距離
+
+        if (diatanceToPlay> RunRadius)
+        {
+            RandomAct();
+        }
+        else if (diatanceToPlay < RunRadius)
+        {
+            currentState = MonsterState.RUN;
+        }
+
+        if(diatanceToInt > 20f)
+        {
+            rabbit_empty.GetComponent<monster_appear>().Mons_num();
+            Destroy(gameObject);
 
         }
     }
@@ -133,7 +146,7 @@ public class Rabbit : MonoBehaviour
         diatanceToPlay = Vector3.Distance(player.transform.position, transform.position);
         if(diatanceToPlay< RunRadius)
         {
-            currentState = MonsterState.WARN;
+            currentState = MonsterState.RUN;
         }
 
     }
@@ -149,35 +162,18 @@ public class Rabbit : MonoBehaviour
 
         if (diatanceToInt > wanderRadius)
         {
-            // print("我跑太遠啦");
             targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
+        }
+        if (diatanceToPlay < RunRadius)
+        {
+            currentState = MonsterState.RUN;
         }
     }
 
     
-    void ChaseRadiusCheck()
-    {
-        diatanceToPlay = Vector3.Distance(player.transform.position, transform.position);
-        diatanceToInt = Vector3.Distance(transform.position, initialPos); //物件跟原始位置的距離
+    
 
-        // 超過距離怪物要回去
-        if (diatanceToInt > wanderRadius) //如果想讓怪物一直追著主角跑調整這裡(diatanceToPlay>chaseDistance)
-        {
-            currentState = MonsterState.RETURN;
-        }
-
-    }
-
-    void ReturnCheck()
-    {
-        diatanceToInt = Vector3.Distance(transform.position, initialPos);
-
-        if (diatanceToInt < 0.5f)
-        {
-            is_run = false;
-            RandomAct();
-        }
-    }
+   
 
 }
    

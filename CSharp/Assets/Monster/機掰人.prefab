@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 874269614492765371}
   m_Layer: 9
   m_Name: "\u6A5F\u63B0\u4EBA"
-  m_TagString: "\u602A\u7378"
+  m_TagString: "\u6A5F\u63B0\u4EBA"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   monster: {fileID: 874269614492765368}
   HP: {fileID: 874269615306263488}
   main_camera: {fileID: 0}
-  monster_appear: {fileID: 0}
+  monster_empty: {fileID: 0}
 --- !u!1 &874269615306263490
 GameObject:
   m_ObjectHideFlags: 0
