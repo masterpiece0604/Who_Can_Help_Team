@@ -3155,6 +3155,7 @@ GameObject:
   - component: {fileID: 155706480}
   - component: {fileID: 155706479}
   - component: {fileID: 155706478}
+  - component: {fileID: 155706482}
   m_Layer: 0
   m_Name: "\u93AC"
   m_TagString: "\u6B66\u5668"
@@ -3236,6 +3237,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155706482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155706477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d73f0e2a3f314448a3dc7509b311954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cut_Tree: 1
+  Mining: 1
+  Melee: 1
+  Durability: 100
+  ArmAttack: 1
+  ArmRange: 1.5
+  ArmSpeed: 1
 --- !u!1001 &158268703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3647,50 +3667,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 174649148}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &175652346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 175652348}
-  - component: {fileID: 175652347}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &175652347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175652346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b1f368f85ac022458dcdff7e6236085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inven: {fileID: 11400000, guid: 0c048676d63bff449ab95ef944eb2df3, type: 2}
---- !u!4 &175652348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175652346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 531.4207, y: 463.95, z: -42.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 30
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &179823983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6733,6 +6709,7 @@ GameObject:
   - component: {fileID: 281859027}
   - component: {fileID: 281859026}
   - component: {fileID: 281859025}
+  - component: {fileID: 281859029}
   m_Layer: 0
   m_Name: "\u92F8\u5B50"
   m_TagString: "\u6B66\u5668"
@@ -6814,6 +6791,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281859029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281859024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d73f0e2a3f314448a3dc7509b311954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cut_Tree: 1
+  Mining: 1
+  Melee: 1
+  Durability: 100
+  ArmAttack: 2
+  ArmRange: 1.5
+  ArmSpeed: 1
 --- !u!1001 &287018644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22741,6 +22737,7 @@ GameObject:
   - component: {fileID: 884099881}
   - component: {fileID: 884099880}
   - component: {fileID: 884099879}
+  - component: {fileID: 884099883}
   m_Layer: 0
   m_Name: "\u7F8E\u5DE5\u5200"
   m_TagString: "\u6B66\u5668"
@@ -22822,6 +22819,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884099883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884099878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d73f0e2a3f314448a3dc7509b311954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cut_Tree: 1
+  Mining: 1
+  Melee: 0
+  Durability: 100
+  ArmAttack: 0.5
+  ArmRange: 1
+  ArmSpeed: 1
 --- !u!1 &885701855
 GameObject:
   m_ObjectHideFlags: 0
@@ -24245,6 +24261,7 @@ GameObject:
   - component: {fileID: 948095297}
   - component: {fileID: 948095296}
   - component: {fileID: 948095295}
+  - component: {fileID: 948095299}
   m_Layer: 0
   m_Name: "\u65A7"
   m_TagString: "\u6B66\u5668"
@@ -24326,6 +24343,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948095299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948095294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d73f0e2a3f314448a3dc7509b311954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cut_Tree: 1
+  Mining: 1
+  Melee: 1
+  Durability: 100
+  ArmAttack: 1
+  ArmRange: 1
+  ArmSpeed: 1
 --- !u!1001 &948513720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39881,6 +39917,7 @@ GameObject:
   - component: {fileID: 1639867363}
   - component: {fileID: 1639867362}
   - component: {fileID: 1639867361}
+  - component: {fileID: 1639867365}
   m_Layer: 0
   m_Name: "\u98DB\u93E2"
   m_TagString: "\u6B66\u5668"
@@ -39962,6 +39999,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1639867365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639867360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d73f0e2a3f314448a3dc7509b311954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cut_Tree: 0
+  Mining: 0
+  Melee: 0
+  Durability: 100
+  ArmAttack: 3
+  ArmRange: 2
+  ArmSpeed: 1
 --- !u!1001 &1644546363
 PrefabInstance:
   m_ObjectHideFlags: 0
