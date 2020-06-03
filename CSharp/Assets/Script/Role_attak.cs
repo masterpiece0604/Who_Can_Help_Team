@@ -3,10 +3,16 @@ using UnityEngine;
 
 public class Role_attak : MonoBehaviour
 {
+
     private float KeyUpTime; //儲存按下W的時間
     private float W_cooling = 0f;
+    [Header("按下W後的攻擊力")]
     public float WAttak = 5;
+
+    [Header("武器攻擊力")]
     public float ArmsAttak = 5;
+
+    [Header("主角")]
     public GameObject Role;
 
     private void Start()
@@ -17,7 +23,8 @@ public class Role_attak : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Time.time-W_cooling > 3f)
+        ArmsAttak = gameObject.GetComponent<Role_quality>().prop.GetComponent<Arms>().ArmAttack;
+        if (Time.time-W_cooling > 3f)
         {
             W_atk();
         }

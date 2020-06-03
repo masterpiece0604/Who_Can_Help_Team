@@ -1,9 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Arms : MonoBehaviour
 {
+    public Image MaskProp;
+
+    [Header("是否擁有此武器")]
+    public bool Arms_Have;
+
     [Header("是否可以砍樹")]
     public bool Cut_Tree;
 
@@ -25,6 +29,28 @@ public class Arms : MonoBehaviour
     [Header("攻速")]
     public float ArmSpeed;
 
+    private void Start()
+    {
+        Mask();
+        
+    }
+
+    private void Update()
+    {
+        Mask();
+    }
+
+    public void Mask()
+    {
+        if(gameObject.GetComponent<Arms>().Arms_Have==false|| gameObject.GetComponent<Arms>().Durability<=0)
+        {
+            MaskProp.enabled = true;
+        }
+        else
+        {
+            MaskProp.enabled = false;
+        }
+    }
 
 
 }

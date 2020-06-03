@@ -20,16 +20,13 @@ public class Role_quality : MonoBehaviour
     [Header("主角罪惡感")]
     public float guilt;
     /// <summary>
-    /// 主角目前手持道具類型
+    /// 主角目前手持武器
     /// </summary>
-    [Header("主角目前手持道具類型")]
-    public string prop="武器";
+    [Header("主角目前手持武器")]
+    public GameObject prop;
 
-    /// <summary>
-    /// 主角拿的武器
-    /// </summary>
-    [Header("主角拿的武器")]
-    public string[] arms= new string[] { "萬能武器","劍", "鎬", "斧" };
+
+    
 
    
 }

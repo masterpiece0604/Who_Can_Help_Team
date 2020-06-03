@@ -9,6 +9,7 @@ public class monster_hurt : MonoBehaviour
     public Ray ray;
     public Camera main_camera;
 
+    [Header("生成怪物的空物件")]
     public GameObject monster_empty;
     
 
