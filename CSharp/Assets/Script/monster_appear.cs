@@ -11,8 +11,12 @@ public class monster_appear : MonoBehaviour
 
     void Start()
     {
+<<<<<<< Updated upstream
 
         InvokeRepeating("start_monstercreator", 2, 2);
+=======
+        InvokeRepeating("start_monstercreator", 5, 2);
+>>>>>>> Stashed changes
         // 重複執行(方案,第一次執行秒數,下次執行間隔秒數)
         Monster_total = 0;
      
@@ -35,12 +39,24 @@ public class monster_appear : MonoBehaviour
     }
 
 
+<<<<<<< Updated upstream
     public void monstercreator(int Monster_total)
     {
         
             
             //clonemonster = Instantiate(monster) as GameObject;
             int MonsterNum = 1;
+=======
+    public start_monstercreator()
+    {
+        monstercreator(1);
+    }
+
+
+    public void monstercreator(int MonsterNum)
+    {
+        //clonemonster = Instantiate(monster) as GameObject;
+>>>>>>> Stashed changes
         // 一次生成一個
         //print("執行第" + Monster_total + "次");
         if (Monster_total < Monster_most_total)
