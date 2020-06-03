@@ -12,6 +12,8 @@ public class Item : ScriptableObject
     public Sprite itemImage;
     [Header("道具持有數量")]
     public int itemHold;
+    [Header("道具耐久度")]
+    public int Durability;
     [Header("道具簡介")]
     [TextArea]
     public string itemInfo;
