@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - "\u602A\u7378"
+  - floor
+=======
   - floor
   - "\u602A\u7378"
   - "\u6A5F\u63B0\u4EBA"
@@ -11,6 +15,7 @@ TagManager:
   - "\u6A5F\u63B0\u4EBA\u7A7A\u7269\u4EF6"
   - "\u5154\u5154\u7A7A\u7269\u4EF6"
   - "\u5154\u5154"
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
@@ -20,9 +25,15 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
+  - iteminfo
+  - 
+  - 
+=======
   - "\u89D2\u8272"
   - "\u602A\u7269"
   - "\u5716\u7247"
+>>>>>>> master
   - 
   - 
   - 

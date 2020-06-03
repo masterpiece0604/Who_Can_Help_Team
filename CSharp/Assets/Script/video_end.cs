@@ -15,6 +15,14 @@ public class video_end : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("開始介面");
+        }
+    }
+
     void CheckMovie()
     {
         if (Movie_.isPlaying == false)
