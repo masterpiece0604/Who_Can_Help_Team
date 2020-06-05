@@ -27,6 +27,7 @@ public class Role_attak : MonoBehaviour
         if (Time.time-W_cooling > 3f)
         {
             W_atk();
+            // 攻擊動畫可以加這裡
         }
         else
         {
@@ -40,7 +41,7 @@ public class Role_attak : MonoBehaviour
         {
            
                 // 按鍵按下去的時候就要執行攻擊或攻擊續力的動畫
-                //print("按下W鍵");
+                print("按下W鍵");
                 KeyUpTime = Time.time; //儲存現在的時間
          
 
