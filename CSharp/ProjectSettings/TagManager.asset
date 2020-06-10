@@ -10,6 +10,8 @@ TagManager:
   - "\u6A5F\u63B0\u4EBA\u7A7A\u7269\u4EF6"
   - floor
   - "\u5154\u5154\u7A7A\u7269\u4EF6"
+  - "\u737C\u7334"
+  - "\u737C\u7334\u7A7A\u7269\u4EF6"
   layers:
   - Default
   - TransparentFX
