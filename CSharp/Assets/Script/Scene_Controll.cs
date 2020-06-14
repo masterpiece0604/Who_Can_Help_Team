@@ -1,27 +1,39 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scene_Controll : MonoBehaviour
 {
-    public GameObject[] MenuButton;
+    public GameObject[] buttons;
     public GameObject ChooseImage;
-    public bool buttons;
-    public bool ChooseImage1;
-
-    private void Start()
-    {
-        ChooseImage1 = true;
-    }
 
     /// <summary>
     /// 滑鼠移入
     /// </summary>
-    public void P_State()
+    public void Enter_0()
     {
-        ChooseImage1 = !ChooseImage1;
-        buttons = !buttons;
-        ChooseImage.gameObject.SetActive(ChooseImage1);
-        MenuButton[0].gameObject.SetActive(buttons);
+        ChooseImage.gameObject.transform.position = buttons[0].transform.position;
+    }
+
+    public void Enter_1()
+    {
+        ChooseImage.gameObject.transform.position = buttons[1].transform.position;
+    }
+
+    public void Enter_2()
+    {
+        ChooseImage.gameObject.transform.position = buttons[2].transform.position;
+    }
+
+    public void Enter_3()
+    {
+        ChooseImage.gameObject.transform.position = buttons[3].transform.position;
+    }
+
+    public void Enter_4()
+    {
+        ChooseImage.gameObject.transform.position = buttons[4].transform.position;
     }
 
     public void New_Game()
