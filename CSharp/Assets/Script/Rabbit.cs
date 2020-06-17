@@ -106,9 +106,9 @@ public class Rabbit : MonoBehaviour
                 break;
 
             case MonsterState.RUN:
-                transform.Translate(Vector3.back * Time.deltaTime * walkspeed);
-                targetRotation = Quaternion.LookRotation(player.transform.position - transform.position - Vector3.back, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,0.1f);
+                transform.Translate(player.transform.forward * Time.deltaTime * walkspeed);
+                //targetRotation = Quaternion.LookRotation(player.transform.position -transform.position, Vector3.up);
+                //transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, 0.1f);
                 RunCheck();
                 break;
             
