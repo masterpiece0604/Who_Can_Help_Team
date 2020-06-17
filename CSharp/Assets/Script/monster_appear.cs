@@ -24,8 +24,7 @@ public class monster_appear : MonoBehaviour
     }
     public void start_monstercreator()
     {
-        print("兩秒執行一次");
-        monstercreator(Monster_total);
+       monstercreator(Monster_total);
        Monster_total ++;
         if(Monster_total>4)
         {
