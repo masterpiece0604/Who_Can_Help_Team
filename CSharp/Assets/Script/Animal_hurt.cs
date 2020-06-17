@@ -8,17 +8,15 @@ public class Animal_hurt : MonoBehaviour
     public Image HP;
     public Ray ray;
     public Camera main_camera;
+    private Animator animator;
 
     /// <summary>
     /// 判斷是否正在攻擊
     /// </summary>
     private bool Is_Atk;
 
-    [Header("生成怪物的空物件")]
-    public GameObject monster_empty;
 
-
-
+   
     private float Last_Attack;
 
     private void Start()
@@ -26,7 +24,7 @@ public class Animal_hurt : MonoBehaviour
         Last_Attack = Time.time;
         Role = GameObject.FindGameObjectWithTag("Player");
         main_camera = Camera.FindObjectOfType<Camera>();
-        monster_empty = GameObject.FindGameObjectWithTag(gameObject.tag + "空物件");
+        animator = GetComponent<Animator>();
 
     }
 
@@ -58,10 +56,10 @@ public class Animal_hurt : MonoBehaviour
             HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().WAttak) / 100;
             if (HP.fillAmount <= 0)
             {
-
-                monster_empty.GetComponent<monster_appear>().monstercreator(2);
-
-                Destroy(gameObject);
+                
+                animator.SetBool("死亡", true);
+                
+                Destroy(gameObject,1.5f);
 
             }
         }
@@ -83,9 +81,9 @@ public class Animal_hurt : MonoBehaviour
                 HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().ArmsAttak) / 100;
                 if (HP.fillAmount <= 0)
                 {
-
-                    monster_empty.GetComponent<monster_appear>().monstercreator(2);
-
+                    animator.SetBool("暫停", false);
+                    animator.SetBool("跑", false);
+                    animator.SetBool("死亡", true);
                     Destroy(gameObject);
 
                 }
