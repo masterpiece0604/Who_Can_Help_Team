@@ -17,7 +17,7 @@ public class Rabbit : MonoBehaviour
     private MonsterState currentState = MonsterState.STAND;
     // 預設怪物狀態為原地不走動
 
-    public int[] action_weight = { 3, 7 }; //設定原地不動跟隨機走動的機率
+    public int[] action_weight = { 4, 6 }; //設定原地不動跟隨機走動的機率
 
     private float diatanceToPlay; //怪物跟玩家的距離
     private float diatanceToInt; //怪物跟初始位置的距離
@@ -31,24 +31,21 @@ public class Rabbit : MonoBehaviour
     [Header("怪物的移動速度")]
     public float walkspeed;
     private GameObject player;
-
-    private bool is_run; 
-
+    
     public Animal monster;//引用怪物身上的數據
     public GameObject role; // 引用角色身上的數據
-    private float lastAtkTime; //上一次攻擊時間
 
-    public GameObject rabbit_empty;
+    private Animator ani;
+
 
 
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        initialPos = gameObject.GetComponent<Transform>().position;
-        rabbit_empty = GameObject.FindGameObjectWithTag(gameObject.tag + "空物件");
+        initialPos = GetComponent<Transform>().position;
         role = GameObject.FindGameObjectWithTag("Player");
-
+        ani = GetComponent<Animator>();
         RandomAct();
 
 
@@ -63,12 +60,13 @@ public class Rabbit : MonoBehaviour
 
         // 設定一隨機數，讓怪物隨機移動
         float number = Random.Range(0, 10);
+        print("隨機數"+ number);
 
         if (number <= action_weight[0])
         {
             currentState = MonsterState.STAND;
 
-            // print("怪物靜止中");
+             print("怪物靜止中");
 
             // 如果有動作動畫可以放在這裡
         }
@@ -77,7 +75,7 @@ public class Rabbit : MonoBehaviour
             currentState = MonsterState.WALK;
             targetRotation = Quaternion.Euler(0, Random.Range(1, 5) * 90, 0);
 
-            // print("怪物走動中");
+             print("怪物走動中");
         }
     }
     private void Update()
@@ -85,6 +83,8 @@ public class Rabbit : MonoBehaviour
         switch (currentState)
         {
             case MonsterState.STAND:
+                ani.SetBool("暫停", true);
+                ani.SetBool("跑", false);
                 if (Time.time - lastActTime > restTime)
                 {
                     RandomAct();
@@ -93,11 +93,12 @@ public class Rabbit : MonoBehaviour
                 break;
 
             case MonsterState.WALK:
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
                 //print("轉向值:" + transform.rotation + "轉向值2:" + targetRotation);
-
-
+                
                 if (Time.time - lastActTime > restTime)
                 {
                     RandomAct();
@@ -106,6 +107,8 @@ public class Rabbit : MonoBehaviour
                 break;
 
             case MonsterState.RUN:
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 transform.Translate(player.transform.forward * Time.deltaTime * walkspeed);
                 //targetRotation = Quaternion.LookRotation(player.transform.position -transform.position, Vector3.up);
                 //transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, 0.1f);
@@ -132,7 +135,6 @@ public class Rabbit : MonoBehaviour
 
         if(diatanceToInt > 20f)
         {
-            rabbit_empty.GetComponent<monster_appear>().Mons_num();
             Destroy(gameObject);
 
         }
