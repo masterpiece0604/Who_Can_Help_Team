@@ -1,8 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 02e48b7844b7b394b8e6115bb1fed38b
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+guid: 083bc77c6d458704db6b40568cf4e740
+folderAsset: yes
+timeCreated: 1457519549
+licenseType: Store
+DefaultImporter:
+>>>>>>> 0610受傷
   userData: 
   assetBundleName: 
   assetBundleVariant: 
