@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 02e48b7844b7b394b8e6115bb1fed38b
 folderAsset: yes
 DefaultImporter:
@@ -11,6 +12,12 @@ timeCreated: 1457519549
 licenseType: Store
 DefaultImporter:
 >>>>>>> 0610受傷
+=======
+guid: ef72f5ef27c78d04fa2c14247834c010
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> 道具開發04
   userData: 
   assetBundleName: 
   assetBundleVariant: 
