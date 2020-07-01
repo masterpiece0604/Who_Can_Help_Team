@@ -10,14 +10,12 @@ public class Animal_hurt : MonoBehaviour
     public Camera main_camera;
     private Animator animator;
 
-    /// <summary>
-    /// 判斷是否正在攻擊
-    /// </summary>
-    private bool Is_Atk;
-
-
+    
    
     private float Last_Attack;
+
+    public Item thisItem;
+    public Inventory playerInventory;
 
     private void Start()
     {
@@ -34,13 +32,13 @@ public class Animal_hurt : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W) && Vector3.Distance(Role.transform.position, transform.position) < 1f)
         {
             MonsterHurt();
-            Is_Atk = false;
+           
         }
-        if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 1f))
+        if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 2f))
         {
             print("執行滑鼠攻擊");
             Mouse_atk();
-            Is_Atk = false;
+            
         }
 
     }
@@ -49,8 +47,7 @@ public class Animal_hurt : MonoBehaviour
         if ((Time.time - Last_Attack) > 1f)
         {
 
-            Is_Atk = true;
-
+           
             Last_Attack = Time.time;
             ani.HP -= Role.GetComponent<Role_attak>().WAttak;
             HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().WAttak) / 100;
@@ -84,6 +81,7 @@ public class Animal_hurt : MonoBehaviour
                     animator.SetBool("暫停", false);
                     animator.SetBool("跑", false);
                     animator.SetBool("死亡", true);
+                    AddNewItem();
                     Destroy(gameObject);
 
                 }
@@ -94,5 +92,27 @@ public class Animal_hurt : MonoBehaviour
         }
 
 
+    }
+
+    public void AddNewItem()
+    {
+        if (!playerInventory.itemList.Contains(thisItem))
+        {
+            
+            for (int i = 0; i < playerInventory.itemList.Count; i++)
+            {
+                if (playerInventory.itemList[i] == null)
+                {
+                    playerInventory.itemList[i] = thisItem;
+                    thisItem.itemHold += 1;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            thisItem.itemHold += 1;
+        }
+        InventoryManager.RefreshItem();
     }
 }

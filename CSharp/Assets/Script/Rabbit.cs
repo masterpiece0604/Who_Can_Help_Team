@@ -110,8 +110,8 @@ public class Rabbit : MonoBehaviour
                 ani.SetBool("跑", true);
                 ani.SetBool("暫停", false);
                 transform.Translate(player.transform.forward * Time.deltaTime * walkspeed);
-                //targetRotation = Quaternion.LookRotation(player.transform.position -transform.position, Vector3.up);
-                //transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, 0.1f);
+                targetRotation = Quaternion.LookRotation(transform.position -player.transform.position, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, 0.1f);
                 RunCheck();
                 break;
             
