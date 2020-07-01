@@ -7,7 +7,12 @@ public class DropBanana : MonoBehaviour
 
     [Header("丟擲物品的CD")]
     public float cd;
-        
+
+    [Header("延遲攻擊")]
+    public float delay;
+
+    private float StartTime;
+
     private float timer;
 
     private GameObject player;
@@ -35,7 +40,9 @@ public class DropBanana : MonoBehaviour
         {
             
             timer += Time.deltaTime;
-                    
+            StartTime += Time.deltaTime;
+            if (StartTime >= delay)
+            {
                 if (timer >= cd)
                 {
                     timer = 0;
@@ -44,9 +51,13 @@ public class DropBanana : MonoBehaviour
                     temp.GetComponent<Rigidbody>().AddForce(new Vector3(150, 200, 0));
 
                 }
-           
+            }
 
         }
-       
+        else
+        {
+            StartTime = 0;
+        }
+        
     }
 }
