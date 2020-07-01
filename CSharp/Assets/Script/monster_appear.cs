@@ -5,29 +5,37 @@ public class monster_appear : MonoBehaviour
     public GameObject monster;
     [Header("此怪物最高數量")]
     public int Monster_most_total;
-    public GameObject[] tagObject;
+    private int Monster_total;
 
-
-
-
+    
 
     void Start()
     {
-        monstercreator(0);
-    }
 
-    private void Update()
-    {
-        tagObject = GameObject.FindGameObjectsWithTag(monster.tag);
-        if(tagObject.Length<=Monster_most_total-1)
-        {
-            monstercreator(2);
-        }
+
+        InvokeRepeating("start_monstercreator", 2, 2);
 
         
-    }
 
-   
+        // 重複執行(方案,第一次執行秒數,下次執行間隔秒數)
+        Monster_total = 0;
+     
+
+    }
+    public void start_monstercreator()
+    {
+       monstercreator(Monster_total);
+       Monster_total ++;
+        if(Monster_total>4)
+        {
+            Monster_total = 5;
+        }
+    }
+    public void Mons_num()
+    {
+        Monster_total = 2;
+        print("Monster_total = 2");
+    }
 
 
 
