@@ -5047,7 +5047,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 217785748}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+
   m_GameObject: {fileID: 342134305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.52, y: 0.65, z: 19.42}
@@ -5164,10 +5164,9 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -280}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &349864238
-=======
+
 --- !u!1001 &218815874
->>>>>>> master
+
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -32798,7 +32797,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000038147, y: 0.000015259}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
+
 --- !u!1 &511321680
 GameObject:
   m_ObjectHideFlags: 0
@@ -32862,10 +32861,9 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &513677355
-=======
+
 --- !u!114 &1106466096
->>>>>>> master
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45866,7 +45864,7 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1686021177305034388, guid: ebee340de387f334f9ac44e044abd8fb,
     type: 3}
-<<<<<<< HEAD
+
   m_PrefabInstance: {fileID: 904701586}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &905282933
@@ -46017,10 +46015,9 @@ MonoBehaviour:
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-=======
+
   m_PrefabInstance: {fileID: 1449963406}
->>>>>>> master
+
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1451036707
 PrefabInstance:
@@ -46246,7 +46243,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1457777603}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+
   m_GameObject: {fileID: 922859291}
   m_CullTransparentMesh: 0
 --- !u!1 &924651645
@@ -46348,10 +46345,9 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &924915960
-=======
+
 --- !u!1001 &1460961027
->>>>>>> master
+
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -47900,12 +47896,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1540788336}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+
 --- !u!1 &998340959
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8564398685783550524, guid: 412c3f368d67ae14688ed8203b647876,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235312455}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -47961,16 +47958,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkingField: {fileID: 924651645}
   talking: 0
---- !u!1 &1028258928
-=======
---- !u!1 &1545584669 stripped
+
+
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8564398685783550524, guid: 412c3f368d67ae14688ed8203b647876,
-    type: 3}
-  m_PrefabInstance: {fileID: 1235312455}
-  m_PrefabAsset: {fileID: 0}
+  
 --- !u!1 &1545995739
->>>>>>> master
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58140,7 +58133,7 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1686021177305034388, guid: ebee340de387f334f9ac44e044abd8fb,
     type: 3}
-<<<<<<< HEAD
+
   itemInformation: {fileID: 2032502624}
   slots: []
 --- !u!1 &1684798365
@@ -58244,7 +58237,7 @@ MeshFilter:
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 1929987394}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684798365}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -58254,12 +58247,10 @@ Transform:
   m_Father: {fileID: 998340961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1709787886
-=======
-  m_PrefabInstance: {fileID: 1929987394}
-  m_PrefabAsset: {fileID: 0}
+
+  
 --- !u!1001 &1932408294
->>>>>>> master
+
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -62187,7 +62178,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2094278416}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+
   m_GameObject: {fileID: 2026475421}
   m_CullTransparentMesh: 0
 --- !u!1 &2027104338
@@ -62265,10 +62256,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027104338}
   m_CullTransparentMesh: 0
---- !u!1 &2027818429
-=======
+
 --- !u!1 &2096365395
->>>>>>> master
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
