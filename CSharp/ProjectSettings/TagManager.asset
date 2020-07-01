@@ -7,10 +7,12 @@ TagManager:
   - "\u6A5F\u63B0\u4EBA"
   - "\u5154\u5154"
   - "\u6B66\u5668"
+  - "\u6A5F\u63B0\u4EBA\u7A7A\u7269\u4EF6"
   - floor
+  - "\u5154\u5154\u7A7A\u7269\u4EF6"
   - "\u737C\u7334"
-  - "\u751F\u6210\u602A\u7269\u7269\u4EF6"
-  - "\u8759\u8760"
+  - "\u737C\u7334\u7A7A\u7269\u4EF6"
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -22,8 +24,8 @@ TagManager:
   - 
   - "\u89D2\u8272"
   - "\u602A\u7269"
-  - 
-  - 
+  - NPC
+  - "\u7A7A\u7269\u4EF6"
   - 
   - 
   - 
