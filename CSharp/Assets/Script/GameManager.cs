@@ -28,6 +28,14 @@ public class GameManager : MonoBehaviour
     public void Pause_When_Gaming()
     {
         onOpenPause = !onOpenPause;
+        if (onOpenPause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         pause.gameObject.SetActive(onOpenPause);
     }
     /// <summary>
