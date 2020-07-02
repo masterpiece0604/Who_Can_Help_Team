@@ -27,6 +27,7 @@ public class ItemOnWorld : MonoBehaviour
                 if (playerInventory.itemList[i] ==null)
                 {
                     playerInventory.itemList[i] = thisItem;
+                    thisItem.itemHold += 1;
                     break;
                 }
             }
