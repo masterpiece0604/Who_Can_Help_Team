@@ -6,7 +6,7 @@ public class NPC : MonoBehaviour
 {
     public GameObject talkingField;
     public bool talking;
-    bool a;
+    public bool a;
 
     // Start is called before the first frame update
     void Start()
@@ -21,27 +21,37 @@ public class NPC : MonoBehaviour
         if (a==true && Input.GetKeyDown(KeyCode.F))
         {
             talking = !talking;
+            if (talking)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
             talkingField.gameObject.SetActive(talking);
         }
             
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider hit)
     {
-        a = !a;
+        if(hit.GetComponent<Collider>().tag=="Player")
+            a = !a;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider hit)
     {
-        a = !a;
+        if (hit.GetComponent<Collider>().tag == "Player")
+            a = !a;
     }
     
-    public void FtoTalk()
+    /*public void FtoTalk()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
             talking = !talking;
             talkingField.gameObject.SetActive(talking);
         }
-    }
+    }*/
 }
