@@ -36,9 +36,7 @@ public class Animal_hurt : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 2f))
         {
-            print("執行滑鼠攻擊");
-            Mouse_atk();
-            
+             Mouse_atk();
         }
 
     }
@@ -56,7 +54,13 @@ public class Animal_hurt : MonoBehaviour
                 
                 animator.SetBool("死亡", true);
                 
-                Destroy(gameObject,1.5f);
+                if(Role.GetComponent<Role_quality>().guilt<100)
+                {
+                    
+                    Role.GetComponent<Role_quality>().guilt ++;
+                }
+               
+                Destroy(gameObject,0.8f);
 
             }
         }
@@ -66,32 +70,39 @@ public class Animal_hurt : MonoBehaviour
     }
     private void Mouse_atk()
     {
-
-        ray = main_camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-        RaycastHit[] raycasthit = Physics.RaycastAll(ray, 50);
-
-        for (int i = 0; i < raycasthit.Length; i++)
+        if ((Time.time - Last_Attack) > 1f)
         {
-            if (raycasthit[i].collider.tag == gameObject.tag)
+            Last_Attack = Time.time;
+            ray = main_camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] raycasthit = Physics.RaycastAll(ray, 50);
+
+            for (int i = 0; i < raycasthit.Length; i++)
             {
-                ani.HP -= Role.GetComponent<Role_attak>().ArmsAttak;
-                HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().ArmsAttak) / 100;
-                if (HP.fillAmount <= 0)
+                if (raycasthit[i].collider.tag == gameObject.tag)
                 {
-                    animator.SetBool("暫停", false);
-                    animator.SetBool("跑", false);
-                    animator.SetBool("死亡", true);
-                    AddNewItem();
-                    Destroy(gameObject);
+                    ani.HP -= Role.GetComponent<Role_attak>().ArmsAttak;
+                    HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().ArmsAttak) / 100;
+                    if (HP.fillAmount <= 0)
+                    {
+                        animator.SetBool("暫停", false);
+                        animator.SetBool("跑", false);
+                        animator.SetBool("死亡", true);
+                        AddNewItem();
+                        if (Role.GetComponent<Role_quality>().guilt < 100)
+                        {
+                            Role.GetComponent<Role_quality>().guilt++;
+                        }
+
+                        Destroy(gameObject, 0.8f);
+
+                    }
+                   
 
                 }
-                print("滑鼠攻擊");
 
             }
 
         }
-
-
     }
 
     public void AddNewItem()

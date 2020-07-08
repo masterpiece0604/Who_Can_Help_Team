@@ -35,7 +35,7 @@ public class Pick : MonoBehaviour
        
         if (Input.GetKey(KeyCode.F) && Vector3.Distance(transform.position,player.transform.position)<dis)
         {
-            print("執行中");
+
             FTime += 0.1f;
             Time.fillAmount = FTime/6;
             if(Time.fillAmount==1f)

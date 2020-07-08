@@ -46,8 +46,13 @@ public class monster_hurt : MonoBehaviour
             HP.fillAmount = ((int)monster.HP - Role.GetComponent<Role_attak>().WAttak) / 100;
             if (HP.fillAmount <= 0)
             {
-
-                Destroy(gameObject);
+                
+                if (Role.GetComponent<Role_quality>().guilt < 100)
+                {
+                    Role.GetComponent<Role_quality>().guilt ++;
+                   
+                }
+                Destroy(gameObject,0.5f);
 
             }
         }
@@ -70,10 +75,15 @@ public class monster_hurt : MonoBehaviour
                 if (HP.fillAmount <= 0)
                 {
 
-                   Destroy(gameObject);
+                    if (Role.GetComponent<Role_quality>().guilt < 100)
+                    {
+                        Role.GetComponent<Role_quality>().guilt++;
+
+                    }
+                    Destroy(gameObject,0.5f);
 
                 }
-                print("滑鼠攻擊");
+               
 
             }
 
