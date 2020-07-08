@@ -12,6 +12,7 @@ TagManager:
   - "\u751F\u6210\u602A\u7269\u7269\u4EF6"
   - "\u8759\u8760"
   - NPC
+  - info
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - "\u602A\u7269"
   - "\u7269\u54C1"
   - "\u5FD8\u4E86"
-  - 
+  - "\u5F88\u4E0A\u9762\u5594"
   - 
   - 
   - 

@@ -4042,6 +4042,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567037923}
     m_Modifications:
+    - target: {fileID: 4336635726889994586, guid: 02524e9156fd5724aa2bb19719846044,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.5100002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336635726889994586, guid: 02524e9156fd5724aa2bb19719846044,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.16999817
+      objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43794,6 +43804,7 @@ GameObject:
   - component: {fileID: 1551736640145894377}
   - component: {fileID: 1551736640145894378}
   - component: {fileID: 1551736640145894379}
+  - component: {fileID: 1551736640145894384}
   m_Layer: 5
   m_Name: grid
   m_TagString: Untagged
@@ -43801,6 +43812,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1551736640145894384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551736640145894383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1551736641253689820}
+          m_MethodName: InfoImageControll
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!224 &1551736640148968644
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44527,6 +44570,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1551736640145894382}
     m_Modifications:
+    - target: {fileID: 3524856380367664025, guid: 02524e9156fd5724aa2bb19719846044,
+        type: 3}
+      propertyPath: Item_Information
+      value: 
+      objectReference: {fileID: 1551736640699972647}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44585,22 +44633,22 @@ PrefabInstance:
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
@@ -44610,7 +44658,7 @@ PrefabInstance:
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
@@ -44620,7 +44668,7 @@ PrefabInstance:
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7734532694786045500, guid: 02524e9156fd5724aa2bb19719846044,
         type: 3}
@@ -48380,7 +48428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -48412,7 +48460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 344, y: 137.3}
+  m_AnchoredPosition: {x: 356, y: 153.97}
   m_SizeDelta: {x: 249.44397, y: 181.05438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1551736640699972647
@@ -48426,6 +48474,7 @@ GameObject:
   - component: {fileID: 1551736640699972646}
   - component: {fileID: 1551736640699972640}
   - component: {fileID: 1551736640699972641}
+  - component: {fileID: 1551736640699972648}
   m_Layer: 5
   m_Name: iteminfoimage
   m_TagString: Untagged
@@ -48433,6 +48482,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1551736640699972648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551736640699972647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0608fe9a2d6d9546b087b3cf301c919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoText: {fileID: 1551736641074455405}
+  infoImage: {fileID: 1551736640699972647}
+  infoImageX: 135
+  infoImageY: -100
 --- !u!224 &1551736640706281184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50581,7 +50646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!114 &1551736641077859272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51872,7 +51937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &1551736641253689794
 Canvas:
   m_ObjectHideFlags: 0
