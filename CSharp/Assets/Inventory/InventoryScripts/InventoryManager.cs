@@ -12,6 +12,10 @@ public class InventoryManager : MonoBehaviour
     //public Slot slotPrefab;
     public GameObject emptySlot;
     public Text itemInformation;
+
+    /*public GameObject itemInfoImage;
+    bool onOpenInfoImage;*/
+
     /*[Header("物品介紹")]
     public Image Item_Information;
     public Slot slot;
@@ -32,12 +36,25 @@ public class InventoryManager : MonoBehaviour
         controlText = !controlText;
     }*/
 
-        void Awake()
+    void Awake()
     {
         if (instance != null)
             Destroy(this);
         instance = this;
     }
+
+    /*private void Update()
+    {
+        itemInfoImage.SetActive(onOpenInfoImage);
+    }
+
+    public void InfoImageControll()
+    {
+        onOpenInfoImage = !onOpenInfoImage;
+        var InfoImagePosition = new Vector3(Input.mousePosition.x + 5, Input.mousePosition.y + 5, Input.mousePosition.z);
+        itemInfoImage.transform.position = InfoImagePosition;
+        
+    }*/
 
     private void OnEnable()
     {

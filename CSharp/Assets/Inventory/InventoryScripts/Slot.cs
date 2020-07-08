@@ -16,7 +16,7 @@ public class Slot : MonoBehaviour
     public bool controlText = false;
 
     [Header("物品介紹")]
-    public Image Item_Information;
+    public GameObject Item_Information;
     public Text ItemInfoText;
 
     public GameObject itemInSlot;
@@ -31,17 +31,19 @@ public class Slot : MonoBehaviour
     {
         Item_Information.gameObject.SetActive(controlText);
         //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
+        if (controlText)
+        {
+            Item_Information.layer = 50;
+        }
     }
 
 
 
     public void clickItem()
     {
-        
+        //Item_Information = GameObject.FindGameObjectWithTag("info");
         controlText = !controlText;
         InventoryManager.UpdateItemInfo(slotInfo);
-
-
         ItemInfoText.text = slotInfo;
 
         //transform.SetParent(transform.parent.parent, true);
