@@ -15,9 +15,9 @@ public class Monkey : MonoBehaviour
     /// 怪物的狀態
     /// </summary>
     // 原地不動,隨機走動,面向玩家,追擊玩家,返回原點
-    private enum MonsterState { STAND, WALK, WARN, CHASE, RETURN }
+    public enum MonsterState { STAND, WALK, WARN, CHASE, RETURN }
 
-    private MonsterState currentState = MonsterState.STAND;
+    public MonsterState currentState = MonsterState.STAND;
     // 預設怪物狀態為原地不走動
 
     public int[] action_weight = { 3, 7 }; //設定原地不動跟隨機走動的機率
@@ -25,6 +25,7 @@ public class Monkey : MonoBehaviour
     private float diatanceToPlay; //怪物跟玩家的距離
     private float diatanceToInt; //怪物跟初始位置的距離
     private Quaternion targetRotation; //怪物的方向
+    public float RotationSpeed = 0.1f; //怪物的方向
     private Vector3 initialPos; //怪物原始的位置
     private float lastActTime; //上一次執行指令的時間
     private float restTime = 5f; //兩個指令間的休息時間
@@ -97,7 +98,7 @@ public class Monkey : MonoBehaviour
 
             case MonsterState.WALK:
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed);
                 //print("轉向值:" + transform.rotation + "轉向值2:" + targetRotation);
 
 
@@ -118,7 +119,7 @@ public class Monkey : MonoBehaviour
                 // 怪會轉向玩家方向
                 // print("怪獸看向主角哩~");
                 targetRotation = Quaternion.LookRotation(player.transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed);
                 WarnCheck();
                 break;
 
@@ -144,7 +145,7 @@ public class Monkey : MonoBehaviour
             case MonsterState.RETURN:
                 //print("我回去啦");
                 targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed);
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
 
                 ReturnCheck();
