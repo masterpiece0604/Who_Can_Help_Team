@@ -17,19 +17,23 @@ public class Animal_hurt : MonoBehaviour
     public Item thisItem;
     public Inventory playerInventory;
 
+    private float ori_HP; //儲存原始血量
+
     private void Start()
     {
         Last_Attack = Time.time;
         Role = GameObject.FindGameObjectWithTag("Player");
         main_camera = Camera.FindObjectOfType<Camera>();
         animator = GetComponent<Animator>();
+        ori_HP = ani.HP;
+       
 
     }
 
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.W) && Vector3.Distance(Role.transform.position, transform.position) < 1f)
+        if (Input.GetKeyUp(KeyCode.W) && Vector3.Distance(Role.transform.position, transform.position) < 2f)
         {
             MonsterHurt();
            
@@ -48,10 +52,10 @@ public class Animal_hurt : MonoBehaviour
            
             Last_Attack = Time.time;
             ani.HP -= Role.GetComponent<Role_attak>().WAttak;
-            HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().WAttak) / 100;
+
+            HP.fillAmount = ani.HP  / ori_HP;
             if (HP.fillAmount <= 0)
             {
-                
                 animator.SetBool("死亡", true);
                 
                 if(Role.GetComponent<Role_quality>().guilt<100)
@@ -59,7 +63,7 @@ public class Animal_hurt : MonoBehaviour
                     
                     Role.GetComponent<Role_quality>().guilt ++;
                 }
-               
+                gameObject.GetComponent<Rabbit>().walkspeed = 0;
                 Destroy(gameObject,0.8f);
 
             }
@@ -81,18 +85,17 @@ public class Animal_hurt : MonoBehaviour
                 if (raycasthit[i].collider.tag == gameObject.tag)
                 {
                     ani.HP -= Role.GetComponent<Role_attak>().ArmsAttak;
-                    HP.fillAmount = ((int)ani.HP - Role.GetComponent<Role_attak>().ArmsAttak) / 100;
+                    HP.fillAmount = ani.HP  / ori_HP;
+                    
                     if (HP.fillAmount <= 0)
                     {
-                        animator.SetBool("暫停", false);
-                        animator.SetBool("跑", false);
                         animator.SetBool("死亡", true);
                         AddNewItem();
                         if (Role.GetComponent<Role_quality>().guilt < 100)
                         {
                             Role.GetComponent<Role_quality>().guilt++;
                         }
-
+                        gameObject.GetComponent<Rabbit>().walkspeed = 0;
                         Destroy(gameObject, 0.8f);
 
                     }

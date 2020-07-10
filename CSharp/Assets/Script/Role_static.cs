@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Role_static : MonoBehaviour
 {
@@ -10,17 +11,22 @@ public class Role_static : MonoBehaviour
     // 增加罪惡感的時間
     private float GuiltTime = 0;
 
+    public Image GameOver;
+
 
     private void Start()
     {
         HungryTime = Time.time;
         GuiltTime = Time.time;
+        GameOver.enabled = false;
+        GameOver.GetComponentInChildren<Text>().text = "";
     }
 
     private void Update()
     {
         Hungry();
         Guilt();
+        Sick();
     }
 
     public void Health()
@@ -30,7 +36,11 @@ public class Role_static : MonoBehaviour
 
     public void Sick()
     {
-
+        if(player.GetComponent<Role_quality>().sick>=100)
+        {
+            GameOver.enabled = true;
+            GameOver.GetComponentInChildren<Text>().text = "GameOver";
+        }
     }
 
     /// <summary>
@@ -50,7 +60,7 @@ public class Role_static : MonoBehaviour
         else
         {
             
-            if (Time.time - HungryTime > 60)
+            if (Time.time - HungryTime > 3f)
             {
                 if (player.GetComponent<Role_quality>().health-5 >=0)
                 {

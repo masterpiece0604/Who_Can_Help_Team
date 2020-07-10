@@ -14,6 +14,7 @@ public class monster_appear : MonoBehaviour
     void Start()
     {
         monstercreator(0);
+       
     }
 
     private void Update()

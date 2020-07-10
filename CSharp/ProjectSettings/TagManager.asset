@@ -13,6 +13,7 @@ TagManager:
   - "\u8759\u8760"
   - NPC
   - info
+  - "\u5C71\u8C6C"
   layers:
   - Default
   - TransparentFX
