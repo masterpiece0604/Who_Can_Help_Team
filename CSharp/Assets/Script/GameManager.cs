@@ -18,10 +18,16 @@ public class GameManager : MonoBehaviour
     public bool onOpenPause1;
     public bool clickSave;
     public bool logState;
+    bool NpcTalkOnOpen;
 
     private void Start()
     {
         onOpenPause1=true;
+    }
+
+    private void Update()
+    {
+        NpcTalkOnOpen = NPC.talking;
     }
 
     /// <summary>
@@ -38,7 +44,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
-            NPC.talkingField.SetActive(true);
+            NPC.talkingField.SetActive(NpcTalkOnOpen);
         }
         pause.gameObject.SetActive(onOpenPause);
     }
