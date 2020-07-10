@@ -5,8 +5,6 @@ public class DropBanana : MonoBehaviour
     [Header("丟擲物品")]
     public GameObject prop;
 
-    [Header("丟擲物品的CD")]
-    public float cd;
         
     private float timer;
 
@@ -16,37 +14,27 @@ public class DropBanana : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
        
-    }
 
-    private void Update()
-    {
-        
-            Throw();
-       
-        
     }
+        
 
-    private void Throw()
+    public void Throw()
     {
        
         float dis = Vector3.Distance(transform.position, player.transform.position);
 
-        if (dis <= gameObject.GetComponent<Animal>().attack_range)
+        if (dis <= gameObject.GetComponentInParent<Animal>().attack_range)
         {
-            
-            timer += Time.deltaTime;
-                    
-                if (timer >= cd)
-                {
-                    timer = 0;
-                    GameObject temp = Instantiate(prop, transform.position, Quaternion.identity);
-                    print(gameObject.name);
-                    temp.GetComponent<Rigidbody>().AddForce(new Vector3(150, 200, 0));
-
-                }
-           
+            Invoke("DeleThrow", 0.5f);
 
         }
        
+    }
+
+    private void DeleThrow()
+    {
+            GameObject temp = Instantiate(prop, transform.position, Quaternion.identity);
+                    
+            temp.GetComponent<Rigidbody>().AddForce(new Vector3(150, 300, 0));
     }
 }

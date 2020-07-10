@@ -45,6 +45,9 @@ public class Monkey : MonoBehaviour
     public Role_quality role; // 引用角色身上的數據
     private float lastAtkTime; //上一次攻擊時間
 
+    private Animator ani;
+
+    public DropBanana DROP;
 
 
     private void Start()
@@ -53,7 +56,8 @@ public class Monkey : MonoBehaviour
         initialPos = gameObject.GetComponent<Transform>().position;
         role = player.GetComponent<Role_quality>();
 
-
+        ani = GetComponent<Animator>();
+        RandomAct();
 
 
     }
@@ -71,10 +75,7 @@ public class Monkey : MonoBehaviour
         if (number <= action_weight[0])
         {
             currentState = MonsterState.STAND;
-
-            // print("怪物靜止中");
-
-            // 如果有動作動畫可以放在這裡
+                       
         }
         else if (number > action_weight[0])
         {
@@ -89,6 +90,8 @@ public class Monkey : MonoBehaviour
         switch (currentState)
         {
             case MonsterState.STAND:
+                ani.SetBool("暫停", true);
+                ani.SetBool("跑", false);
                 if (Time.time - lastActTime > restTime)
                 {
                     RandomAct();
@@ -97,6 +100,8 @@ public class Monkey : MonoBehaviour
                 break;
 
             case MonsterState.WALK:
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed);
                 //print("轉向值:" + transform.rotation + "轉向值2:" + targetRotation);
@@ -124,6 +129,8 @@ public class Monkey : MonoBehaviour
                 break;
 
             case MonsterState.CHASE:
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 // print("追追追");
                 if (!is_run)
                 {
@@ -143,6 +150,8 @@ public class Monkey : MonoBehaviour
                 break;
 
             case MonsterState.RETURN:
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 //print("我回去啦");
                 targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed);
@@ -247,25 +256,43 @@ public class Monkey : MonoBehaviour
         if (diatanceToInt < 0.5f)
         {
             is_run = false;
+
             RandomAct();
         }
     }
     void monster_attack()
     {
 
-        // 怪物攻擊動畫擺這裡
-
-        // 設定兩秒攻擊一次
+       
 
         if (Time.time - lastAtkTime > gameObject.GetComponent<Animal>().attack_frequency)
         {
-            role.health -= gameObject.GetComponent<Animal>().hurt;
+            ani.SetTrigger("攻擊");
+            DROP.GetComponent<DropBanana>().Throw();
             lastAtkTime = Time.time;
+            RoleHurt(gameObject.GetComponent<Animal>().hurt);
         }
 
 
 
 
+    }
+    public void RoleHurt(float atk)
+    {
+        if (player.GetComponent<Role_quality>().health - atk >= 0)
+        {
+            player.GetComponent<Role_quality>().health -= atk;
+
+
+        }
+        else
+        {
+            player.GetComponent<Role_quality>().health -= atk;
+            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
+            player.GetComponent<Role_quality>().health = 0;
+
+
+        }
     }
 }
 
