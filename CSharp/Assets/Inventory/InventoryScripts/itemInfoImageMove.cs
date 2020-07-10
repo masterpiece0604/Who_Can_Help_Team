@@ -12,7 +12,7 @@ public class itemInfoImageMove : MonoBehaviour
 
     private void Update()
     {
-        if(infoText.text == null)
+        if(infoText.text == "")
         {
             infoImage.SetActive(false);
         }
