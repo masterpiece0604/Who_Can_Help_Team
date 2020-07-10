@@ -37,11 +37,13 @@ public class monster_move : MonoBehaviour
     public float attackRange;
     [Header("怪物的移動速度")]
     public float walkspeed;
-    private GameObject player;
+    public GameObject player;
 
     public enemy monster;//引用怪物身上的數據
     public Role_quality role; // 引用角色身上的數據
     private float lastAtkTime; //上一次攻擊時間
+
+    private Animator ani;
 
 
 
@@ -50,8 +52,10 @@ public class monster_move : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         initialPos = gameObject.GetComponent<Transform>().position;
         role = player.GetComponent<Role_quality>();
+        ani = GetComponent<Animator>();
+        RandomAct();
 
-     
+
 
 
     }
@@ -87,6 +91,8 @@ public class monster_move : MonoBehaviour
         switch (currentState)
         {
             case MonsterState.STAND:
+                ani.SetBool("暫停", true);
+                ani.SetBool("跑", false);
                 if (Time.time - lastActTime > restTime)
                 {
                     RandomAct();
@@ -95,6 +101,8 @@ public class monster_move : MonoBehaviour
                 break;
 
             case MonsterState.WALK:
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
                 //print("轉向值:" + transform.rotation + "轉向值2:" + targetRotation);
@@ -110,7 +118,8 @@ public class monster_move : MonoBehaviour
             case MonsterState.WARN:
                 if (!is_warn)
                 {
-                    // 如果有動畫可以加在這裡
+                    ani.SetBool("暫停", true);
+                    ani.SetBool("跑", false);
                     is_warn = true;
                 }
 
@@ -122,14 +131,16 @@ public class monster_move : MonoBehaviour
                 break;
 
             case MonsterState.CHASE:
-               // print("追追追");
-                if(!is_run)
+                
+                if (!is_run)
                 {
-                    //跑步動畫放這兒
+                    ani.SetBool("跑", true);
+                    ani.SetBool("暫停", false);
                     is_run = true;
                 }
                 if(Vector3.Distance(player.transform.position,transform.position)<1f)
                 {
+                    ChaseRadiusCheck();
                     break;
                 }
 
@@ -141,7 +152,9 @@ public class monster_move : MonoBehaviour
                 break;
 
             case MonsterState.RETURN:
-                //print("我回去啦");
+                
+                ani.SetBool("跑", true);
+                ani.SetBool("暫停", false);
                 targetRotation = Quaternion.LookRotation(initialPos - transform.position, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.1f);
                 transform.Translate(Vector3.forward * Time.deltaTime * walkspeed);
@@ -208,7 +221,13 @@ public class monster_move : MonoBehaviour
     void WarnCheck()
     {
         diatanceToPlay = Vector3.Distance(player.transform.position, transform.position);
-        if (diatanceToPlay < defendRadius)
+        if (diatanceToPlay < attackRange)
+        {
+            // print("已進入怪物攻擊範圍");
+            monster_attack();
+
+        }
+        else if (diatanceToPlay < defendRadius)
         {
             is_warn = false;
             currentState = MonsterState.CHASE; //在靠近就要開始追主角了!!
@@ -222,12 +241,12 @@ public class monster_move : MonoBehaviour
 
     void ChaseRadiusCheck()
     {
+        
         diatanceToPlay = Vector3.Distance(player.transform.position, transform.position);
         diatanceToInt = Vector3.Distance(transform.position, initialPos); //物件跟原始位置的距離
         if (diatanceToPlay < attackRange)
         {
-            //print("已進入怪物攻擊範圍");
-            monster_attack();
+           monster_attack();
 
         }
         // 超過距離怪物要回去
@@ -251,19 +270,35 @@ public class monster_move : MonoBehaviour
     void monster_attack()
     {
 
-        // 怪物攻擊動畫擺這裡
-       
-        // 設定兩秒攻擊一次
-
         if (Time.time - lastAtkTime > monster.attack_frequency)
         {
-            role.health -= monster.hurt;
+            print("執行攻擊");
+            ani.SetTrigger("攻擊");
             lastAtkTime = Time.time;
+            RoleHurt(monster.hurt);
+            
         }
       
 
 
 
+    }
+    public void RoleHurt(float atk)
+    {
+        if (player.GetComponent<Role_quality>().health - atk >= 0)
+        {
+            player.GetComponent<Role_quality>().health -= atk;
+
+
+        }
+        else
+        {
+            player.GetComponent<Role_quality>().health -= atk;
+            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
+            player.GetComponent<Role_quality>().health = 0;
+
+
+        }
     }
 }
 

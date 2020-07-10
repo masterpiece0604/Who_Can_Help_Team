@@ -135,7 +135,9 @@ public class Rabbit : MonoBehaviour
 
         if(diatanceToInt > 20f)
         {
-            Destroy(gameObject);
+
+            
+            Destroy(gameObject,1.5f);
 
         }
     }

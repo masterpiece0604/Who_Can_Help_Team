@@ -48,6 +48,7 @@ public class Pick : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.F))
         {
             FTime = 0;
+            Time.fillAmount = FTime / 6;
         }
     }
 
