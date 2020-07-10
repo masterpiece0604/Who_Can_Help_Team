@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb03a4b2405283e4c8de71bf4142d111, type: 3}
+  m_Name: "\u65A7"
+  m_EditorClassIdentifier: 
+  itemName: "\u65A7"
+  itemImage: {fileID: 0}
+  itemHold: 0
+  Durability: 100
+  itemInfo: "\u53EF\u7528\u65BC\u780D\u6A39\uFF0C\u8010\u4E45\u5EA6100\uFF0C\u653B\u64CA\u529B1\uFF0C\u653B\u64CA\u7BC4\u570D1\u3002"
+  equipment: 1
+  use: 0
+  etc: 0
+  manufactur: 0
