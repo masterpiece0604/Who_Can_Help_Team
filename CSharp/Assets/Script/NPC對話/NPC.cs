@@ -7,12 +7,17 @@ public class NPC : MonoBehaviour
     public GameObject talkingField;
     public bool talking;
     public bool a;
+    public ctrllor1 ctrllor1;
+    public float OldPlayerSpeed;
+    public GameObject UI;
 
     // Start is called before the first frame update
     void Start()
     {
         Physics.IgnoreLayerCollision(10, 11);
         talkingField.gameObject.SetActive(talking);
+        OldPlayerSpeed = ctrllor1.playerspeed;
+        print(OldPlayerSpeed);
     }
 
     // Update is called once per frame
@@ -21,15 +26,21 @@ public class NPC : MonoBehaviour
         if (a==true && Input.GetKeyDown(KeyCode.F))
         {
             talking = !talking;
-            if (talking)
-            {
-                Time.timeScale = 0;
-            }
-            else
-            {
-                Time.timeScale = 1;
-            }
             talkingField.gameObject.SetActive(talking);
+            
+            if (talking==true)
+            {
+                ctrllor1.NPC = true;
+                ctrllor1.Sstand();
+                UI.SetActive(false);
+            }
+            else if(talking==false)
+            {
+                ctrllor1.NPC = false;
+                UI.SetActive(true);
+            }
+            
+            
         }
             
     }

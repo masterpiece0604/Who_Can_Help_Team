@@ -12,7 +12,9 @@ public class ctrllor1 : MonoBehaviour
     public GameObject look_at_point;
     [Header("玩家背包")]
     public GameObject playerbag;
-    bool openbag;
+    public bool openbag;
+
+    public bool NPC;
     
 
     //上一次點擊順移的時間
@@ -25,7 +27,8 @@ public class ctrllor1 : MonoBehaviour
         playerspeed = 3f;
         wait = true;
         run = false;
-       
+        openbag = false;
+        
     }
 
     // Update is called once per frame
@@ -33,29 +36,33 @@ public class ctrllor1 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
         {
-            ray = main_camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit[] raycasthit = Physics.RaycastAll(ray, 50);
-
-            for (int i = 0; i < raycasthit.Length; i++)
+            if(NPC==false)
             {
-                if (raycasthit[i].collider.tag == "floor")
-                {
-                    look_at_point.transform.position = raycasthit[i].point;
-                    this.transform.LookAt(look_at_point.transform);
-                    this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
-                    set_allstate_false();
-                    run = true;
+                ray = main_camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+                RaycastHit[] raycasthit = Physics.RaycastAll(ray, 50);
 
-                }
-                else if (raycasthit[i].collider.tag == "怪獸")
+                for (int i = 0; i < raycasthit.Length; i++)
                 {
-                   // this.transform.LookAt(monster.transform);
-                    this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
-                    set_allstate_false();
-                    run = true;
-                }
+                    if (raycasthit[i].collider.tag == "floor")
+                    {
+                        look_at_point.transform.position = raycasthit[i].point;
+                        this.transform.LookAt(look_at_point.transform);
+                        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+                        set_allstate_false();
+                        run = true;
 
+                    }
+                    else if (raycasthit[i].collider.tag == "怪獸")
+                    {
+                       // this.transform.LookAt(monster.transform);
+                        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+                        set_allstate_false();
+                        run = true;
+                    }
+                
+                }
             }
+            
             
         }
 
@@ -79,7 +86,7 @@ public class ctrllor1 : MonoBehaviour
 
         //開啟玩家背包
         openplayerbag();
-
+        playerbag.SetActive(openbag);
 
 
     }
@@ -132,7 +139,7 @@ public class ctrllor1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             openbag = !openbag;
-            playerbag.SetActive(openbag);
+            
         }
 
     }

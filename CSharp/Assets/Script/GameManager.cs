@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [Header("訊息對話框")]
     public GameObject log;
 
+    public NPC NPC;
+
     public bool onOpenPause;
     public bool onOpenPause1;
     public bool clickSave;
@@ -31,10 +33,12 @@ public class GameManager : MonoBehaviour
         if (onOpenPause)
         {
             Time.timeScale = 0;
+            NPC.talkingField.SetActive(false);
         }
         else
         {
             Time.timeScale = 1;
+            NPC.talkingField.SetActive(true);
         }
         pause.gameObject.SetActive(onOpenPause);
     }
