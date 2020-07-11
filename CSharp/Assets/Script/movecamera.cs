@@ -3,8 +3,8 @@
 public class movecamera : MonoBehaviour
 {
     public GameObject player;
-    public float mouse_scroll;
-    public float m_total;
+    private float mouse_scroll;
+    private float m_total;
 
     // Start is called before the first frame update
     void Start()

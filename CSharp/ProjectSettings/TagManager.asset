@@ -14,6 +14,7 @@ TagManager:
   - NPC
   - info
   - "\u906E\u7F69"
+  - "\u5C71\u8C6C"
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - "\u7269\u54C1"
   - "\u5FD8\u4E86"
   - "\u5F88\u4E0A\u9762\u5594"
-  - 
-  - 
+  - minimap
+  - "\u5834\u666F"
   - 
   - 
   - 
