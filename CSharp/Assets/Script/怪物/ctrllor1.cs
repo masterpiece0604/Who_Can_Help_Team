@@ -15,6 +15,7 @@ public class ctrllor1 : MonoBehaviour
     public bool openbag;
 
     public bool NPC;
+    public bool Introduce;
     
 
     //上一次點擊順移的時間
@@ -36,7 +37,7 @@ public class ctrllor1 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
         {
-            if(NPC==false)
+            if (NPC == false && Introduce == false)
             {
                 ray = main_camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
                 RaycastHit[] raycasthit = Physics.RaycastAll(ray, 50);
