@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
         logState = !logState;
         if (logState == false)
         {
-            log.gameObject.transform.position = new Vector3(-190, 205, transform.position.z);
+            log.transform.Translate(-190, 205, 0);
         }
         if (logState == true)
         {
-            log.gameObject.transform.position = new Vector3(242.5f, 205, transform.position.z);
+            log.transform.Translate(242.5f, 205,0);
         }
     }
 
