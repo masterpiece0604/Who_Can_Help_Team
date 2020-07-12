@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:CSharp/Assets/Mr. Mo Base Character.meta
 guid: 3c63383e971ba1f4aaea73e260c6795f
+=======
+guid: dfbd3eb62985b654ea827645476c70cd
+>>>>>>> Stashed changes:CSharp/Assets/Script/UI程式.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
