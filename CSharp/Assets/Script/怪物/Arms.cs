@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Arms : MonoBehaviour
 {
-    public Image MaskProp;
+   
 
     [Header("是否擁有此武器")]
     public bool Arms_Have;
@@ -31,26 +31,15 @@ public class Arms : MonoBehaviour
 
     private void Start()
     {
-        Mask();
         
     }
 
     private void Update()
     {
-        Mask();
+       
     }
 
-    public void Mask()
-    {
-        if(gameObject.GetComponent<Arms>().Arms_Have==false|| gameObject.GetComponent<Arms>().Durability<=0)
-        {
-            MaskProp.enabled = true;
-        }
-        else
-        {
-            MaskProp.enabled = false;
-        }
-    }
+    
 
 
 }
