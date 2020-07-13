@@ -31,7 +31,20 @@ public class Role_static : MonoBehaviour
 
     public void Health()
     {
+        if (player.GetComponent<Role_quality>().health - 5 >= 0)
+        {
+            player.GetComponent<Role_quality>().health -= 5;
+            HungryTime = Time.time;
 
+        }
+        else
+        {
+            player.GetComponent<Role_quality>().health -= 5;
+            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
+            player.GetComponent<Role_quality>().health = 0;
+            HungryTime = Time.time;
+
+        }
     }
 
     public void Sick()
@@ -103,6 +116,15 @@ public class Role_static : MonoBehaviour
                    }
             }
            
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "怪物攻擊")
+        {
+            Health();
+
         }
     }
 }

@@ -6,7 +6,7 @@ public class movecamera : MonoBehaviour
     public float mouse_scroll;
     public float m_total;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         mouse_scroll = 0;
@@ -21,7 +21,7 @@ public class movecamera : MonoBehaviour
         if (mouse_scroll != 0)
         {
             m_total += mouse_scroll;
-            if (m_total > 1.4 || m_total <= -0.01)
+            if (m_total > 1.4 || m_total <= -0.1)
             {
                 m_total -= mouse_scroll;
                 mouse_scroll = 0;
@@ -37,8 +37,8 @@ public class movecamera : MonoBehaviour
             {
                 m_total = 0;
                 mouse_scroll = 0;
-            }*/
-
+            }
+            */
 
             transform.Translate(new Vector3(0, 0, mouse_scroll * Time.deltaTime * 500f), Space.Self);
         }

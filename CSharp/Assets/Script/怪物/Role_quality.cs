@@ -51,7 +51,7 @@ public class Role_quality : MonoBehaviour
         
     }
 
-    
+   
 
 
 }
