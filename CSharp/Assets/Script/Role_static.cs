@@ -13,6 +13,11 @@ public class Role_static : MonoBehaviour
 
     public Image GameOver;
 
+    public Animal Bat;
+    public Animal Monkey;
+    public enemy G8Person;
+
+
 
     private void Start()
     {
@@ -29,20 +34,55 @@ public class Role_static : MonoBehaviour
         Sick();
     }
 
-    public void Health()
+    public void Health_Light()
     {
-        if (player.GetComponent<Role_quality>().health - 5 >= 0)
+        if (player.GetComponent<Role_quality>().health - Bat.hurt >= 0)
         {
-            player.GetComponent<Role_quality>().health -= 5;
-            HungryTime = Time.time;
+            player.GetComponent<Role_quality>().health -= Bat.hurt;
+            GuiltTime = Time.time;
 
         }
         else
         {
-            player.GetComponent<Role_quality>().health -= 5;
+            player.GetComponent<Role_quality>().health -= Bat.hurt;
             player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
             player.GetComponent<Role_quality>().health = 0;
-            HungryTime = Time.time;
+            GuiltTime = Time.time;
+
+        }
+    }
+
+    public void Health_Teeth()
+    {
+        if (player.GetComponent<Role_quality>().health - G8Person.hurt >= 0)
+        {
+            player.GetComponent<Role_quality>().health -= G8Person.hurt;
+            GuiltTime = Time.time;
+
+        }
+        else
+        {
+            player.GetComponent<Role_quality>().health -= G8Person.hurt;
+            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
+            player.GetComponent<Role_quality>().health = 0;
+            GuiltTime = Time.time;
+
+        }
+    }
+    public void Health_Banana()
+    {
+        if (player.GetComponent<Role_quality>().health - Monkey.hurt >= 0)
+        {
+            player.GetComponent<Role_quality>().health -= Monkey.hurt;
+            GuiltTime = Time.time;
+
+        }
+        else
+        {
+            player.GetComponent<Role_quality>().health -= Monkey.hurt;
+            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
+            player.GetComponent<Role_quality>().health = 0;
+            GuiltTime = Time.time;
 
         }
     }
@@ -121,10 +161,18 @@ public class Role_static : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "怪物攻擊")
+        
+        if (other.tag == "光束")
         {
-            Health();
+            Health_Light();           
 
+        }else if(other.tag == "假牙")
+        {
+            Health_Teeth();
+        }
+        else if(other.tag == "香蕉")
+        {
+            Health_Banana();
         }
     }
 }

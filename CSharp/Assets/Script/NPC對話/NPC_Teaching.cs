@@ -98,6 +98,7 @@ public class NPC_Teaching : MonoBehaviour
     {
         textFinished = false;
         NPC_Says.text = "";
+        string NPC1 = textList[0];
 
         switch (textList[index])
         {

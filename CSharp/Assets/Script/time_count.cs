@@ -6,20 +6,32 @@ public class time_count : MonoBehaviour
     /// <summary>
     /// 時間計時器
     /// </summary>
-   private int timer_date=1;
+    private int timer_date=1;
     public Text timer_count;
+    private float DateTime;
 
 
     void Start()
     {
+        timer_count.text ="01" ;
         //每8分鐘計算一天，先測試每分鐘計算一天
-        InvokeRepeating("Time_Date", 60f, 60f);
+        DateTime = Time.time;
+
+    }
+    private void Update()
+    {
+        if(Time.time- DateTime > 3f)
+        {
+            Time_Date();
+        }
     }
 
     void Time_Date()
     {
         timer_date++;
-        print("第" + timer_date + "天");
-        timer_count.text = "第" + timer_date + "天";
+        timer_count.text = timer_date / 10 + "" + timer_date % 10;
+        DateTime = Time.time;
+
+
     }
 }
