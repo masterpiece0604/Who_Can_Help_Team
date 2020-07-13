@@ -11,38 +11,44 @@ public class NPC : MonoBehaviour
     public float OldPlayerSpeed;
     public GameObject UI;
 
+    //public NPC_Teaching NPC_Teaching;
+    //public bool isTalking;
+
     // Start is called before the first frame update
     void Start()
     {
         Physics.IgnoreLayerCollision(10, 11);
-        talkingField.gameObject.SetActive(talking);
+        //talkingField.gameObject.SetActive(talking);
         OldPlayerSpeed = ctrllor1.playerspeed;
-        print(OldPlayerSpeed);
+        //print(OldPlayerSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (a==true && Input.GetKeyDown(KeyCode.F))
-        {
-            talking = !talking;
-            talkingField.gameObject.SetActive(talking);
-            
-            if (talking==true)
+        //if (isTalking == false)
+        //{
+            if (a == true && Input.GetKeyDown(KeyCode.F))
             {
-                ctrllor1.NPC = true;
-                ctrllor1.Sstand();
-                UI.SetActive(false);
+                //isTalking = true;
+                talking = true;
+                talkingField.gameObject.SetActive(true);
+
+                if (talking == true)
+                {
+                    ctrllor1.NPC = true;
+                    ctrllor1.Sstand();
+                    UI.SetActive(false);
+                }
+                /*else if (talking == false)
+                {
+                    ctrllor1.NPC = false;
+                    UI.SetActive(true);
+                }*/
+
+
             }
-            else if(talking==false)
-            {
-                ctrllor1.NPC = false;
-                UI.SetActive(true);
-            }
-            
-            
-        }
-            
+        //}
     }
     
     private void OnTriggerEnter(Collider hit)

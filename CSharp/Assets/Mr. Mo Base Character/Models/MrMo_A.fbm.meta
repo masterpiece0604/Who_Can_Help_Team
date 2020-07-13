@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:CSharp/Assets/Mr. Mo Base Character/Models/MrMo_A.fbm.meta
 guid: 9d64f1af0123aad4183921b995cca8e1
+=======
+guid: f64f0f96ee949894fac8192ce400c4a6
+>>>>>>> NPC01:CSharp/Assets/AssetsStore素材/iconset.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
