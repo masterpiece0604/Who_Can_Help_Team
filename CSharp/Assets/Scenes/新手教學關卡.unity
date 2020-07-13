@@ -46536,7 +46536,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5B89\u5B89 \u81ED\u5EE2\u7269"
+  m_Text: "\u5B89\u5B89 \u5973\u795E"
 --- !u!1 &5927345196919012923
 GameObject:
   m_ObjectHideFlags: 0
@@ -46845,7 +46845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7263060454711950248
 MonoBehaviour:
   m_ObjectHideFlags: 0
