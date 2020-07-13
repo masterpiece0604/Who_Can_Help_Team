@@ -18,6 +18,8 @@ public class NPC_Teaching : MonoBehaviour
     public bool textFinished;
     bool cancelTyping;
 
+    public Atk_Teaching Atk_Teaching;
+
     public List<string> textList = new List<string>();
 
 
@@ -38,7 +40,7 @@ public class NPC_Teaching : MonoBehaviour
 
     private void Start()
     {
-        index = 0;
+        index = 2;
         //StartCoroutine(SetTextUI());
         gameObject.SetActive(false);
     }
@@ -52,7 +54,8 @@ public class NPC_Teaching : MonoBehaviour
             NPC.UI.SetActive(true);
             NPC.talking = false;
             NPC.talkingField.SetActive(false);
-            index = 0;
+            Atk_Teaching.AtkTeachingCanvas.SetActive(false);
+            index = 2;
             return;
         }
         /*if (Input.GetKeyDown(KeyCode.F) && textFinished==true)
@@ -84,7 +87,7 @@ public class NPC_Teaching : MonoBehaviour
     void GetTextFromFile(TextAsset file)
     {
         textList.Clear();
-        index = 0;
+        index = 3;
 
         var lineData = file.text.Split('\n');
 
@@ -93,18 +96,15 @@ public class NPC_Teaching : MonoBehaviour
             textList.Add(line);
         }
     }
-
+    
     IEnumerator SetTextUI()
     {
         textFinished = false;
         NPC_Says.text = "";
 
-        switch (textList[index])
+        if (textList[index] == textList[0])
         {
-            case "A":
-                print("123");
-                index++;
-                break;
+            index++;
         }
 
         /*for (int i = 0; i < textList[index].Length; i++)

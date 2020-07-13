@@ -25,7 +25,6 @@ public class ctrllor1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerspeed = 3f;
         wait = true;
         run = false;
         openbag = false;
