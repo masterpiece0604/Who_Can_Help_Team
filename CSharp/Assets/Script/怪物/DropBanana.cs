@@ -5,6 +5,8 @@ public class DropBanana : MonoBehaviour
     [Header("丟擲物品")]
     public GameObject prop;
 
+    public GameObject empty;
+
         
     private float timer;
 
@@ -33,8 +35,12 @@ public class DropBanana : MonoBehaviour
 
     private void DeleThrow()
     {
-            GameObject temp = Instantiate(prop, transform.position, Quaternion.identity);
+            GameObject temp = Instantiate(prop, empty.transform.position, Quaternion.identity);
                     
-            temp.GetComponent<Rigidbody>().AddForce(new Vector3(150, 300, 0));
+            temp.GetComponent<Rigidbody>().AddForce(empty.transform.forward * 200);
+            temp.GetComponent<Rigidbody>().AddForce(empty.transform.up * 300);
+
+            Destroy(temp, 2f);
+       
     }
 }

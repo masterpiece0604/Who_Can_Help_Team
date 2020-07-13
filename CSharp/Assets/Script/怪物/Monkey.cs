@@ -55,7 +55,6 @@ public class Monkey : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         initialPos = gameObject.GetComponent<Transform>().position;
         role = player.GetComponent<Role_quality>();
-
         ani = GetComponent<Animator>();
         RandomAct();
 
@@ -129,16 +128,17 @@ public class Monkey : MonoBehaviour
                 break;
 
             case MonsterState.CHASE:
-                ani.SetBool("跑", true);
-                ani.SetBool("暫停", false);
-                // print("追追追");
+               
                 if (!is_run)
                 {
+                    ani.SetBool("跑", true);
+                    ani.SetBool("暫停", false);
                     //跑步動畫放這兒
                     is_run = true;
                 }
-                if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
+                if (Vector3.Distance(player.transform.position, transform.position) < 1f)
                 {
+                    ChaseRadiusCheck();
                     break;
                 }
 
@@ -219,7 +219,13 @@ public class Monkey : MonoBehaviour
     void WarnCheck()
     {
         diatanceToPlay = Vector3.Distance(player.transform.position, transform.position);
-        if (diatanceToPlay < defendRadius)
+        if (diatanceToPlay < attackRange)
+        {
+            // print("已進入怪物攻擊範圍");
+            monster_attack();
+
+        }
+        else if (diatanceToPlay < defendRadius)
         {
             is_warn = false;
             currentState = MonsterState.CHASE; //在靠近就要開始追主角了!!
