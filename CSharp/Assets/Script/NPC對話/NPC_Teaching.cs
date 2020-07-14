@@ -71,7 +71,7 @@ public class NPC_Teaching : MonoBehaviour
             }*/
         // StartCoroutine(SetTextUI());
         //}*/
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)||Input.GetMouseButtonDown(0))
         {
             if(textFinished && !cancelTyping)
             {

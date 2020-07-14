@@ -113,7 +113,7 @@ public class Role_static : MonoBehaviour
         else
         {
             
-            if (Time.time - HungryTime > 3f)
+            if (Time.time - HungryTime > 60f)
             {
                 if (player.GetComponent<Role_quality>().health-5 >=0)
                 {
@@ -138,7 +138,7 @@ public class Role_static : MonoBehaviour
     {
         if (player.GetComponent<Role_quality>().guilt >= 100)
         {
-            if(Time.time - GuiltTime>3f)
+            if(Time.time - GuiltTime>60f)
             {
                  if (player.GetComponent<Role_quality>().health - 5 >= 0)
                  {

@@ -35,12 +35,12 @@ public class Animal_hurt : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.W) && Vector3.Distance(Role.transform.position, transform.position) < 2f)
+        if (Input.GetKeyUp(KeyCode.W) && Vector3.Distance(Role.transform.position, transform.position) < 3f)
         {
             MonsterHurt();
            
         }
-        if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 2f))
+        if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 3f))
         {
              Mouse_atk();
         }

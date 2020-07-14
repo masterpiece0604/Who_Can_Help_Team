@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // 空格ID
     public int slotID;
@@ -16,7 +16,7 @@ public class Slot : MonoBehaviour
     public bool controlText = false;
 
     [Header("物品介紹")]
-    public GameObject Item_Information;
+    //public GameObject Item_Information;
     public Text ItemInfoText;
 
     public GameObject itemInSlot;
@@ -29,12 +29,12 @@ public class Slot : MonoBehaviour
     
     void Update()
     {
-        Item_Information.gameObject.SetActive(controlText);
+        //Item_Information.gameObject.SetActive(controlText);
         //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-        if (controlText)
+        /*if (controlText)
         {
             Item_Information.layer = 50;
-        }
+        }*/
     }
 
 
@@ -66,5 +66,23 @@ public class Slot : MonoBehaviour
         slotInfo = item.itemInfo;
     }
 
-   
+    private Transform info;
+
+    private void Start()
+    {
+        info = GameObject.Find("iteminfoimage").transform;
+        info.gameObject.GetComponent<CanvasGroup>().alpha = 0;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!transform.GetChild(0).gameObject.activeInHierarchy) return;
+        info.gameObject.GetComponent<CanvasGroup>().alpha = 1;
+        info.position = eventData.position + new Vector2(150, 0);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        info.gameObject.GetComponent<CanvasGroup>().alpha = 0;
+    }
 }

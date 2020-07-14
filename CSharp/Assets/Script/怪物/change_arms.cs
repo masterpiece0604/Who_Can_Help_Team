@@ -13,7 +13,7 @@ public class change_arms : MonoBehaviour
         GameObject a;
         for (int i = 0; i < myArms.Length - 1; i++)
         {
-            print(myArms[i] + "" + i);
+            
             if (myArms[i].name == "美工刀")
             {
                 a = myArms[0];
