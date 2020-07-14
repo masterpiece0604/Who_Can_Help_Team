@@ -110,11 +110,6 @@ public class ctrllor1 : MonoBehaviour
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime + 3f), Space.Self);
 
             }
-            else
-            {
-                print("正在冷卻中"+ Time.realtimeSinceStartup+"上次時間"+ lastTouchTime);
-            }
-
         }
         else
         {

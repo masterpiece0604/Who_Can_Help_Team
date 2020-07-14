@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+    [Header("NPC對話框畫布")]
     public GameObject talkingField;
     public bool talking;
     public bool a;

@@ -18,6 +18,7 @@ public class NPC_Teaching : MonoBehaviour
     public bool textFinished;
     bool cancelTyping;
 
+
     public Atk_Teaching Atk_Teaching;
 
     public List<string> textList = new List<string>();
@@ -43,6 +44,7 @@ public class NPC_Teaching : MonoBehaviour
         index = 2;
         //StartCoroutine(SetTextUI());
         gameObject.SetActive(false);
+        //Atk_Teaching.AtkTeachingCanvas.SetActive(false);
     }
 
     private void Update()
@@ -54,6 +56,7 @@ public class NPC_Teaching : MonoBehaviour
             NPC.UI.SetActive(true);
             NPC.talking = false;
             NPC.talkingField.SetActive(false);
+            
             Atk_Teaching.AtkTeachingCanvas.SetActive(false);
             index = 2;
             return;

@@ -2,7 +2,7 @@
 
 public class Introduce : MonoBehaviour
 {
-    public GameObject days,littleMap,weapon,state,info,item,itemClose;
+    public GameObject days,littleMap,weapon,state,info,item,itemClose, WalkAndTalk;
     [Header("開局UI簡介")]
     public GameObject BeginUIIntroduce;
     public ctrllor1 ctrllor1;
@@ -17,7 +17,9 @@ public class Introduce : MonoBehaviour
         item.SetActive(false);
 
         itemClose.SetActive(false);
-        
+
+        WalkAndTalk.SetActive(false);
+
         BeginUIIntroduce.SetActive(true);
         
     }
@@ -37,9 +39,15 @@ public class Introduce : MonoBehaviour
         }
         else if (itemClose.activeSelf == true && Input.GetKeyDown(KeyCode.I))
         {
+            //ctrllor1.Introduce = false;
+            //BeginUIIntroduce.SetActive(false);
+            itemClose.SetActive(false);
+            WalkAndTalk.SetActive(true);
+        }
+        else if (itemClose.activeSelf == false && Input.GetMouseButtonDown(1))
+        {
             ctrllor1.Introduce = false;
             BeginUIIntroduce.SetActive(false);
-            
         }
     }
     
