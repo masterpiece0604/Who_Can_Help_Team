@@ -5,6 +5,8 @@ public class Atk_Teaching : MonoBehaviour
     [Header("攻擊教學對話框畫布")]
     public GameObject AtkTeachingCanvas;
     public ctrllor1 ctrllor1;
+    public GameObject UI;
+    //public NPC_Teaching NPC_Teaching;
 
     bool a;
     bool b;
@@ -22,6 +24,7 @@ public class Atk_Teaching : MonoBehaviour
             ctrllor1.NPC = true;
             a = false;
             b = false;
+            UI.SetActive(false);
         }
     }
 
@@ -29,6 +32,7 @@ public class Atk_Teaching : MonoBehaviour
     {
         if (hit.GetComponent<Collider>().tag == "Player" && b == true)
         {
+
             a = !a;
             ctrllor1.Sstand();
         }
