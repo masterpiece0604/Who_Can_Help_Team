@@ -4,34 +4,81 @@ using UnityEngine;
 
 public class BagAssign : MonoBehaviour
 {
+    static BagAssign BA;
     public Inventory myBag;
+    public Inventory Eqi;
+    public Inventory Use;
+    public Inventory Make;
+
 
     public List<Item> prop;
-    public List<Item> Arms_Prop;
+    public List<Item> Eqi_Prop;
+    public List<Item> Use_Prop;
+    public List<Item> Make_Prop;
 
+    static InventoryManager instance;
+    internal static object re;
 
     private void Start()
     {
-        prop = myBag.itemList;
-        Delete_null();
-        Assgin();
-        print(prop[0].name);
-    }
-    private void Delete_null() 
-    { 
+        reassign();
+        
 
     }
 
-    private void Assgin()
+    public void reassign()
     {
-        IEnumerable<Item> Arms =
+        prop = myBag.itemList;
+        Assgin_Eqi();
+        Assgin_Use();
+        Assgin_Make();
+    }
+
+
+    private void Assgin_Eqi()
+    {
+        
+            IEnumerable<Item> Get_Prop =
             from A in prop
             where A.equipment == true
             select A;
-       foreach(Item A in Arms)
+
+        Eqi_Prop.Clear();
+        foreach (Item A in Get_Prop)
         {
-            print(A.name);
+            Eqi_Prop.Add(A);
         }
-       
+        Eqi.itemList = Eqi_Prop;
+
     }
+    private void Assgin_Use()
+    {
+        IEnumerable<Item> Get_Prop =
+            from A in prop
+            where A.use == true
+            select A;
+        Use_Prop.Clear();
+        foreach (Item A in Get_Prop)
+        {
+            Use_Prop.Add(A);
+        }
+        Use.itemList = Use_Prop;
+    }
+    private void Assgin_Make()
+    {
+
+        IEnumerable<Item> Get_Prop =
+            from A in prop
+            where A.manufactur == true
+            select A;
+        Make_Prop.Clear();
+        foreach (Item A in Get_Prop)
+        {
+            Make_Prop.Add(A);
+        }
+        Make.itemList = Make_Prop;
+    }
+
+    
+     
 }
