@@ -9,13 +9,6 @@ public class Atk_Teaching : MonoBehaviour
     bool a;
     bool b;
 
-    private void OnTriggerEnter(Collider hit)
-    {
-        if (hit.GetComponent<Collider>().tag == "Player")
-            a = !a;
-        ctrllor1.Sstand();
-    }
-
     private void Start()
     {
         b = true;
@@ -29,6 +22,15 @@ public class Atk_Teaching : MonoBehaviour
             ctrllor1.NPC = true;
             a = false;
             b = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider hit)
+    {
+        if (hit.GetComponent<Collider>().tag == "Player" && b == true)
+        {
+            a = !a;
+            ctrllor1.Sstand();
         }
     }
 }

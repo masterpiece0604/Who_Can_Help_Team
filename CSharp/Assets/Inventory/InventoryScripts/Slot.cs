@@ -78,7 +78,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (!transform.GetChild(0).gameObject.activeInHierarchy) return;
         info.gameObject.GetComponent<CanvasGroup>().alpha = 1;
-        info.position = eventData.position + new Vector2(150, 0);
+        info.position = eventData.position + new Vector2(100, -100);
     }
 
     public void OnPointerExit(PointerEventData eventData)

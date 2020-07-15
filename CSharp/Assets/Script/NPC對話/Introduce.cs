@@ -44,10 +44,11 @@ public class Introduce : MonoBehaviour
             itemClose.SetActive(false);
             WalkAndTalk.SetActive(true);
         }
-        else if (itemClose.activeSelf == false && Input.GetMouseButtonDown(1))
+        else if (item.activeSelf == false && itemClose.activeSelf == false && Input.GetMouseButtonDown(1))
         {
             ctrllor1.Introduce = false;
             BeginUIIntroduce.SetActive(false);
+            print("123");
         }
     }
     
