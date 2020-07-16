@@ -30,12 +30,12 @@ public class Introduce : MonoBehaviour
         {
             ctrllor1.Introduce = true;
         }
+
         if (item.activeSelf == true && Input.GetKeyDown(KeyCode.I))
         {
             //ctrllor1.Introduce = false;
             itemClose.SetActive(true);
-            item.SetActive(false);
-            
+            item.SetActive(false);            
         }
         else if (itemClose.activeSelf == true && Input.GetKeyDown(KeyCode.I))
         {
