@@ -59,8 +59,8 @@ public class Animal_hurt : MonoBehaviour
             if (HP.fillAmount <= 0)
             {
                 animator.SetBool("死亡", true);
-                
-                if(Role.GetComponent<Role_quality>().guilt<100)
+                AddNewItem();
+                if (Role.GetComponent<Role_quality>().guilt<100)
                 {
                     
                     Role.GetComponent<Role_quality>().guilt ++;
@@ -82,15 +82,14 @@ public class Animal_hurt : MonoBehaviour
             ray = main_camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
             RaycastHit[] raycasthit = Physics.RaycastAll(ray, 50);
 
-            print("滑鼠沒有攻擊0"+ raycasthit.Length);
             for (int i = 0; i < raycasthit.Length; i++)
             {
-                print("滑鼠沒有攻擊1");
+                
                 if (raycasthit[i].collider.tag == gameObject.tag)
                 {
                     ani.HP -= Role.GetComponent<Role_attak>().ArmsAttak;
                     HP.fillAmount = ani.HP  / ori_HP;
-                    print("滑鼠沒有攻擊2");
+                  
                     if (HP.fillAmount <= 0)
                     {
                         animator.SetBool("死亡", true);
@@ -116,21 +115,15 @@ public class Animal_hurt : MonoBehaviour
     {
         if (!playerInventory.itemList.Contains(thisItem))
         {
+            playerInventory.itemList.Add(thisItem);
             
-            for (int i = 0; i < playerInventory.itemList.Count; i++)
-            {
-                if (playerInventory.itemList[i] == null)
-                {
-                    playerInventory.itemList[i] = thisItem;
-                    thisItem.itemHold += 1;
-                    break;
-                }
-            }
         }
         else
         {
+            
             thisItem.itemHold += 1;
         }
         InventoryManager.RefreshItem();
+        
     }
 }

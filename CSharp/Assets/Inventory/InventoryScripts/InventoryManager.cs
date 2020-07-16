@@ -8,9 +8,14 @@ public class InventoryManager : MonoBehaviour
     static InventoryManager instance;
 
     public Inventory myBag;
-    public GameObject slotGrid;
+    public Inventory Eqi;
+    public Inventory Use;
+    public Inventory Make;
+    public GameObject slotGrid, slotGridEQI, slotGridUSE, slotGridMAKE ;
+   
     //public Slot slotPrefab;
     public GameObject emptySlot;
+    public GameObject Bag;
     public Text itemInformation;
 
     /*public GameObject itemInfoImage;
@@ -22,6 +27,8 @@ public class InventoryManager : MonoBehaviour
     public bool controlText = false;*/
 
     public List<GameObject> slots = new List<GameObject> ();
+
+    
 
     /*void Update()
     {
@@ -40,7 +47,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (instance != null)
             Destroy(this);
-        instance = this;
+        instance = this;        
     }
 
     /*private void Update()
@@ -55,6 +62,7 @@ public class InventoryManager : MonoBehaviour
         itemInfoImage.transform.position = InfoImagePosition;
         
     }*/
+    
 
     private void OnEnable()
     {
@@ -78,6 +86,7 @@ public class InventoryManager : MonoBehaviour
 
     public static void RefreshItem()
     {
+        instance.Bag.GetComponent<BagAssign>().reassign();
         for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
         {
             if (instance.slotGrid.transform.childCount == 0)
@@ -94,5 +103,60 @@ public class InventoryManager : MonoBehaviour
             instance.slots[i].GetComponent<Slot>().slotID = i;
             instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
         }
+
+        for (int i = 0; i < instance.slotGridEQI.transform.childCount; i++)
+        {
+            if (instance.slotGridEQI.transform.childCount == 0)
+                break;
+            Destroy(instance.slotGridEQI.transform.GetChild(i).gameObject);
+            instance.slots.Clear();
+        }
+
+        for (int i = 0; i < instance.Eqi.itemList.Count; i++)
+        {
+            //CreateNewItem(instance.myBag.itemList[i]);
+            instance.slots.Add(Instantiate(instance.emptySlot));
+            instance.slots[i].transform.SetParent(instance.slotGridEQI.transform);
+            instance.slots[i].GetComponent<Slot>().slotID = i;
+            instance.slots[i].GetComponent<Slot>().SetupSlot(instance.Eqi.itemList[i]);
+        }
+
+        for (int i = 0; i < instance.slotGridUSE.transform.childCount; i++)
+        {
+            if (instance.slotGridUSE.transform.childCount == 0)
+                break;
+            Destroy(instance.slotGridUSE.transform.GetChild(i).gameObject);
+            instance.slots.Clear();
+        }
+
+        for (int i = 0; i < instance.Use.itemList.Count; i++)
+        {
+            //CreateNewItem(instance.myBag.itemList[i]);
+            instance.slots.Add(Instantiate(instance.emptySlot));
+            instance.slots[i].transform.SetParent(instance.slotGridUSE.transform);
+            instance.slots[i].GetComponent<Slot>().slotID = i;
+            instance.slots[i].GetComponent<Slot>().SetupSlot(instance.Use.itemList[i]);
+        }
+
+        for (int i = 0; i < instance.slotGridMAKE.transform.childCount; i++)
+        {
+            if (instance.slotGridMAKE.transform.childCount == 0)
+                break;
+            Destroy(instance.slotGridMAKE.transform.GetChild(i).gameObject);
+            instance.slots.Clear();
+        }
+
+        for (int i = 0; i < instance.Make.itemList.Count; i++)
+        {
+            //CreateNewItem(instance.myBag.itemList[i]);
+            instance.slots.Add(Instantiate(instance.emptySlot));
+            instance.slots[i].transform.SetParent(instance.slotGridMAKE.transform);
+            instance.slots[i].GetComponent<Slot>().slotID = i;
+            instance.slots[i].GetComponent<Slot>().SetupSlot(instance.Make.itemList[i]);
+        }
+
     }
+
+
+
 }

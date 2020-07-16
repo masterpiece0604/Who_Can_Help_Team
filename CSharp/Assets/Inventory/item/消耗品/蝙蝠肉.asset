@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u8759\u8760\u8089"
   m_EditorClassIdentifier: 
   itemName: "\u8759\u8760\u8089"
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300050, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
   itemHold: 0
   Durability: 101
   itemInfo: "\u53EF\u98DF\u7528\uFF0C\u4F46\u8ACB\u60A8\u4E0D\u8981\u9019\u6A23\u505A\uFF0C\u6703\u5E36\u4F86\u4E0D\u597D\u7684\u5F8C\u679C\u3002"

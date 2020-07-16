@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using System.Collections;
 
 public class ctrllor1 : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class ctrllor1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        look_at_point.transform.position = gameObject.transform.position;
         wait = true;
         run = false;
         openbag = false;
@@ -34,6 +36,7 @@ public class ctrllor1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
         {
             if (NPC == false && Introduce == false)
@@ -46,8 +49,8 @@ public class ctrllor1 : MonoBehaviour
                     if (raycasthit[i].collider.tag == "floor")
                     {
                         look_at_point.transform.position = raycasthit[i].point;
-                        this.transform.LookAt(look_at_point.transform);
-                        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+                        transform.LookAt(look_at_point.transform);
+                        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                         set_allstate_false();
                         run = true;
 
@@ -55,7 +58,7 @@ public class ctrllor1 : MonoBehaviour
                     else if (raycasthit[i].collider.tag == "怪獸")
                     {
                        // this.transform.LookAt(monster.transform);
-                        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+                        this.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                         set_allstate_false();
                         run = true;
                     }
@@ -65,8 +68,10 @@ public class ctrllor1 : MonoBehaviour
             
             
         }
+        
 
-       
+
+
 
         if (run == true)
         {
@@ -88,7 +93,27 @@ public class ctrllor1 : MonoBehaviour
         openplayerbag();
         playerbag.SetActive(openbag);
 
+        MoveAddForce();
+    }
 
+    private void MoveAddForce()
+    {
+        
+        if(Vector3.Distance(gameObject.transform.position, look_at_point.transform.position)>5f)           
+        {
+            transform.LookAt(look_at_point.transform);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward *300f);
+           
+        }
+      else if(gameObject.transform.position==look_at_point.transform.position)
+        {
+            transform.LookAt(look_at_point.transform);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 0f);
+        }
+        
+       
     }
 
     void moving(float speed)
@@ -103,18 +128,18 @@ public class ctrllor1 : MonoBehaviour
         if (E_move)
         {
             //判斷冷卻時間
-            E_colling=Set_Emove(E_colling);
+            E_colling = Set_Emove(E_colling);
 
-            if(E_colling)
+            if (E_colling)
             {
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime + 3f), Space.Self);
+                
+                transform.LookAt(look_at_point.transform);
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
             }
         }
-        else
-        {
-            transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
-        }
+        
         if(S_stand)
         {
             Sstand();
