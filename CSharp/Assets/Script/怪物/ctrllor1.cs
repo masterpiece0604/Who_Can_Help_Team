@@ -161,11 +161,14 @@ public class ctrllor1 : MonoBehaviour
             openbag = !openbag;
             
         }
-
     }
 
+    public void CloseBag()
+    {
+        openbag = !openbag;
+    }
 
-   public bool Set_Emove(bool E)
+    public bool Set_Emove(bool E)
     {
         if(Time.realtimeSinceStartup-lastTouchTime>3f)
          {
@@ -179,10 +182,8 @@ public class ctrllor1 : MonoBehaviour
             E = false;
             return E;
         }
-        
-
-
     }
+
     public void Sstand()
     {
         this.transform.LookAt(this.transform);
