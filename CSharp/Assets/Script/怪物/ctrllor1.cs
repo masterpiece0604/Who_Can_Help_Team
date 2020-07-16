@@ -164,6 +164,10 @@ public class ctrllor1 : MonoBehaviour
 
     }
 
+    public void closeBag()
+    {
+        openbag = !openbag;
+    }
 
    public bool Set_Emove(bool E)
     {

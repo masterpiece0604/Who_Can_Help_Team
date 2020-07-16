@@ -80,5 +80,6 @@ public class Introduce : MonoBehaviour
     {
         littleMap.SetActive(false);
         item.SetActive(true);
+        
     }
 }

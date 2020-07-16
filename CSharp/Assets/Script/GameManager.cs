@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
     [Header("存檔文字")]
     public GameObject save;
     [Header("訊息對話框")]
-    public GameObject log;
+    public GameObject LogIsOpen;
+    public GameObject LogIsClosed;
 
     public NPC NPC;
+    public PauseUIManager PauseUIManager;
 
     public bool onOpenPause;
     public bool onOpenPause1;
@@ -22,12 +24,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        onOpenPause1=true;
+        onOpenPause1 = true;
+        logState = false;
+        MoveLogMsg();
     }
 
     private void Update()
     {
         NpcTalkOnOpen = NPC.talking;
+        
     }
 
     /// <summary>
@@ -47,6 +52,8 @@ public class GameManager : MonoBehaviour
             NPC.talkingField.SetActive(NpcTalkOnOpen);
         }
         pause.gameObject.SetActive(onOpenPause);
+        PauseUIManager.onPause = true;
+        PauseUIManager.onSaveGame = false;
     }
     /// <summary>
     /// 按下設定的Save
@@ -66,11 +73,13 @@ public class GameManager : MonoBehaviour
         logState = !logState;
         if (logState == false)
         {
-            log.transform.Translate(-190, 205, 0);
+            LogIsOpen.SetActive(false);
+            LogIsClosed.SetActive(true);
         }
         if (logState == true)
         {
-            log.transform.Translate(242.5f, 205,0);
+            LogIsOpen.SetActive(true);
+            LogIsClosed.SetActive(false);
         }
     }
 
