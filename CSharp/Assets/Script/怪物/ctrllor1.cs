@@ -17,11 +17,18 @@ public class ctrllor1 : MonoBehaviour
 
     public bool NPC;
     public bool Introduce;
-    
+
+    private Rigidbody rig;
+
 
     //上一次點擊順移的時間
     private float lastTouchTime = 0f;
 
+
+    private void Awake()
+    {
+        rig = GetComponent<Rigidbody>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +37,13 @@ public class ctrllor1 : MonoBehaviour
         wait = true;
         run = false;
         openbag = false;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
         {
             if (NPC == false && Introduce == false)
@@ -57,18 +64,18 @@ public class ctrllor1 : MonoBehaviour
                     }
                     else if (raycasthit[i].collider.tag == "怪獸")
                     {
-                       // this.transform.LookAt(monster.transform);
+                        // this.transform.LookAt(monster.transform);
                         this.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                         set_allstate_false();
                         run = true;
                     }
-                
+
                 }
             }
-            
-            
+
+
         }
-        
+
 
 
 
@@ -85,8 +92,8 @@ public class ctrllor1 : MonoBehaviour
             {
                 moving(playerspeed);
             }
-            
-        
+
+
         }
 
         //開啟玩家背包
@@ -98,22 +105,20 @@ public class ctrllor1 : MonoBehaviour
 
     private void MoveAddForce()
     {
-        
-        if(Vector3.Distance(gameObject.transform.position, look_at_point.transform.position)>5f)           
+
+        if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) > 2f)
         {
             transform.LookAt(look_at_point.transform);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward *300f);
-           
+            rig.AddForce(transform.forward * playerspeed);
+
         }
-      else if(gameObject.transform.position==look_at_point.transform.position)
+        else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) <1f)
         {
-            transform.LookAt(look_at_point.transform);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 0f);
+            rig.velocity = Vector3.zero;
         }
-        
-       
+
+
     }
 
     void moving(float speed)
@@ -133,14 +138,14 @@ public class ctrllor1 : MonoBehaviour
             if (E_colling)
             {
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime + 3f), Space.Self);
-                
+
                 transform.LookAt(look_at_point.transform);
                 transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
             }
         }
-        
-        if(S_stand)
+
+        if (S_stand)
         {
             Sstand();
         }
@@ -159,7 +164,7 @@ public class ctrllor1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             openbag = !openbag;
-            
+
         }
 
     }
@@ -169,13 +174,13 @@ public class ctrllor1 : MonoBehaviour
         openbag = !openbag;
     }
 
-   public bool Set_Emove(bool E)
+    public bool Set_Emove(bool E)
     {
-        if(Time.realtimeSinceStartup-lastTouchTime>3f)
-         {
+        if (Time.realtimeSinceStartup - lastTouchTime > 3f)
+        {
             lastTouchTime = Time.realtimeSinceStartup;
             E = true;
-            return E ;
+            return E;
 
         }
         else
@@ -183,7 +188,7 @@ public class ctrllor1 : MonoBehaviour
             E = false;
             return E;
         }
-        
+
 
 
     }

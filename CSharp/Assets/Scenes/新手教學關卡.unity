@@ -15528,7 +15528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326ad315928f3514b8d6aed1199a959e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerspeed: 8
+  playerspeed: 300
   wait: 0
   run: 0
   main_camera: {fileID: 963194227}
@@ -15623,7 +15623,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
