@@ -15642,14 +15642,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 999
-  healthObject: {fileID: 1551736639826301335}
+  healthObject: {fileID: 1551736639826301329}
   hungry: 0
-  hungryObject: {fileID: 1551736639336706305}
+  hungryObject: {fileID: 1551736639336706307}
   guilt: 0
-  guiltObject: {fileID: 1551736640318288193}
+  guiltObject: {fileID: 1551736640318288195}
   prop: {fileID: 0}
   sick: 0
-  sickObject: {fileID: 1551736640554399452}
+  sickObject: {fileID: 1551736640554399454}
 --- !u!114 &342134313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15702,7 +15702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6201a72061c6943acbff89af34f885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 342134305}
+  player: {fileID: 0}
   GameOver: {fileID: 1452255109}
   Bat: {fileID: 0}
   Monkey: {fileID: 0}
@@ -17893,7 +17893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &377938536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91833,7 +91833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1863555775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107914,7 +107914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4421557008638395621
 MonoBehaviour:
   m_ObjectHideFlags: 0

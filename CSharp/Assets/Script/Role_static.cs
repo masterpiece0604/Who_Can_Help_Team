@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Role_static : MonoBehaviour
 {
-    public GameObject player;
+    public Role_quality player;
 
     // 增加飢餓程度的時間
     private float HungryTime = 0;
@@ -25,6 +25,7 @@ public class Role_static : MonoBehaviour
         GuiltTime = Time.time;
         GameOver.enabled = false;
         GameOver.GetComponentInChildren<Text>().text = "";
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Role_quality>();
     }
 
     private void Update()
@@ -36,17 +37,17 @@ public class Role_static : MonoBehaviour
 
     public void Health_Light()
     {
-        if (player.GetComponent<Role_quality>().health - Bat.hurt >= 0)
+        if (player.health - Bat.hurt >= 0)
         {
-            player.GetComponent<Role_quality>().health -= Bat.hurt;
+            player.health -= Bat.hurt;
             GuiltTime = Time.time;
 
         }
         else
         {
-            player.GetComponent<Role_quality>().health -= Bat.hurt;
-            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
-            player.GetComponent<Role_quality>().health = 0;
+            player.health -= Bat.hurt;
+            player.sick = -player.GetComponent<Role_quality>().health + player.sick;
+            player.health = 0;
             GuiltTime = Time.time;
 
         }
@@ -54,34 +55,34 @@ public class Role_static : MonoBehaviour
 
     public void Health_Teeth()
     {
-        if (player.GetComponent<Role_quality>().health - G8Person.hurt >= 0)
+        if (player.health - G8Person.hurt >= 0)
         {
-            player.GetComponent<Role_quality>().health -= G8Person.hurt;
+            player.health -= G8Person.hurt;
             GuiltTime = Time.time;
 
         }
         else
         {
-            player.GetComponent<Role_quality>().health -= G8Person.hurt;
-            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
-            player.GetComponent<Role_quality>().health = 0;
+            player.health -= G8Person.hurt;
+            player.sick = -player.health + player.sick;
+            player.health = 0;
             GuiltTime = Time.time;
 
         }
     }
     public void Health_Banana()
     {
-        if (player.GetComponent<Role_quality>().health - Monkey.hurt >= 0)
+        if (player.health - Monkey.hurt >= 0)
         {
-            player.GetComponent<Role_quality>().health -= Monkey.hurt;
+            player.health -= Monkey.hurt;
             GuiltTime = Time.time;
 
         }
         else
         {
-            player.GetComponent<Role_quality>().health -= Monkey.hurt;
-            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
-            player.GetComponent<Role_quality>().health = 0;
+            player.health -= Monkey.hurt;
+            player.sick = -player.health + player.sick;
+            player.health = 0;
             GuiltTime = Time.time;
 
         }
@@ -89,7 +90,7 @@ public class Role_static : MonoBehaviour
 
     public void Sick()
     {
-        if(player.GetComponent<Role_quality>().sick>=100)
+        if(player.sick>=100)
         {
             GameOver.enabled = true;
             GameOver.GetComponentInChildren<Text>().text = "GameOver";
@@ -101,11 +102,11 @@ public class Role_static : MonoBehaviour
     /// </summary>
     public void Hungry()
     {
-        if(player.GetComponent<Role_quality>().hungry<100)
+        if(player.hungry<100)
         {
             if(Time.time - HungryTime > 6)
                     {
-                        player.GetComponent<Role_quality>().hungry += 1;
+                        player.hungry += 1;
                         HungryTime = Time.time;
                        
                     }
@@ -115,17 +116,17 @@ public class Role_static : MonoBehaviour
             
             if (Time.time - HungryTime > 60f)
             {
-                if (player.GetComponent<Role_quality>().health-5 >=0)
+                if (player.health-5 >=0)
                 {
-                    player.GetComponent<Role_quality>().health -= 5;
+                    player.health -= 5;
                     HungryTime = Time.time;
                     
                 }
                 else
                 {
-                    player.GetComponent<Role_quality>().health -= 5;
-                    player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
-                    player.GetComponent<Role_quality>().health =0;
+                    player.health -= 5;
+                    player.sick = -player.health + player.sick;
+                    player.health =0;
                     HungryTime = Time.time;
                    
                 }
@@ -136,21 +137,21 @@ public class Role_static : MonoBehaviour
 
     public void Guilt()
     {
-        if (player.GetComponent<Role_quality>().guilt >= 100)
+        if (player.guilt >= 100)
         {
             if(Time.time - GuiltTime>60f)
             {
-                 if (player.GetComponent<Role_quality>().health - 5 >= 0)
+                 if (player.health - 5 >= 0)
                  {
-                      player.GetComponent<Role_quality>().health -= 5;
+                      player.health -= 5;
                       GuiltTime = Time.time;
 
                  }
                   else
                    {
-                       player.GetComponent<Role_quality>().health -= 5;
-                       player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
-                       player.GetComponent<Role_quality>().health = 0;
+                       player.health -= 5;
+                       player.sick = -player.health + player.sick;
+                       player.health = 0;
                        GuiltTime = Time.time;
 
                    }

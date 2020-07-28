@@ -14,12 +14,13 @@ public class monster_appear : MonoBehaviour
     void Start()
     {
         monstercreator(0);
-       
+        tagObject = GameObject.FindGameObjectsWithTag(monster.tag);
+
     }
 
     private void Update()
     {
-        tagObject = GameObject.FindGameObjectsWithTag(monster.tag);
+       
         if(tagObject.Length<=Monster_most_total-1)
         {
             monstercreator(2);

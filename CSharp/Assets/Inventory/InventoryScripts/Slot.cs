@@ -12,6 +12,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Image slotImage;
     public Text slotNum;
     public string slotInfo;
+    public string slotName;
 
     public bool controlText = false;
 
@@ -60,10 +61,11 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             itemInSlot.SetActive(false);
             return;
         }
-
+        slotItem = item;
         slotImage.sprite = item.itemImage;
         slotNum.text = item.itemHold.ToString();
         slotInfo = item.itemInfo;
+        slotName = item.itemName;
     }
 
     private Transform info;
