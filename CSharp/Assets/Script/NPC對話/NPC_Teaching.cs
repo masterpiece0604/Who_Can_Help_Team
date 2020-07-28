@@ -49,18 +49,21 @@ public class NPC_Teaching : MonoBehaviour
 
     private void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.F) && index == textList.Count)
+        if(Input.GetKeyDown(KeyCode.F)|| Input.GetMouseButtonDown(0))
         {
-            ctrllor1.NPC = false;
-            NPC.UI.SetActive(true);
-            NPC.talking = false;
-            NPC.talkingField.SetActive(false);
-            
-            Atk_Teaching.AtkTeachingCanvas.SetActive(false);
-            index = 2;
-            return;
+            if (index == textList.Count)
+            {
+                ctrllor1.NPC = false;
+                NPC.UI.SetActive(true);
+                NPC.talking = false;
+                NPC.talkingField.SetActive(false);
+
+                Atk_Teaching.AtkTeachingCanvas.SetActive(false);
+                index = 2;
+                return;
+            }
         }
+        
         /*if (Input.GetKeyDown(KeyCode.F) && textFinished==true)
         {
             //NPC_Says.text = textList[index];
