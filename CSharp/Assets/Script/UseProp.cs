@@ -48,14 +48,76 @@ public class UseProp : MonoBehaviour
                 break;
 
             case "微波食物":
-                role_Quality.hungry += 40;
+                role_Quality.hungry -= 40;
                 CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "兔兔肉":
-
+                role_Quality.sick += 20;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
+            case "熟的兔兔肉":
+                role_Quality.sick -= 20;
+                CheckDelete(Propinfo.slotItem.itemHold);
+                break;
+
+            case "山豬肉":
+                role_Quality.sick += 20;
+                CheckDelete(Propinfo.slotItem.itemHold);
+                break;
+
+            case "熟的生豬肉":
+                role_Quality.sick += 10;
+                role_Quality.hungry -= 20;
+                CheckDelete(Propinfo.slotItem.itemHold);
+                break;
+
+            case "獼猴肉":
+                role_Quality.sick += 30;
+                CheckDelete(Propinfo.slotItem.itemHold);
+                break;
+
+            case "生的獼猴肉":
+                role_Quality.sick += 20;
+                role_Quality.hungry -= 30;
+                CheckDelete(Propinfo.slotItem.itemHold);
+                break;
+
+            case "蝙蝠肉":
+                role_Quality.sick += 50;
+                break;
+
+            case "生的蝙蝠肉":
+                role_Quality.sick += 50;
+                break;
+
+            case "香油錢收據":
+                role_Quality.guilt -= 20;
+                break;
+
+            case "藥草A":
+                role_Quality.sick -= 10;
+                break;
+
+            case "藥草B":
+                role_Quality.sick -= 10;
+                break;
+
+            case "低級解毒藥":
+                role_Quality.sick -= 15;
+                break;
+
+            case "中級解毒藥":
+                role_Quality.sick -= 15;
+                break;
+
+            case "高級解毒藥":
+                role_Quality.sick -= 15;
+                break;
+            case "研磨缽":
+                Grinding();
+                break;
 
         }
           
@@ -71,5 +133,9 @@ public class UseProp : MonoBehaviour
         }
     }
 
+    public void Grinding()
+    {
+        print("我在使用研磨缽");
+    }
 
 }

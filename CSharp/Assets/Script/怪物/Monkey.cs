@@ -55,7 +55,7 @@ public class Monkey : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         initialPos = gameObject.GetComponent<Transform>().position;
         role = player.GetComponent<Role_quality>();
-        ani = GetComponent<Animator>();
+        ani = gameObject.GetComponent<Animator>();
         RandomAct();
 
 
@@ -269,12 +269,10 @@ public class Monkey : MonoBehaviour
     void monster_attack()
     {
 
-       
-
         if (Time.time - lastAtkTime > gameObject.GetComponent<Animal>().attack_frequency)
         {
             ani.SetTrigger("攻擊");
-            DROP.GetComponent<DropBanana>().Throw();
+            DROP.Throw();
             lastAtkTime = Time.time;
             RoleHurt(gameObject.GetComponent<Animal>().hurt);
         }
@@ -285,17 +283,17 @@ public class Monkey : MonoBehaviour
     }
     public void RoleHurt(float atk)
     {
-        if (player.GetComponent<Role_quality>().health - atk >= 0)
+        if (role.health - atk >= 0)
         {
-            player.GetComponent<Role_quality>().health -= atk;
+            role.health -= atk;
 
 
         }
         else
         {
-            player.GetComponent<Role_quality>().health -= atk;
-            player.GetComponent<Role_quality>().sick = -player.GetComponent<Role_quality>().health + player.GetComponent<Role_quality>().sick;
-            player.GetComponent<Role_quality>().health = 0;
+            role.health -= atk;
+            role.sick = -role.health + role.sick;
+            role.health = 0;
 
 
         }

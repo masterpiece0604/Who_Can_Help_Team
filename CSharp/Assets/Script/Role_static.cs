@@ -27,14 +27,13 @@ public class Role_static : MonoBehaviour
         GameOver.GetComponentInChildren<Text>().text = "";
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Role_quality>();
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
         Hungry();
         Guilt();
         Sick();
     }
-
+    
     public void Health_Light()
     {
         if (player.health - Bat.hurt >= 0)
@@ -46,7 +45,7 @@ public class Role_static : MonoBehaviour
         else
         {
             player.health -= Bat.hurt;
-            player.sick = -player.GetComponent<Role_quality>().health + player.sick;
+            player.sick = -player.health + player.sick;
             player.health = 0;
             GuiltTime = Time.time;
 
@@ -95,6 +94,10 @@ public class Role_static : MonoBehaviour
             GameOver.enabled = true;
             GameOver.GetComponentInChildren<Text>().text = "GameOver";
         }
+        if (player.sick < 0)
+        {
+            player.sick = 0;
+        }
     }
 
     /// <summary>
@@ -132,7 +135,11 @@ public class Role_static : MonoBehaviour
                 }
            }
         }
-        
+        if (player.hungry < 0)
+        {
+            player.hungry = 0;
+        }
+
     }
 
     public void Guilt()
@@ -150,13 +157,17 @@ public class Role_static : MonoBehaviour
                   else
                    {
                        player.health -= 5;
-                       player.sick = -player.health + player.sick;
+                       player.guilt = -player.health + player.guilt;
                        player.health = 0;
                        GuiltTime = Time.time;
 
                    }
             }
            
+        }
+        if(player.guilt<0)
+        {
+            player.guilt = 0;
         }
     }
 

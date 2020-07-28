@@ -41,7 +41,7 @@ public class ctrllor1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
@@ -99,9 +99,10 @@ public class ctrllor1 : MonoBehaviour
         //開啟玩家背包
         openplayerbag();
         playerbag.SetActive(openbag);
-
         MoveAddForce();
     }
+
+    
 
     private void MoveAddForce()
     {
@@ -137,12 +138,21 @@ public class ctrllor1 : MonoBehaviour
 
             if (E_colling)
             {
-                transform.Translate(new Vector3(0, 0, speed * Time.deltaTime + 3f), Space.Self);
+                if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) > 3f)
+                {
+                    transform.Translate(new Vector3(0, 0, Time.deltaTime + 3f), Space.Self);
+                    transform.LookAt(look_at_point.transform);
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-                transform.LookAt(look_at_point.transform);
-                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-
-            }
+                }
+                else
+                {
+                    rig.velocity = Vector3.zero;
+                    transform.Translate(new Vector3(0, 0, Time.deltaTime + 3f), Space.Self);
+                    look_at_point.transform.position = transform.position;                    
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                }
+                }
         }
 
         if (S_stand)
@@ -194,8 +204,8 @@ public class ctrllor1 : MonoBehaviour
     }
     public void Sstand()
     {
-        this.transform.LookAt(this.transform);
-        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+        look_at_point.transform.position = transform.position;
+        rig.velocity = Vector3.zero;        
         set_allstate_false();
     }
 
