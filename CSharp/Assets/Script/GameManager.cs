@@ -22,17 +22,37 @@ public class GameManager : MonoBehaviour
     public bool logState;
     bool NpcTalkOnOpen;
 
+    // 猴子物件
+    public GameObject Monkey;
+    // 任務2對話框
+    public GameObject mission2;
+    bool MonkeyAlive;
+    
+
     private void Start()
     {
         onOpenPause1 = true;
         logState = false;
         MoveLogMsg();
+        MonkeyAlive = true;
     }
 
     private void Update()
     {
         NpcTalkOnOpen = NPC.talking;
-        
+        MonkeyIsDead();
+    }
+
+    /// <summary>
+    /// 猴子死亡
+    /// </summary>
+    public void MonkeyIsDead()
+    {
+        if(Monkey == null && MonkeyAlive == true)
+        {
+            mission2.SetActive(true);
+            MonkeyAlive = false;
+        }
     }
 
     /// <summary>
@@ -82,5 +102,6 @@ public class GameManager : MonoBehaviour
             LogIsClosed.SetActive(false);
         }
     }
+
 
 }

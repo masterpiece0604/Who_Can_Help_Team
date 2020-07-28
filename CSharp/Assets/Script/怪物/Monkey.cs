@@ -49,6 +49,9 @@ public class Monkey : MonoBehaviour
 
     public DropBanana DROP;
 
+    // 判定猴死是否死亡
+    public bool monkeyAlive;
+
 
     private void Start()
     {
@@ -57,7 +60,7 @@ public class Monkey : MonoBehaviour
         role = player.GetComponent<Role_quality>();
         ani = GetComponent<Animator>();
         RandomAct();
-
+        monkeyAlive = true;
 
     }
     /// <summary>
