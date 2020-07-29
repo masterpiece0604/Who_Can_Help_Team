@@ -17,8 +17,8 @@ public class NPC_Teaching2 : MonoBehaviour
     public float textSpeed;
     public bool textFinished;
     bool cancelTyping;
-
-    GameObject MonkeyInstantiatPoint;
+    public GameManager GM;
+    
 
 
     public Atk_Teaching Atk_Teaching;
@@ -63,7 +63,6 @@ public class NPC_Teaching2 : MonoBehaviour
                 Atk_Teaching.AtkTeachingCanvas.SetActive(false);
                 index = 2;
 
-                MonkeyInstantiatPoint.
                 return;
             }
         }

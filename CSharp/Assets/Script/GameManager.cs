@@ -23,35 +23,56 @@ public class GameManager : MonoBehaviour
     bool NpcTalkOnOpen;
 
     // 猴子物件
-    public GameObject Monkey;
+    public GameObject Monkey1;
     // 任務2對話框
     public GameObject mission2;
-    bool MonkeyAlive;
-    
+    // 判定猴子是否活著
+    bool Monkey1Alive;
+
+    // 猴子物件
+    public GameObject Monkey2;
+    // 任務2對話框
+    public GameObject mission3;
+    // 判定猴子是否活著
+    bool Monkey2Alive;
 
     private void Start()
     {
         onOpenPause1 = true;
         logState = false;
         MoveLogMsg();
-        MonkeyAlive = true;
+        Monkey1Alive = true;
+        Monkey2Alive = true;
     }
 
     private void Update()
     {
         NpcTalkOnOpen = NPC.talking;
-        MonkeyIsDead();
+        Monkey1IsDead();
+        Monkey2IsDead();
     }
 
     /// <summary>
-    /// 猴子死亡
+    /// 猴子1死亡
     /// </summary>
-    public void MonkeyIsDead()
+    public void Monkey1IsDead()
     {
-        if(Monkey == null && MonkeyAlive == true)
+        if(Monkey1 == null && Monkey1Alive == true)
         {
             mission2.SetActive(true);
-            MonkeyAlive = false;
+            Monkey1Alive = false;
+        }
+    }
+
+    /// <summary>
+    /// 猴子2死亡
+    /// </summary>
+    public void Monkey2IsDead()
+    {
+        if (Monkey2 == null && Monkey2Alive == true)
+        {
+            mission3.SetActive(true);
+            Monkey2Alive = false;
         }
     }
 
