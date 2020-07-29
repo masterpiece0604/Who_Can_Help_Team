@@ -32,7 +32,6 @@ public class Atk_Teaching : MonoBehaviour
     {
         if (hit.GetComponent<Collider>().tag == "Player" && b == true)
         {
-
             a = !a;
             ctrllor1.Sstand();
         }

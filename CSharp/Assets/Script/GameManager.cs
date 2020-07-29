@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public bool logState;
     bool NpcTalkOnOpen;
 
+    // 關UI
+    public Atk_Teaching Player_atk_teaching;
+
     // 猴子物件
     public GameObject Monkey1;
     // 任務2對話框
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
         {
             mission2.SetActive(true);
             Monkey1Alive = false;
+
         }
     }
 
