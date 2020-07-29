@@ -20,10 +20,18 @@ public class Pick : MonoBehaviour
     [Header("採集的物品")]
     public Item thisItem;
 
+    [Header("採集的數量")]
+    public int ItemNum = 1;
+
     public Inventory playerInventory;
 
     //按下F的時間
     float FTime;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void Update()
     {
@@ -63,13 +71,14 @@ public class Pick : MonoBehaviour
                 if (playerInventory.itemList[i] == null)
                 {
                     playerInventory.itemList[i] = thisItem;
+                    thisItem.itemHold += ItemNum;
                     break;
                 }
             }
         }
         else
         {
-            thisItem.itemHold += 1;
+            thisItem.itemHold += ItemNum;
         }
 
         InventoryManager.RefreshItem();

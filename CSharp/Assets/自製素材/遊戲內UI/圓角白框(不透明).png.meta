@@ -1,7 +1,16 @@
 fileFormatVersion: 2
 guid: c3767288f4d149344b31e38f5e503908
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7173968815334641253
+    second: "\u5713\u89D2\u767D\u6846(\u4E0D\u900F\u660E)_0"
+  - first:
+      213: 2333732989946058090
+    second: "\u5713\u89D2\u767D\u6846(\u4E0D\u900F\u660E)_1"
+  - first:
+      213: 4951117982116854626
+    second: "\u5713\u89D2\u767D\u6846(\u4E0D\u900F\u660E)_2"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -109,7 +118,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "\u5713\u89D2\u767D\u6846(\u4E0D\u900F\u660E)_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 21, y: 8, z: 18, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e40c3d0ae0f8360800000000000000
+      internalID: 7173968815334641253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u5713\u89D2\u767D\u6846(\u4E0D\u900F\u660E)_1"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 21, y: 0, z: 18, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65585a2ac5136020800000000000000
+      internalID: 2333732989946058090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u5713\u89D2\u767D\u6846(\u4E0D\u900F\u660E)_2"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 21, y: 0, z: 18, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26bbf159297e5b440800000000000000
+      internalID: 4951117982116854626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
