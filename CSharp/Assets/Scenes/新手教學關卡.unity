@@ -37903,7 +37903,11 @@ MonoBehaviour:
   btns: {fileID: 875147010}
   MedicineA: {fileID: 11400000, guid: 24cbf87c00587dd4d9fa15a203e92768, type: 2}
   MedicineB: {fileID: 11400000, guid: 6691dc34abffc7f42ac4b62f3b1a0cde, type: 2}
+  Low_Medicine: {fileID: 11400000, guid: d485a7fc2ee6a6e4398dd14a845de94b, type: 2}
+  Mid_Medicine: {fileID: 11400000, guid: 307e7283c5da9814bbaf00581c6bed44, type: 2}
+  thisItem: {fileID: 0}
   GetInputNum: {fileID: 7124775880908127658}
+  playerInventory: {fileID: 11400000, guid: 0c048676d63bff449ab95ef944eb2df3, type: 2}
 --- !u!4 &731138596
 Transform:
   m_ObjectHideFlags: 0
@@ -110739,7 +110743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7124775880755542266
 MonoBehaviour:
   m_ObjectHideFlags: 0

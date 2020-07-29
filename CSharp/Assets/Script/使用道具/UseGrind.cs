@@ -10,15 +10,19 @@ public class UseGrind : MonoBehaviour
     public GameObject btns;
     public Item MedicineA;
     public Item MedicineB;
+    public Item Low_Medicine;
+    public Item Mid_Medicine;
+    public Item thisItem;
     private int InputNum;
     private string Make;
     public Text GetInputNum;
+    private string SaveInputNum;
+    public Inventory playerInventory;
 
 
     private void Start()
     {
-        if(GetInputNum.text==null)
-        print(GetInputNum.text);
+        SaveInputNum = GetInputNum.text;
     }
 
     public void LowMedicine()
@@ -38,44 +42,65 @@ public class UseGrind : MonoBehaviour
     }
 
     public void ClickNum()
-    {
-        InputNum = int.Parse(GetInputNum.text);
-        if (InputNum!=0)
+    { 
+        num.SetActive(false);
+        if (GetInputNum.text != SaveInputNum)
         {
-           
-            btns.SetActive(false);
-        
-                switch (Make)
-                        {
+            InputNum = int.Parse(GetInputNum.text);
+            
 
-                            case "低級解毒藥": 
-                                if(InputNum <= MedicineA.itemHold)
-                                {
-                                    OwnItem.text = "獲得" + Make + InputNum + "個";
-                                }
-                                else
-                                {
-                                    OwnItem.text = "材料不夠哦！";
-                                }
-                                break;
-                            case "中級解毒藥":
-                                if (InputNum <= MedicineA.itemHold&& InputNum <= MedicineB.itemHold)
-                                {
-                                    OwnItem.text = "獲得" + Make + InputNum + "個";
-                                }
-                                else
-                                {
-                                    OwnItem.text = "材料不夠哦！";
-                                }
-                                break;
+                switch (Make)
+                {
+
+                    case "低級解毒藥":
+                        if (InputNum <= MedicineA.itemHold)
+                        {
+                            MedicineA.itemHold -= InputNum;
+                            thisItem = Low_Medicine;
+                            OwnItem.text = "獲得" + Make + InputNum + "個";
                         }
+                        else
+                        {
+                            OwnItem.text = "材料不夠哦！";
+                        }
+                        break;
+                    case "中級解毒藥":
+                        if (InputNum <= MedicineA.itemHold && InputNum <= MedicineB.itemHold)
+                        {
+                            MedicineA.itemHold -= InputNum;
+                            MedicineB.itemHold -= InputNum;
+                            thisItem = Mid_Medicine;
+                            AddNewItem();
+                            OwnItem.text = "獲得" + Make + InputNum + "個";
+                        }
+                        else
+                        {
+                            OwnItem.text = "材料不夠哦！";
+                        }
+                        break;
+                }
+         
+        }
+        else
+            {
+                OwnItem.text = "你有想換東西嗎???(很怒)";
+            }
+
+    }
+
+    public void AddNewItem()
+    {
+        if (!playerInventory.itemList.Contains(thisItem))
+        {
+            playerInventory.itemList.Add(thisItem);
+
         }
         else
         {
-            OwnItem.text = "你有想換東西嗎???";
+
+            thisItem.itemHold += 1;
         }
-        
-       
+        InventoryManager.RefreshItem();
 
     }
 }
