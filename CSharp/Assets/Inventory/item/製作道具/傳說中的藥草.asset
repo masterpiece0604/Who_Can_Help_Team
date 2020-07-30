@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: "\u50B3\u8AAA\u4E2D\u7684\u85E5\u8349"
   m_EditorClassIdentifier: 
   itemName: "\u50B3\u8AAA\u4E2D\u7684\u85E5\u8349"
-  itemImage: {fileID: 21300072, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
-  itemHold: 0
+  itemImage: {fileID: 21300000, guid: cc6e823688a75aa4da38771d767c1bb3, type: 3}
+  itemHold: 1
   Durability: 101
   itemInfo: "\u7528\u65BC\u88FD\u4F5C\u50B3\u8AAA\u4E2D\u7684\u89E3\u85E5\uFF0C\u64DA\u50B3\u5728\u68EE\u6797\u6DF1\u8655\uFF0C\u6709\u96BB\u5927\u602A\u7269\u6B63\u5B88\u8B77\u8457\u9019\u682A\u85E5\u8349\u3002"
   equipment: 0

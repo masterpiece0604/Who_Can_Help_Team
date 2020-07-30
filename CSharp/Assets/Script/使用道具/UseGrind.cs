@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UseGrind : MonoBehaviour
 {
     public Text OwnItem;
+    private string OwnText;
     public GameObject num;
     public GameObject btns;
     public Item MedicineA;
@@ -18,11 +17,24 @@ public class UseGrind : MonoBehaviour
     public Text GetInputNum;
     private string SaveInputNum;
     public Inventory playerInventory;
+    [Header("研磨缽對話")]
+    public GameObject bowl;
 
 
     private void Start()
     {
         SaveInputNum = GetInputNum.text;
+        OwnText = OwnItem.text;
+    }
+
+    private void Update()
+    {
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Destroy(bowl);          
+        }
+        
     }
 
     public void LowMedicine()
@@ -58,6 +70,7 @@ public class UseGrind : MonoBehaviour
                             MedicineA.itemHold -= InputNum;
                             thisItem = Low_Medicine;
                             OwnItem.text = "獲得" + Make + InputNum + "個";
+                            AddNewItem();
                         }
                         else
                         {
@@ -93,14 +106,17 @@ public class UseGrind : MonoBehaviour
         if (!playerInventory.itemList.Contains(thisItem))
         {
             playerInventory.itemList.Add(thisItem);
+            thisItem.itemHold += InputNum;
 
         }
         else
         {
 
-            thisItem.itemHold += 1;
+            thisItem.itemHold += InputNum;
         }
         InventoryManager.RefreshItem();
 
     }
+
+    
 }
