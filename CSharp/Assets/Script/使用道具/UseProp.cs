@@ -21,6 +21,9 @@ public class UseProp : MonoBehaviour
     [Header("新手小木屋對話")]
     public GameObject Natice_House;
 
+    public bool istalk;
+    
+
     
 
     private void Start()
@@ -63,7 +66,6 @@ public class UseProp : MonoBehaviour
 
     public void DubbleClick()
     {
-        print(Propinfo.slotName);
         switch(Propinfo.slotName)
         {
             case "口罩":
@@ -156,13 +158,15 @@ public class UseProp : MonoBehaviour
             case "烹飪用具":
                 Cooking();
                 break;
-            case "小木屋":
+            case "新手小木屋":
                 Naticehouse();
                 break;
 
         }
           
     }
+   
+
     public void CheckDelete(int num)
     {
         
@@ -176,22 +180,30 @@ public class UseProp : MonoBehaviour
 
     public void Grinding()
     {
+        CloseUI.Close_UI();
         Instantiate(bowl);
+        
     }
 
     public void SuperMechine()
     {
+        CloseUI.Close_UI();
         Instantiate(Superbowl);
+        
     }
 
     public void Cooking()
     {
+        CloseUI.Close_UI();
         Instantiate(cooking);
+        
     }
 
     public void Naticehouse()
     {
+        CloseUI.Close_UI();
         Instantiate(Natice_House);
+        
     }
 
 }

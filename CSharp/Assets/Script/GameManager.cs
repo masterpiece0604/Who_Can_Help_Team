@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         NpcTalkOnOpen = NPC.talking;
         Monkey1IsDead();
         Monkey2IsDead();
-        TreeAndStone();
+        //TreeAndStone();
         IsMade();
     }
 
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         if(tree == null && stone == null && herbs == null && mission4done == false)
         {
-            mission4.SetActive(true);
+            //mission4.SetActive(true);
             mission4done = true;
             UI.SetActive(false);
             Ctrllor1.NPC = true;

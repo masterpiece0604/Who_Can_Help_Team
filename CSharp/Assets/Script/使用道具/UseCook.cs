@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UseCook : MonoBehaviour
@@ -23,11 +24,15 @@ public class UseCook : MonoBehaviour
     public Inventory playerInventory;
     [Header("烹飪用具對話")]
     public GameObject bowl;
+    public float letterPause = 0.1f;
+    private string word;
+    private bool textFinished;
 
     private void Start()
     {
         SaveInputNum = GetInputNum.text;
         OwnText = OwnItem.text;
+        StartCoroutine(SetTextUI());
     }
 
     private void Update()
@@ -35,6 +40,7 @@ public class UseCook : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            CloseUI.Open_UI();
             Destroy(bowl);
         }
 
@@ -42,105 +48,132 @@ public class UseCook : MonoBehaviour
 
     public void Cook_Rabbit()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "兔兔這麼可愛，怎麼可以吃兔兔QAQ，你有兔兔肉 " + Rabbit.itemHold + "個，請問要煮幾份呢？";
-        Make = "熟的兔兔肉";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "兔兔這麼可愛，怎麼可以吃兔兔QAQ，你有兔兔肉 " + Rabbit.itemHold + "個，請問要煮幾份呢？";
+            StartCoroutine(SetTextUI());
+            Make = "熟的兔兔肉";
+        }
 
     }
     public void Cook_Monkey()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "你有獼猴肉 " + Monkey.itemHold + "個，請問要煮幾份呢？";
-        Make = "熟的獼猴肉";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "你有獼猴肉 " + Monkey.itemHold + "個，請問要煮幾份呢？";
+            StartCoroutine(SetTextUI());
+            Make = "熟的獼猴肉";
+        }
     }
     public void Cook_Pig()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "你有山豬肉 " + Pig.itemHold + "個，請問要煮幾份呢？";
-        Make = "熟的山豬肉";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "你有山豬肉 " + Pig.itemHold + "個，請問要煮幾份呢？";
+            StartCoroutine(SetTextUI());
+            Make = "熟的山豬肉";
+        }
     }
     public void Cook_Bat()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "你有蝙蝠肉 " + Bat.itemHold + "個，請問要煮幾份呢？";
-        Make = "熟的蝙蝠肉";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "你有蝙蝠肉 " + Bat.itemHold + "個，請問要煮幾份呢？";
+            StartCoroutine(SetTextUI());
+            Make = "熟的蝙蝠肉";
+        }
     }
 
     public void ClickNum()
     {
-        num.SetActive(false);
-        if (GetInputNum.text != SaveInputNum)
+        if (textFinished)
         {
-            InputNum = int.Parse(GetInputNum.text);
-
-
-            switch (Make)
+            num.SetActive(false);
+            if (GetInputNum.text != SaveInputNum)
             {
+                InputNum = int.Parse(GetInputNum.text);
 
-                case "熟的兔兔肉":
-                    if(InputNum<=Rabbit.itemHold)
-                    {
-                        Rabbit.itemHold -= InputNum;
-                        thisItem = CookedRabbit;
-                        AddNewItem();
-                        OwnItem.text = "獲得" + Make + InputNum + "個";
-                    }
-                    else
-                    {
-                        OwnItem.text = "材料不夠哦！";
-                    }
-                    break;
-                case "熟的獼猴肉":
-                    if (InputNum <= Monkey.itemHold)
-                    {
-                        Monkey.itemHold -= InputNum;
-                        thisItem = CookedMonkey;
-                        AddNewItem();
-                        OwnItem.text = "獲得" + Make + InputNum + "個";
-                    }
-                    else
-                    {
-                        OwnItem.text = "材料不夠哦！";
-                    }
-                    break;
-                case "熟的山豬肉":
-                    if (InputNum <= Pig.itemHold)
-                    {
-                        Pig.itemHold -= InputNum;
-                        thisItem = CookedPig;
-                        AddNewItem();
-                        OwnItem.text = "獲得" + Make + InputNum + "個";
-                    }
-                    else
-                    {
-                        OwnItem.text = "材料不夠哦！";
-                    }
-                    break;
-                case "熟的蝙蝠肉":
-                    if (InputNum <= Bat.itemHold)
-                    {
-                        Bat.itemHold -= InputNum;
-                        thisItem = CookedBat;
-                        AddNewItem();
-                        OwnItem.text = "獲得" + Make + InputNum + "個";
-                    }
-                    else
-                    {
-                        OwnItem.text = "材料不夠哦！";
-                    }
-                    break;
+
+                switch (Make)
+                {
+
+                    case "熟的兔兔肉":
+                        if (InputNum <= Rabbit.itemHold)
+                        {
+                            Rabbit.itemHold -= InputNum;
+                            thisItem = CookedRabbit;
+                            AddNewItem();
+                            OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
+                        }
+                        else
+                        {
+                            OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
+                        }
+                        break;
+                    case "熟的獼猴肉":
+                        if (InputNum <= Monkey.itemHold)
+                        {
+                            Monkey.itemHold -= InputNum;
+                            thisItem = CookedMonkey;
+                            AddNewItem();
+                            OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
+                        }
+                        else
+                        {
+                            OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
+                        }
+                        break;
+                    case "熟的山豬肉":
+                        if (InputNum <= Pig.itemHold)
+                        {
+                            Pig.itemHold -= InputNum;
+                            thisItem = CookedPig;
+                            AddNewItem();
+                            OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
+                        }
+                        else
+                        {
+                            OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
+                        }
+                        break;
+                    case "熟的蝙蝠肉":
+                        if (InputNum <= Bat.itemHold)
+                        {
+                            Bat.itemHold -= InputNum;
+                            thisItem = CookedBat;
+                            AddNewItem();
+                            OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
+                        }
+                        else
+                        {
+                            OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
+                        }
+                        break;
+                }
+
             }
-
+            else
+            {
+                OwnItem.text = "你有想換東西嗎???(握拳)";
+                StartCoroutine(SetTextUI());
+            }
         }
-        else
-        {
-            OwnItem.text = "你有想換東西嗎???(握拳)";
-        }
-
     }
     public void AddNewItem()
     {
@@ -160,7 +193,20 @@ public class UseCook : MonoBehaviour
     }
     public void Close()
     {
+        CloseUI.Open_UI();
         Destroy(bowl);
     }
+    IEnumerator SetTextUI()
+    {
+        word = OwnItem.text;
+        OwnItem.text = "";
+        textFinished = false;
 
+        foreach (char letter in word.ToCharArray())
+        {
+            OwnItem.text += letter;
+            yield return new WaitForSeconds(letterPause);
+        }
+        textFinished = true;
+    }
 }

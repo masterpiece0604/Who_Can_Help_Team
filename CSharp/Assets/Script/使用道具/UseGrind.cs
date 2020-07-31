@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UseGrind : MonoBehaviour
@@ -19,47 +20,64 @@ public class UseGrind : MonoBehaviour
     public Inventory playerInventory;
     [Header("研磨缽對話")]
     public GameObject bowl;
+    public float letterPause = 0.1f;
+    private string word;
+    private bool textFinished;
+
 
 
     private void Start()
     {
         SaveInputNum = GetInputNum.text;
         OwnText = OwnItem.text;
+        StartCoroutine(SetTextUI());
     }
 
     private void Update()
     {
 
         if(Input.GetKeyDown(KeyCode.F))
-        {
-            Destroy(bowl);          
+        { 
+            CloseUI.Open_UI();
+           // Destroy(bowl);
+           
         }
         
     }
 
     public void LowMedicine()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "製造低級解毒藥需要藥草A，你有藥草A " + MedicineA.itemHold + "個，請問要做幾個呢？";
-        Make = "低級解毒藥";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "製造低級解毒藥需要藥草A，你有藥草A " + MedicineA.itemHold + "個，請問要做幾個呢？";
+            StartCoroutine(SetTextUI());
+            Make = "低級解毒藥";
+        }
     }
 
     public void MidMedicine()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "製造中級解毒藥需要藥草A、藥草B，你有藥草A " +MedicineA.itemHold + "個、你有藥草B " + MedicineB.itemHold + "個，請問要做幾個呢？";
-        Make = "中級解毒藥";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "製造中級解毒藥需要藥草A、藥草B，你有藥草A " + MedicineA.itemHold + "個、你有藥草B " + MedicineB.itemHold + "個，請問要做幾個呢？";
+            StartCoroutine(SetTextUI());
+            Make = "中級解毒藥";
+        }
     }
 
     public void ClickNum()
-    { 
-        num.SetActive(false);
-        if (GetInputNum.text != SaveInputNum)
+    {
+        if (textFinished)
         {
-            InputNum = int.Parse(GetInputNum.text);
-            
+            num.SetActive(false);
+            if (GetInputNum.text != SaveInputNum)
+            {
+                InputNum = int.Parse(GetInputNum.text);
+
 
                 switch (Make)
                 {
@@ -71,10 +89,12 @@ public class UseGrind : MonoBehaviour
                             thisItem = Low_Medicine;
                             OwnItem.text = "獲得" + Make + InputNum + "個";
                             AddNewItem();
+                            StartCoroutine(SetTextUI());
                         }
                         else
                         {
                             OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
                         }
                         break;
                     case "中級解毒藥":
@@ -85,20 +105,23 @@ public class UseGrind : MonoBehaviour
                             thisItem = Mid_Medicine;
                             AddNewItem();
                             OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
                         }
                         else
                         {
                             OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
                         }
                         break;
                 }
-         
-        }
-        else
+
+            }
+            else
             {
                 OwnItem.text = "你有想換東西嗎???(很怒)";
+                StartCoroutine(SetTextUI());
             }
-
+        }
     }
 
     public void AddNewItem()
@@ -119,8 +142,21 @@ public class UseGrind : MonoBehaviour
     }
     public void Close()
     {
+        CloseUI.Open_UI();
         Destroy(bowl);
     }
+    IEnumerator SetTextUI()
+    {
+        word = OwnItem.text;
+        OwnItem.text = "";
+        textFinished = false;
+        foreach (char letter in word.ToCharArray())
+        {
+            OwnItem.text += letter;
+            yield return new WaitForSeconds(letterPause);
+        }
+        textFinished = true;
+    }
 
-    
+
 }

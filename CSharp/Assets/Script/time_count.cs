@@ -9,13 +9,15 @@ public class time_count : MonoBehaviour
     public int timer_date=1;
     public Text timer_count;
     private float DateTime;
+    static time_count tc;
 
 
     void Start()
     {
-        timer_count.text ="01" ;
+       timer_count.text ="01" ;
         //每8分鐘計算一天，先測試每分鐘計算一天
         DateTime = Time.time;
+        tc = this;
 
     }
     private void Update()
@@ -26,11 +28,11 @@ public class time_count : MonoBehaviour
         }
     }
 
-    public void Time_Date()
+    public static void Time_Date()
     {
-        timer_date++;
-        timer_count.text = timer_date / 10 + "" + timer_date % 10;
-        DateTime = Time.time;
+        tc.timer_date++;
+        tc.timer_count.text = tc.timer_date / 10 + "" + tc.timer_date % 10;
+        tc.DateTime = Time.time;
 
 
     }

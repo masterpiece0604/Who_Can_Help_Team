@@ -522,7 +522,7 @@ MonoBehaviour:
   cooking: {fileID: 3804297649187464860, guid: d80159a1a983c66439e7aedc679c2775, type: 3}
   Superbowl: {fileID: 5308492972667672925, guid: 2f8e21c93557efa46942dc9a8753144c,
     type: 3}
-  Natice_House: {fileID: 176888139276167257, guid: 8cea6103845d7b14d9f120dc1a4b82b7,
+  Natice_House: {fileID: 7910250470336850322, guid: 9d48ad476649d2349b5d2e129d2e193d,
     type: 3}
 --- !u!1 &7734532695394186183
 GameObject:

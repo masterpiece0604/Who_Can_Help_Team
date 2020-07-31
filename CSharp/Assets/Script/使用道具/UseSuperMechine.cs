@@ -23,12 +23,16 @@ public class UseSuperMechine : MonoBehaviour
     public Inventory playerInventory;
     [Header("超級製藥機對話")]
     public GameObject Mechine;
+    public float letterPause = 0.1f;
+    private string word;
+    private bool textFinished;
 
 
     private void Start()
     {
         SaveInputNum = GetInputNum.text;
         OwnText = OwnItem.text;
+        StartCoroutine(SetTextUI());
     }
 
     private void Update()
@@ -36,34 +40,45 @@ public class UseSuperMechine : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F))
         {
-            Destroy(Mechine);          
+            CloseUI.Open_UI();
+            Destroy(Mechine);
         }
         
     }
 
     public void HighMedicine()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "製造高級解毒藥需要藥草A、藥草B，你有藥草A " + MedicineA.itemHold + "個、你有藥草B " + MedicineB.itemHold + "個，請問要做幾個呢？";
-        Make = "高級解毒藥";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "製造高級解毒藥需要藥草A、藥草B，你有藥草A " + MedicineA.itemHold + "個、你有藥草B " + MedicineB.itemHold + "個，請問要做幾個呢？";
+            StartCoroutine(SetTextUI());
+            Make = "高級解毒藥";
+        }
     }
 
     public void LegendMedicine()
     {
-        num.SetActive(true);
-        btns.SetActive(false);
-        OwnItem.text = "製造傳說中的解藥需要傳說中的藥草，你有傳說中的藥草 " + MedicineC.itemHold+  "個，請問要做幾個呢？";
-        Make = "傳說中的解藥";
+        if (textFinished)
+        {
+            num.SetActive(true);
+            btns.SetActive(false);
+            OwnItem.text = "製造傳說中的解藥需要傳說中的藥草，你有傳說中的藥草 " + MedicineC.itemHold + "個，請問要做幾個呢？";
+            StartCoroutine(SetTextUI());
+            Make = "傳說中的解藥";
+        }
     }
 
     public void ClickNum()
-    { 
-        num.SetActive(false);
-        if (GetInputNum.text != SaveInputNum)
+    {
+        if (textFinished)
         {
-            InputNum = int.Parse(GetInputNum.text);
-            
+            num.SetActive(false);
+            if (GetInputNum.text != SaveInputNum)
+            {
+                InputNum = int.Parse(GetInputNum.text);
+
 
                 switch (Make)
                 {
@@ -76,10 +91,12 @@ public class UseSuperMechine : MonoBehaviour
                             thisItem = High_Medicine;
                             AddNewItem();
                             OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
                         }
                         else
                         {
                             OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
                         }
                         break;
                     case "傳說中的解藥":
@@ -89,20 +106,23 @@ public class UseSuperMechine : MonoBehaviour
                             thisItem = Legend_Medicine;
                             AddNewItem();
                             OwnItem.text = "獲得" + Make + InputNum + "個";
+                            StartCoroutine(SetTextUI());
                         }
                         else
                         {
                             OwnItem.text = "材料不夠哦！";
+                            StartCoroutine(SetTextUI());
                         }
                         break;
                 }
-         
-        }
-        else
+
+            }
+            else
             {
                 OwnItem.text = "你有想換東西嗎???(很怒)";
+                StartCoroutine(SetTextUI());
             }
-
+        }
     }
 
     public void AddNewItem()
@@ -123,7 +143,20 @@ public class UseSuperMechine : MonoBehaviour
     }
     public void Close()
     {
+        CloseUI.Open_UI();
         Destroy(Mechine);
     }
+    IEnumerator SetTextUI()
+    {
+        word = OwnItem.text;
+        OwnItem.text = "";
+        textFinished = false;
 
+        foreach (char letter in word.ToCharArray())
+        {
+            OwnItem.text += letter;
+            yield return new WaitForSeconds(letterPause);
+        }
+        textFinished = true;
+    }
 }
