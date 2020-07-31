@@ -21,7 +21,7 @@ public class NPC_Teaching2 : MonoBehaviour
     
 
 
-    public Atk_Teaching Atk_Teaching;
+    //public Atk_Teaching Atk_Teaching;
 
     public List<string> textList = new List<string>();
 
@@ -59,8 +59,7 @@ public class NPC_Teaching2 : MonoBehaviour
                 NPC.UI.SetActive(true);
                 NPC.talking = false;
                 NPC.talkingField.SetActive(false);
-
-                Atk_Teaching.AtkTeachingCanvas.SetActive(false);
+                gameObject.SetActive(false);
                 index = 2;
 
                 return;
