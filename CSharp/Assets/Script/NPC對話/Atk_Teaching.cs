@@ -8,7 +8,7 @@ public class Atk_Teaching : MonoBehaviour
     public GameObject UI;
     //public NPC_Teaching NPC_Teaching;
 
-    bool a;
+    public bool a;
     bool b;
 
     private void Start()
@@ -32,7 +32,6 @@ public class Atk_Teaching : MonoBehaviour
     {
         if (hit.GetComponent<Collider>().tag == "Player" && b == true)
         {
-
             a = !a;
             ctrllor1.Sstand();
         }

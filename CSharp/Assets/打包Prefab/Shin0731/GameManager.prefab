@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3256170581554515544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3256170581554515547}
+  - component: {fileID: 3256170580425041678}
+  - component: {fileID: 3256170580425041679}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3256170581554515547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256170581554515544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 849.3426, y: 607.6075, z: -796.2052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3256170580425041678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256170581554515544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f618a33773104aa40a4587b3a3d0fc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pause: {fileID: 0}
+  pause1: {fileID: 0}
+  save: {fileID: 0}
+  LogIsOpen: {fileID: 0}
+  LogIsClosed: {fileID: 0}
+  NPC: {fileID: 0}
+  PauseUIManager: {fileID: 0}
+  onOpenPause: 0
+  onOpenPause1: 0
+  clickSave: 0
+  logState: 0
+  Monkey1: {fileID: 0}
+  mission2: {fileID: 0}
+  Monkey2: {fileID: 0}
+  mission3: {fileID: 0}
+  UI: {fileID: 0}
+  Ctrllor1: {fileID: 0}
+  tree: {fileID: 0}
+  stone: {fileID: 0}
+  herbs: {fileID: 0}
+  mission4: {fileID: 0}
+  lowMedesom: {fileID: 11400000, guid: d485a7fc2ee6a6e4398dd14a845de94b, type: 2}
+  Hub: {fileID: 11400000, guid: 72e522d3a95e54144a0d497a2caade1e, type: 2}
+  mission5: {fileID: 0}
+--- !u!114 &3256170580425041679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256170581554515544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f937eef29fbf94bbe9c47a72648ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: []
+  ChooseImage: {fileID: 0}
