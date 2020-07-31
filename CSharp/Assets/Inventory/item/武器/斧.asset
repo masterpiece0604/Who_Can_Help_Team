@@ -16,7 +16,7 @@ MonoBehaviour:
   itemImage: {fileID: 21300028, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
   itemHold: 0
   Durability: 100
-  itemInfo: "\u53EF\u7528\u65BC\u780D\u6A39\uFF0C\u8010\u4E45\u5EA6100\uFF0C\u653B\u64CA\u529B1\uFF0C\u653B\u64CA\u7BC4\u570D1\u3002"
+  itemInfo: "\u65A7\uFF1A\n\u53EF\u7528\u65BC\u780D\u6A39\uFF0C\u8010\u4E45\u5EA6100\uFF0C\u653B\u64CA\u529B1\uFF0C\u653B\u64CA\u7BC4\u570D1\u3002"
   equipment: 0
   use: 0
   etc: 0

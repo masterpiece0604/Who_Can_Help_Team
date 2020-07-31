@@ -18,10 +18,6 @@ public class NPC_Teaching3 : MonoBehaviour
     public bool textFinished;
     bool cancelTyping;
     public GameManager GM;
-    
-
-
-    public Atk_Teaching Atk_Teaching;
 
     public List<string> textList = new List<string>();
 
@@ -59,8 +55,7 @@ public class NPC_Teaching3 : MonoBehaviour
                 NPC.UI.SetActive(true);
                 NPC.talking = false;
                 NPC.talkingField.SetActive(false);
-
-                Atk_Teaching.AtkTeachingCanvas.SetActive(false);
+                gameObject.SetActive(false);
                 index = 2;
 
                 return;
