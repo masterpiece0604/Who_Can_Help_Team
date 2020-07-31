@@ -26,17 +26,8 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /*public void ItemDescription()
     {
         InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-    }*/
-    
-    void Update()
-    {
-        //Item_Information.gameObject.SetActive(controlText);
-        //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-        /*if (controlText)
-        {
-            Item_Information.layer = 50;
-        }*/
-    }
+    }*/    
+   
 
 
 
@@ -66,6 +57,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         slotNum.text = item.itemHold.ToString();
         slotInfo = item.itemInfo;
         slotName = item.itemName;
+       
     }
 
     private Transform info;

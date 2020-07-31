@@ -22,6 +22,9 @@ public class UseProp : MonoBehaviour
     {
         Propinfo = this.GetComponent<Slot>();
         role_Quality = GameObject.FindGameObjectWithTag("Player").GetComponent<Role_quality>();
+       
+
+
     }
 
     private void Update()
@@ -41,6 +44,13 @@ public class UseProp : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(Propinfo.slotItem.itemHold == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void MouseClick()
     {
         b = !b;
@@ -95,37 +105,51 @@ public class UseProp : MonoBehaviour
 
             case "蝙蝠肉":
                 role_Quality.sick += 50;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "生的蝙蝠肉":
                 role_Quality.sick += 50;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "香油錢收據":
                 role_Quality.guilt -= 20;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "藥草A":
                 role_Quality.sick -= 10;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "藥草B":
                 role_Quality.sick -= 10;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "低級解毒藥":
                 role_Quality.sick -= 15;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "中級解毒藥":
                 role_Quality.sick -= 15;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
 
             case "高級解毒藥":
                 role_Quality.sick -= 15;
+                CheckDelete(Propinfo.slotItem.itemHold);
                 break;
             case "研磨缽":
                 Grinding();
+                break;
+            case "超級製藥機":
+                SuperMechine();
+                break;
+            case "烹飪用具":
+                Cooking();
                 break;
 
         }
@@ -144,8 +168,17 @@ public class UseProp : MonoBehaviour
 
     public void Grinding()
     {
-        print("我在使用研磨缽");
-        bowl.SetActive(true);
+        Instantiate(bowl);
+    }
+
+    public void SuperMechine()
+    {
+        Instantiate(Superbowl);
+    }
+
+    public void Cooking()
+    {
+        Instantiate(cooking);
     }
 
 }
