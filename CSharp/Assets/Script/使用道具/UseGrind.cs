@@ -117,6 +117,10 @@ public class UseGrind : MonoBehaviour
         InventoryManager.RefreshItem();
 
     }
+    public void Close()
+    {
+        Destroy(bowl);
+    }
 
     
 }

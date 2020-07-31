@@ -121,6 +121,9 @@ public class UseSuperMechine : MonoBehaviour
         InventoryManager.RefreshItem();
 
     }
+    public void Close()
+    {
+        Destroy(Mechine);
+    }
 
-    
 }

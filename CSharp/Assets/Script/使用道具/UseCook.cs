@@ -158,5 +158,9 @@ public class UseCook : MonoBehaviour
         InventoryManager.RefreshItem();
 
     }
+    public void Close()
+    {
+        Destroy(bowl);
+    }
 
 }

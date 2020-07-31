@@ -6,7 +6,7 @@ public class time_count : MonoBehaviour
     /// <summary>
     /// 時間計時器
     /// </summary>
-    private int timer_date=1;
+    public int timer_date=1;
     public Text timer_count;
     private float DateTime;
 
@@ -20,13 +20,13 @@ public class time_count : MonoBehaviour
     }
     private void Update()
     {
-        if(Time.time- DateTime > 3f)
+        if(Time.time- DateTime > 480f)
         {
             Time_Date();
         }
     }
 
-    void Time_Date()
+    public void Time_Date()
     {
         timer_date++;
         timer_count.text = timer_date / 10 + "" + timer_date % 10;

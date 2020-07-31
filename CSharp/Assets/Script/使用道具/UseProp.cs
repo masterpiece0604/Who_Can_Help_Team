@@ -18,6 +18,11 @@ public class UseProp : MonoBehaviour
     [Header("超級製藥機對話")]
     public GameObject Superbowl;
 
+    [Header("新手小木屋對話")]
+    public GameObject Natice_House;
+
+    
+
     private void Start()
     {
         Propinfo = this.GetComponent<Slot>();
@@ -151,6 +156,9 @@ public class UseProp : MonoBehaviour
             case "烹飪用具":
                 Cooking();
                 break;
+            case "小木屋":
+                Naticehouse();
+                break;
 
         }
           
@@ -179,6 +187,11 @@ public class UseProp : MonoBehaviour
     public void Cooking()
     {
         Instantiate(cooking);
+    }
+
+    public void Naticehouse()
+    {
+        Instantiate(Natice_House);
     }
 
 }
