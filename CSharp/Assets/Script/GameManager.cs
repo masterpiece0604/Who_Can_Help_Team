@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject mission2;
     // 不讓對話重複開啟
     bool Monkey1Alive;
+
     // 猴子物件
     public GameObject Monkey2;
     [Header("任務3對話框")]
@@ -44,6 +45,8 @@ public class GameManager : MonoBehaviour
     public GameObject tree,stone,herbs;
     [Header("任務4對話框")]
     public GameObject mission4;
+    [Header("研磨砵")]
+    public Item MedicineMachine;
     // 不讓對話重複開啟
     bool mission4done;
 
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour
         NpcTalkOnOpen = NPC.talking;
         Monkey1IsDead();
         Monkey2IsDead();
-        //TreeAndStone();
+        TreeAndStone();
         IsMade();
     }
 
@@ -112,11 +115,17 @@ public class GameManager : MonoBehaviour
     {
         if(tree == null && stone == null && herbs == null && mission4done == false)
         {
-            //mission4.SetActive(true);
+            mission4.SetActive(true);
             mission4done = true;
             UI.SetActive(false);
             Ctrllor1.NPC = true;
+            giveMedicineMachine();
         }
+    }
+    // 給研磨砵
+    public void giveMedicineMachine()
+    {
+        MedicineMachine.itemHold += 1;
     }
 
     /// <summary>
@@ -133,7 +142,7 @@ public class GameManager : MonoBehaviour
             giveHub();
         }
     }
-
+    // 給小木屋
     public void giveHub()
     {
         Hub.itemHold += 1;
