@@ -23,6 +23,7 @@ public class NPC_TeachingEnd : MonoBehaviour
     [Header("獼猴肉")]
     public Item MonkeyMeat;
     public GameObject SuccessCanvas;
+    bool meatEnough;
 
     public Atk_Teaching Atk_Teaching;
 
@@ -34,10 +35,12 @@ public class NPC_TeachingEnd : MonoBehaviour
         if (MonkeyMeat.itemHold >= 2)
         {
             GetTextFromFile(textFile1);
+            meatEnough = true;
         }
         else
         {
             GetTextFromFile(textFile2);
+            meatEnough = false;
         }
     }
 
@@ -56,27 +59,27 @@ public class NPC_TeachingEnd : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
         {
-            if (index == textList.Count)
+            if (meatEnough)
             {
-                if (MonkeyMeat.itemHold >= 2)
+                if (index == textList.Count)
                 {
                     NPC.talkingField.SetActive(false);
                     index = 2;
                     SuccessCanvas.SetActive(true);
                 }
-                else
+            }
+            else
+            {
+                if (index == textList.Count)
                 {
                     ctrllor1.NPC = false;
                     NPC.UI.SetActive(true);
                     NPC.talking = false;
                     NPC.talkingField.SetActive(false);
-                    Atk_Teaching.AtkTeachingCanvas.SetActive(false);
                     index = 2;
                 }
-                return;
             }
         }
-
         if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
         {
             if (textFinished && !cancelTyping)
