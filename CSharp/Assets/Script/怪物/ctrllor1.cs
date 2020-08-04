@@ -4,7 +4,6 @@ using System.Collections;
 
 public class ctrllor1 : MonoBehaviour
 {
-
     public float playerspeed;
     public bool wait;
     public bool run;
@@ -37,13 +36,11 @@ public class ctrllor1 : MonoBehaviour
         wait = true;
         run = false;
         openbag = false;
-
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
         {
             if (NPC == false && Introduce == false)
@@ -69,16 +66,9 @@ public class ctrllor1 : MonoBehaviour
                         set_allstate_false();
                         run = true;
                     }
-
                 }
             }
-
-
         }
-
-
-
-
 
         if (run == true)
         {
@@ -96,13 +86,15 @@ public class ctrllor1 : MonoBehaviour
 
         }
 
-        //開啟玩家背包
-        openplayerbag();
-        playerbag.SetActive(openbag);
         MoveAddForce();
     }
 
-    
+    private void Update()
+    {
+        //開啟玩家背包
+        openplayerbag();
+        playerbag.SetActive(openbag);
+    }
 
     private void MoveAddForce()
     {
@@ -112,7 +104,6 @@ public class ctrllor1 : MonoBehaviour
             transform.LookAt(look_at_point.transform);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             rig.AddForce(transform.forward * playerspeed);
-
         }
         else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) <1f)
         {
@@ -174,7 +165,6 @@ public class ctrllor1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             openbag = !openbag;
-
         }
 
     }

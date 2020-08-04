@@ -42,15 +42,14 @@ public class GameManager : MonoBehaviour
     ctrllor1 Ctrllor1;
 
     // 樹、石頭、藥草物件
-    public GameObject tree,stone,herbs;
+    public GameObject tree, stone, herbs;
     [Header("任務4對話框")]
     public GameObject mission4;
     [Header("研磨砵")]
     public Item MedicineMachine;
     // 不讓對話重複開啟
     bool mission4done;
-
-
+    
     [Header("低級藥草Item")]
     public Item lowMedesom;
     [Header("小木屋Item")]
@@ -59,6 +58,11 @@ public class GameManager : MonoBehaviour
     public GameObject mission5;
     // 不讓對話重複開啟
     bool mission5talkingfild;
+
+    [Header("過完夜任務")]
+    public GameObject mission6;
+    // 不讓對話重複開啟
+    bool mission6dontRepeat;
 
     private void Start()
     {
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour
         Monkey2Alive = true;
         mission4done = false;
         mission5talkingfild = true;
+        mission6dontRepeat = true;
     }
 
     private void Update()
@@ -78,6 +83,7 @@ public class GameManager : MonoBehaviour
         Monkey2IsDead();
         TreeAndStone();
         IsMade();
+        NextDay();
     }
 
     /// <summary>
@@ -85,7 +91,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Monkey1IsDead()
     {
-        if(Monkey1 == null && Monkey1Alive == true)
+        if (Monkey1 == null && Monkey1Alive == true)
         {
             mission2.SetActive(true);
             Monkey1Alive = false;
@@ -113,7 +119,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TreeAndStone()
     {
-        if(tree == null && stone == null && herbs == null && mission4done == false)
+        if (tree == null && stone == null && herbs == null && mission4done == false)
         {
             mission4.SetActive(true);
             mission4done = true;
@@ -133,19 +139,33 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void IsMade()
     {
-        if(lowMedesom.itemHold == 1 && mission5talkingfild == true)
+        if (lowMedesom.itemHold == 1 && mission5talkingfild == true)
         {
-            mission5.SetActive(true);
-            mission5talkingfild = false;
-            UI.SetActive(false);
-            Ctrllor1.NPC = true;
-            giveHub();
+            if (GameObject.FindGameObjectWithTag("研磨砵") == null)
+            {
+                mission5.SetActive(true);
+                mission5talkingfild = false;
+                UI.SetActive(false);
+                Ctrllor1.NPC = true;
+                giveHub();
+            }
         }
     }
     // 給小木屋
     public void giveHub()
     {
         Hub.itemHold += 1;
+    }
+
+    public void NextDay()
+    {
+        if(time_count.timer_date == 2 && mission6dontRepeat == true)
+        {
+            mission6.SetActive(true);
+            mission6dontRepeat = false;
+            UI.SetActive(false);
+            Ctrllor1.NPC = true;
+        }
     }
 
     /// <summary>

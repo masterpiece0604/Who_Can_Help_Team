@@ -54,10 +54,7 @@ public class UseProp : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Propinfo.slotItem.itemHold == 0)
-        {
-            Destroy(gameObject);
-        }
+        
     }
     public void MouseClick()
     {

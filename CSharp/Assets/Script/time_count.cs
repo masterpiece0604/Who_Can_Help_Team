@@ -6,7 +6,7 @@ public class time_count : MonoBehaviour
     /// <summary>
     /// 時間計時器
     /// </summary>
-    public int timer_date=1;
+    public static int timer_date=1;
     public Text timer_count;
     private float DateTime;
     static time_count tc;
@@ -30,8 +30,8 @@ public class time_count : MonoBehaviour
 
     public static void Time_Date()
     {
-        tc.timer_date++;
-        tc.timer_count.text = tc.timer_date / 10 + "" + tc.timer_date % 10;
+        timer_date++;
+        tc.timer_count.text = timer_date / 10 + "" + timer_date % 10;
         tc.DateTime = Time.time;
 
 

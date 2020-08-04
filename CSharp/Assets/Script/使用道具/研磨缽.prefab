@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 6145612994288666406}
   m_Layer: 0
   m_Name: "\u7814\u78E8\u7F3D"
-  m_TagString: Untagged
+  m_TagString: "\u7814\u78E8\u7835"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,6 +756,7 @@ MonoBehaviour:
   GetInputNum: {fileID: 4010969623234162863}
   playerInventory: {fileID: 11400000, guid: 0c048676d63bff449ab95ef944eb2df3, type: 2}
   bowl: {fileID: 6145612994288666407}
+  letterPause: 0.1
 --- !u!1 &6145612994359783715
 GameObject:
   m_ObjectHideFlags: 0
