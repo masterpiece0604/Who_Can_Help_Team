@@ -13,7 +13,7 @@ public class movecamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.LookAt(player.transform);
 
@@ -40,7 +40,7 @@ public class movecamera : MonoBehaviour
             }
             */
 
-            transform.Translate(new Vector3(0, 0, mouse_scroll * Time.deltaTime * 500f), Space.Self);
+            transform.Translate(new Vector3(0, 0, mouse_scroll * Time.fixedDeltaTime * 500f), Space.Self);
         }
     }
 }
