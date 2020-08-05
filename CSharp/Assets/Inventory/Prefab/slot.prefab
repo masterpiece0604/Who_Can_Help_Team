@@ -524,6 +524,7 @@ MonoBehaviour:
     type: 3}
   Natice_House: {fileID: 7910250470336850322, guid: 9d48ad476649d2349b5d2e129d2e193d,
     type: 3}
+  istalk: 0
 --- !u!1 &7734532695394186183
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.5, y: 0.75}
+  m_AnchoredPosition: {x: 9.1, y: -8.2}
   m_SizeDelta: {x: 1, y: -3.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7734532695394186176
@@ -595,7 +596,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 6
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
