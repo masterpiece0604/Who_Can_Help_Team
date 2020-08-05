@@ -10,6 +10,7 @@ public class time_count : MonoBehaviour
     public Text timer_count;
     private float DateTime;
     private float LightTime;
+    private float minTime;
     static time_count tc;
 
     public Light Sunlight;
@@ -26,18 +27,23 @@ public class time_count : MonoBehaviour
   
     private void FixedUpdate()
     {
-        if (Time.time - LightTime > 0.1f)
+        if (Time.time - LightTime > 0.2f)
         {
             
-            if(Sunlight.transform.rotation.x>180)
+            if(Sunlight.transform.eulerAngles.x >180)
             {
-                Sunlight.transform.Rotate(Vector3.right/6f);
+                Sunlight.transform.rotation = Quaternion.identity;
+                Sunlight.transform.Rotate(Vector3.right * 0.0666f);
+            }
+            else if (Sunlight.transform.rotation.x < 20)
+            {
+                Sunlight.transform.Rotate(Vector3.right*0.0666f);
             }
             else
             {
-                Sunlight.transform.Rotate(Vector3.right/30f);
-                LightTime = Time.time;
-            }
+                Sunlight.transform.Rotate(Vector3.right*0.0333f);
+            } 
+            LightTime = Time.time;
         }
 
         if(Time.time- DateTime > 600f)
