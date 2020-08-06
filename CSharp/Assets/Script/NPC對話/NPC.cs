@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour
     public ctrllor1 ctrllor1;
     public float OldPlayerSpeed;
     public GameObject UI;
+    public CanvasGroup UICanvasGroup;
 
     //public NPC_Teaching NPC_Teaching;
     //public bool isTalking;
@@ -22,6 +23,7 @@ public class NPC : MonoBehaviour
         //talkingField.gameObject.SetActive(talking);
         OldPlayerSpeed = ctrllor1.playerspeed;
         //print(OldPlayerSpeed);
+        UICanvasGroup = UI.GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
@@ -39,7 +41,8 @@ public class NPC : MonoBehaviour
                 {
                     ctrllor1.NPC = true;
                     ctrllor1.Sstand();
-                    UI.SetActive(false);
+                    UICanvasGroup.alpha = 0;
+                    // UI.SetActive(false); // 關UI
                 }
                 /*else if (talking == false)
                 {

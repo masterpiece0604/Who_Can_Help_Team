@@ -7,6 +7,7 @@ public class Atk_Teaching : MonoBehaviour
     public ctrllor1 ctrllor1;
     public GameObject UI;
     //public NPC_Teaching NPC_Teaching;
+    public CanvasGroup UIcanvasGG;
 
     public bool a;
     bool b;
@@ -14,6 +15,7 @@ public class Atk_Teaching : MonoBehaviour
     private void Start()
     {
         b = true;
+        UIcanvasGG = UI.GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -24,7 +26,8 @@ public class Atk_Teaching : MonoBehaviour
             ctrllor1.NPC = true;
             a = false;
             b = false;
-            UI.SetActive(false);
+            UIcanvasGG.alpha = 0;
+            // UI.SetActive(false);
         }
     }
 

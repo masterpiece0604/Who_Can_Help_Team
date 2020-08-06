@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
     // 不讓對話重複開啟
     bool mission6dontRepeat;
 
+    public CanvasGroup UICanvasG;
+
     private void Start()
     {
         onOpenPause1 = true;
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
         mission4done = false;
         mission5talkingfild = true;
         mission6dontRepeat = true;
+        UICanvasG = UI.GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -95,7 +98,8 @@ public class GameManager : MonoBehaviour
         {
             mission2.SetActive(true);
             Monkey1Alive = false;
-            UI.SetActive(false);
+            UICanvasG.alpha = 0;
+            // UI.SetActive(false);
             Ctrllor1.NPC = true;
         }
     }
@@ -109,7 +113,8 @@ public class GameManager : MonoBehaviour
         {
             mission3.SetActive(true);
             Monkey2Alive = false;
-            UI.SetActive(false);
+            UICanvasG.alpha = 0;
+            // UI.SetActive(false);
             Ctrllor1.NPC = true;
         }
     }
@@ -123,7 +128,8 @@ public class GameManager : MonoBehaviour
         {
             mission4.SetActive(true);
             mission4done = true;
-            UI.SetActive(false);
+            UICanvasG.alpha = 0;
+            // UI.SetActive(false);
             Ctrllor1.NPC = true;
             giveMedicineMachine();
         }
@@ -145,7 +151,8 @@ public class GameManager : MonoBehaviour
             {
                 mission5.SetActive(true);
                 mission5talkingfild = false;
-                UI.SetActive(false);
+                UICanvasG.alpha = 0;
+                // UI.SetActive(false);
                 Ctrllor1.NPC = true;
                 giveHub();
             }
@@ -161,9 +168,11 @@ public class GameManager : MonoBehaviour
     {
         if(time_count.timer_date == 2 && mission6dontRepeat == true)
         {
+            print("GM抓的時間" + time_count.timer_date);
             mission6.SetActive(true);
             mission6dontRepeat = false;
-            UI.SetActive(false);
+            UICanvasG.alpha = 0;
+            // UI.SetActive(false);
             Ctrllor1.NPC = true;
         }
     }

@@ -56,7 +56,8 @@ public class NPC_Teaching2 : MonoBehaviour
             if (index == textList.Count)
             {
                 ctrllor1.NPC = false;
-                NPC.UI.SetActive(true);
+                NPC.UICanvasGroup.alpha = 1;    // 開UI
+                // NPC.UI.SetActive(true);
                 NPC.talking = false;
                 NPC.talkingField.SetActive(false);
                 gameObject.SetActive(false);
