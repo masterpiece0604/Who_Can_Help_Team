@@ -57,7 +57,6 @@ public class ctrllor1 : MonoBehaviour
                         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                         set_allstate_false();
                         run = true;
-
                     }
                     else if (raycasthit[i].collider.tag == "怪獸")
                     {
@@ -77,13 +76,10 @@ public class ctrllor1 : MonoBehaviour
                 set_allstate_false();
                 wait = true;
             }
-
             else
             {
                 moving(playerspeed);
             }
-
-
         }
 
         MoveAddForce();
@@ -98,19 +94,16 @@ public class ctrllor1 : MonoBehaviour
 
     private void MoveAddForce()
     {
-
         if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) > 2f)
         {
             transform.LookAt(look_at_point.transform);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             rig.AddForce(transform.forward * playerspeed);
         }
-        else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) <1f)
+        else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) < 1f)
         {
             rig.velocity = Vector3.zero;
         }
-
-
     }
 
     void moving(float speed)
@@ -140,10 +133,10 @@ public class ctrllor1 : MonoBehaviour
                 {
                     rig.velocity = Vector3.zero;
                     transform.Translate(new Vector3(0, 0, Time.deltaTime + 3f), Space.Self);
-                    look_at_point.transform.position = transform.position;                    
+                    look_at_point.transform.position = transform.position;
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                 }
-                }
+            }
         }
 
         if (S_stand)
@@ -195,7 +188,7 @@ public class ctrllor1 : MonoBehaviour
     public void Sstand()
     {
         look_at_point.transform.position = transform.position;
-        rig.velocity = Vector3.zero;        
+        rig.velocity = Vector3.zero;
         set_allstate_false();
     }
 

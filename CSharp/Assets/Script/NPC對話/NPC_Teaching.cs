@@ -56,9 +56,8 @@ public class NPC_Teaching : MonoBehaviour
                 ctrllor1.NPC = false;
                 NPC.UICanvasGroup.alpha = 1;    // 開UI
                 // NPC.UI.SetActive(true);      // 開UI
-                NPC.talking = false;
+                // NPC.talking = false;
                 NPC.talkingField.SetActive(false);
-
                 Atk_Teaching.AtkTeachingCanvas.SetActive(false);
                 index = 2;
                 return;

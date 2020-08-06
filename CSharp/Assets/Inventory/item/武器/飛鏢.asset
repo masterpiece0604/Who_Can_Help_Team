@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u98DB\u93E2"
   m_EditorClassIdentifier: 
   itemName: "\u98DB\u93E2"
-  itemImage: {fileID: 21300028, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
+  itemImage: {fileID: 21300000, guid: 63a2db56cf0411e4cacc4e29176bbaf9, type: 3}
   itemHold: 0
   Durability: 100
   itemInfo: "\u98DB\u93E2\uFF1A\n\u53EF\u7528\u65BC\u6316\u7926\uFF0C\u8010\u4E45\u5EA6100\uFF0C\u653B\u64CA\u529B3\uFF0C\u653B\u64CA\u7BC4\u570D2\u3002"

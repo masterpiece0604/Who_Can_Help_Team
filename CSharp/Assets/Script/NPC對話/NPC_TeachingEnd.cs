@@ -75,7 +75,7 @@ public class NPC_TeachingEnd : MonoBehaviour
                     ctrllor1.NPC = false;
                     NPC.UICanvasGroup.alpha = 1;    // 開UI
                     // NPC.UI.SetActive(true);
-                    NPC.talking = false;
+                    // NPC.talking = false;
                     NPC.talkingField.SetActive(false);
                     index = 2;
                 }

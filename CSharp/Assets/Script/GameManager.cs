@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,14 +12,13 @@ public class GameManager : MonoBehaviour
     public GameObject LogIsOpen;
     public GameObject LogIsClosed;
 
-    public NPC NPC;
+    public NPC npc;
     public PauseUIManager PauseUIManager;
 
     public bool onOpenPause;
     public bool onOpenPause1;
     public bool clickSave;
     public bool logState;
-    bool NpcTalkOnOpen;
 
     // 猴子物件
     public GameObject Monkey1;
@@ -81,7 +79,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        NpcTalkOnOpen = NPC.talking;
         Monkey1IsDead();
         Monkey2IsDead();
         TreeAndStone();
@@ -99,7 +96,6 @@ public class GameManager : MonoBehaviour
             mission2.SetActive(true);
             Monkey1Alive = false;
             UICanvasG.alpha = 0;
-            // UI.SetActive(false);
             Ctrllor1.NPC = true;
         }
     }
@@ -114,7 +110,6 @@ public class GameManager : MonoBehaviour
             mission3.SetActive(true);
             Monkey2Alive = false;
             UICanvasG.alpha = 0;
-            // UI.SetActive(false);
             Ctrllor1.NPC = true;
         }
     }
@@ -129,7 +124,6 @@ public class GameManager : MonoBehaviour
             mission4.SetActive(true);
             mission4done = true;
             UICanvasG.alpha = 0;
-            // UI.SetActive(false);
             Ctrllor1.NPC = true;
             giveMedicineMachine();
         }
@@ -164,6 +158,9 @@ public class GameManager : MonoBehaviour
         Hub.itemHold += 1;
     }
 
+    /// <summary>
+    /// 隔天
+    /// </summary>
     public void NextDay()
     {
         if(time_count.timer_date == 2 && mission6dontRepeat == true)
@@ -186,12 +183,10 @@ public class GameManager : MonoBehaviour
         if (onOpenPause)
         {
             Time.timeScale = 0;
-            NPC.talkingField.SetActive(false);
         }
         else
         {
             Time.timeScale = 1;
-            NPC.talkingField.SetActive(NpcTalkOnOpen);
         }
         pause.gameObject.SetActive(onOpenPause);
         PauseUIManager.onPause = true;
@@ -224,6 +219,4 @@ public class GameManager : MonoBehaviour
             LogIsClosed.SetActive(false);
         }
     }
-
-
 }
