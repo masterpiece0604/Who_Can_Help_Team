@@ -86,7 +86,7 @@ public class InventoryManager : MonoBehaviour
 
     public static void RefreshItem()
     {
-        instance.Bag.GetComponent<BagAssign>().reassign();
+      
         for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
         {
             if (instance.slotGrid.transform.childCount == 0)
@@ -154,7 +154,7 @@ public class InventoryManager : MonoBehaviour
             instance.slots[i].GetComponent<Slot>().slotID = i;
             instance.slots[i].GetComponent<Slot>().SetupSlot(instance.Make.itemList[i]);
         }
-
+        instance.Bag.GetComponent<BagAssign>().reassign();
     }
 
 

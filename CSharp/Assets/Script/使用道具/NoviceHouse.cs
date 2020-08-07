@@ -34,6 +34,10 @@ public class NoviceHouse : MonoBehaviour
         {
             time_count.Time_Date();
             Naticehouse.itemHold--;
+            if (Naticehouse.itemHold==0)
+            {
+                Destroy(Naticehouse);
+            }
             CloseUI.Open_UI();
             Destroy(Natice_House);
         }

@@ -115,14 +115,22 @@ public class Animal_hurt : MonoBehaviour
     {
         if (!playerInventory.itemList.Contains(thisItem))
         {
+            thisItem.itemHold += 1;
             playerInventory.itemList.Add(thisItem);
-            
+            for (int i = 0; i < playerInventory.itemList.Count; i++)
+            {
+                if (playerInventory.itemList[i] == null)
+                {
+                    playerInventory.itemList[i] = thisItem;
+                    break;
+                }
+            }
         }
         else
         {
-            
             thisItem.itemHold += 1;
         }
+
         InventoryManager.RefreshItem();
         
     }

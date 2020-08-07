@@ -18,12 +18,13 @@ public class Role_attak : MonoBehaviour
     private void Start()
     {
         W_cooling = Time.time;
+        ArmsAttak = gameObject.GetComponent<Role_quality>().prop.GetComponent<Arms>().ArmAttack;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ArmsAttak = gameObject.GetComponent<Role_quality>().prop.GetComponent<Arms>().ArmAttack;
+        
         if (Time.time-W_cooling > 3f)
         {
             W_atk();

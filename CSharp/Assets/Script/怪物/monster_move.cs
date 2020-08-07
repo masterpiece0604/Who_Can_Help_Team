@@ -272,7 +272,6 @@ public class monster_move : MonoBehaviour
 
         if (Time.time - lastAtkTime > monster.attack_frequency)
         {
-            print("執行攻擊");
             ani.SetTrigger("攻擊");
             lastAtkTime = Time.time;
             RoleHurt(monster.hurt);

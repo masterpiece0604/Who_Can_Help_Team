@@ -22,8 +22,6 @@ public class BagAssign : MonoBehaviour
     private void Start()
     {
         reassign();
-        
-
     }
 
     public void reassign()

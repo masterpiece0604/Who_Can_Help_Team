@@ -48,7 +48,7 @@ public class Introduce : MonoBehaviour
         {
             ctrllor1.Introduce = false;
             BeginUIIntroduce.SetActive(false);
-            print("123");
+
         }
     }
     

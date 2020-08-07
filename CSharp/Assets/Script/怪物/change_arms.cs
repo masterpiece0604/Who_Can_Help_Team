@@ -87,7 +87,9 @@ void Update()
                 arms = 0;
                 myArms[arms].SetActive(true);
                 gameObject.GetComponent<Role_quality>().prop = myArms[arms];
-                
+                gameObject.GetComponent<Role_attak>().ArmsAttak = myArms[arms].GetComponent<Arms>().ArmAttack;
+
+
             }
             else
             {
@@ -99,7 +101,7 @@ void Update()
                         arms = arms + i;
                         myArms[arms].SetActive(true);
                         gameObject.GetComponent<Role_quality>().prop = myArms[arms];
-
+                        gameObject.GetComponent<Role_attak>().ArmsAttak = myArms[arms].GetComponent<Arms>().ArmAttack;
                         break;
                     }
                     else if (arms + i == 4)
@@ -108,6 +110,7 @@ void Update()
                         arms = 0;
                         myArms[arms].SetActive(true);
                         gameObject.GetComponent<Role_quality>().prop = myArms[arms];
+                        gameObject.GetComponent<Role_attak>().ArmsAttak = myArms[arms].GetComponent<Arms>().ArmAttack;
                         break;
                     }
 

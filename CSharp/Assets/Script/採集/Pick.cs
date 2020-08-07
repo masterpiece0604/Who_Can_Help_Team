@@ -64,23 +64,22 @@ public class Pick : MonoBehaviour
     {
         if (!playerInventory.itemList.Contains(thisItem))
         {
-            // playerInventory.itemList.Add(thisItem);
-            // InventoryManager.CreateNewItem(thisItem);
+            thisItem.itemHold += 1;
+            playerInventory.itemList.Add(thisItem);
             for (int i = 0; i < playerInventory.itemList.Count; i++)
             {
                 if (playerInventory.itemList[i] == null)
                 {
                     playerInventory.itemList[i] = thisItem;
-                    thisItem.itemHold += ItemNum;
+
                     break;
                 }
             }
         }
         else
         {
-            thisItem.itemHold += ItemNum;
+            thisItem.itemHold += 1;
         }
-
         InventoryManager.RefreshItem();
         Destroy(gameObject);
     }

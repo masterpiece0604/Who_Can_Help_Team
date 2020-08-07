@@ -495,7 +495,7 @@ Animator:
   m_GameObject: {fileID: 5406390503930186372}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3cefbbfe8c81fbb4283daa116169ef21, type: 3}
-  m_Controller: {fileID: 9100000, guid: b3eddfa2b5bdc8841bd44322ab2d022c, type: 2}
+  m_Controller: {fileID: 22100000, guid: 73b155678be46684f8cd4956e0d2d88a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -555,6 +555,10 @@ MonoBehaviour:
   fund: 0
   meat: 0
   meat_type: 
+  bat: 0
+  rabbit: 0
+  pig: 0
+  monkey: 0
 --- !u!114 &5406390502338472171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,10 +571,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c34c9d4b4147d54b816b18740604948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Role_object: {fileID: 0}
   Role: {fileID: 0}
+  RoleQ: {fileID: 0}
   monster: {fileID: 5406390502338472172}
   HP: {fileID: 5406390502386399461}
   main_camera: {fileID: 0}
+  mask: {fileID: 11400000, guid: 9e2bfccf016f17d44839ecd24c592fcb, type: 2}
+  metal: {fileID: 11400000, guid: 7d139b074eab9714facd587fd8972f50, type: 2}
+  fund: {fileID: 11400000, guid: d9a518da9ac529640a4ec3cd2c6f9628, type: 2}
+  meat_type: 
+  playerInventory: {fileID: 11400000, guid: 0c048676d63bff449ab95ef944eb2df3, type: 2}
+  bat: {fileID: 11400000, guid: 0735a15dc8beb7845a5ea58cda383806, type: 2}
+  rabbit: {fileID: 11400000, guid: 1fba8fb8673abbc489f19251a60a977d, type: 2}
+  pig: {fileID: 11400000, guid: 817183b08f971da4fbb94650a7a1d5dc, type: 2}
+  monkey: {fileID: 11400000, guid: a94e2f25e3bac684bb9fe19daf2a422c, type: 2}
 --- !u!114 &5406390502338472170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +615,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5406390503930186372}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3240655c12e4f0244ab90b0b94bcbf81, type: 3}
   m_Name: 

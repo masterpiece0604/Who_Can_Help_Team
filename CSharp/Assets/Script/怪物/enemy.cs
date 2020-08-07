@@ -50,6 +50,10 @@ public class enemy : MonoBehaviour
     [Header("機掰人是否掉落野味"), Tooltip("這個欄位是用來確認機掰人是否掉落野味")]
     public bool meat;
     public string meat_type;
+    public bool bat;
+    public bool rabbit;
+    public bool pig;
+    public bool monkey;
 
 
 
@@ -96,21 +100,21 @@ public class enemy : MonoBehaviour
             meat = true;
 
             int meat_type_Probability = UnityEngine.Random.Range(1, 100); // 1~32 33~64 65~96 97~100
-            if (meat_type_Probability>96)
+            if (meat_type_Probability > 96)
             {
-                meat_type = "蝙蝠肉";
+                bat = true;
             }
             else if(meat_type_Probability>64 && meat_type_Probability < 97)
             {
-                meat_type = "獼猴肉";
+                monkey = true;
             }
             else if (meat_type_Probability > 32 && meat_type_Probability < 65)
             {
-                meat_type = "山豬肉";
+                pig = true;
             }
             else if (meat_type_Probability <33)
             {
-                meat_type = "兔兔肉";
+                rabbit = true;
             }
         }
         else

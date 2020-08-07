@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a47cd2c2d1d916489361b8caf99729f, type: 3}
   m_Name: Eqi
   m_EditorClassIdentifier: 
-  itemList:
-  - {fileID: 11400000, guid: 29523a1dfa7c5db43a7826f50dd2462d, type: 2}
-  - {fileID: 11400000, guid: 063c1d849621b324c9dbe60b1ae5ee25, type: 2}
+  itemList: []

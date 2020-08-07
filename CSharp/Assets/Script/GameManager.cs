@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     bool mission6dontRepeat;
 
     public CanvasGroup UICanvasG;
+    public Inventory playerInventory;
 
     private void Start()
     {
@@ -131,7 +132,26 @@ public class GameManager : MonoBehaviour
     // 給研磨砵
     public void giveMedicineMachine()
     {
-        MedicineMachine.itemHold += 1;
+        if (!playerInventory.itemList.Contains(MedicineMachine))
+        {
+            MedicineMachine.itemHold += 1;
+            playerInventory.itemList.Add(MedicineMachine);
+            for (int i = 0; i < playerInventory.itemList.Count; i++)
+            {
+                if (playerInventory.itemList[i] == null)
+                {
+                    playerInventory.itemList[i] = MedicineMachine;
+                    
+                    break;
+                }
+            }
+        }
+        else
+        {
+            MedicineMachine.itemHold += 1;
+        }
+
+        InventoryManager.RefreshItem();
     }
 
     /// <summary>
@@ -155,7 +175,26 @@ public class GameManager : MonoBehaviour
     // 給小木屋
     public void giveHub()
     {
-        Hub.itemHold += 1;
+        if (!playerInventory.itemList.Contains(Hub))
+        {
+            Hub.itemHold += 1;
+            playerInventory.itemList.Add(Hub);
+            for (int i = 0; i < playerInventory.itemList.Count; i++)
+            {
+                if (playerInventory.itemList[i] == null)
+                {
+                    playerInventory.itemList[i] = Hub;
+
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Hub.itemHold += 1;
+        }
+
+        InventoryManager.RefreshItem();
     }
 
     /// <summary>
