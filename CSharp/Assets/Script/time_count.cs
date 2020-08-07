@@ -9,32 +9,44 @@ public class time_count : MonoBehaviour
     public static int timer_date = 1;
     public Text timer_count;
     private float DateTime;
+    private float LightTime;
+    private float minTime;
     static time_count tc;
+
+    public Light Sunlight;
 
 
     void Start()
     {
         timer_count.text = "01";
-        //每8分鐘計算一天，先測試每分鐘計算一天
+        LightTime = Time.time;
         DateTime = Time.time;
         tc = this;
-        timer_date = 1;
 
     }
-    private void Update()
+
+    private void FixedUpdate()
     {
-        if (Time.time - DateTime > 480f)
+        if (Time.time - LightTime > 0.1f)
         {
+            Sunlight.transform.Rotate(Vector3.right * 0.0375f);
+            LightTime = Time.time;
+        }
+
+        if (Time.time - DateTime > 600f)
+        {
+            Sunlight.transform.rotation = Quaternion.identity;
             Time_Date();
         }
     }
 
     public static void Time_Date()
     {
+        
         timer_date++;
         tc.timer_count.text = timer_date / 10 + "" + timer_date % 10;
         tc.DateTime = Time.time;
-
-
     }
+
+
 }

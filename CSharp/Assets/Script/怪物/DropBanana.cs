@@ -38,7 +38,7 @@ public class DropBanana : MonoBehaviour
             GameObject temp = Instantiate(prop, empty.transform.position, Quaternion.identity);
                     
             temp.GetComponent<Rigidbody>().AddForce(empty.transform.forward * 200);
-            temp.GetComponent<Rigidbody>().AddForce(empty.transform.up * 300);
+            
 
             Destroy(temp, 2f);
        
