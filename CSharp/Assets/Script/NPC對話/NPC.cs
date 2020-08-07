@@ -4,35 +4,40 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    [Header("NPC對話框畫布")]
+    [Header("第一次到便利店畫布")]
     public GameObject talkingField;
-    //public bool talking;
+    [Header("非第一次到便利店畫布")]
+    public GameObject talkingField1;
     public bool a;
     public ctrllor1 ctrllor1;
     public float OldPlayerSpeed;
     public GameObject UI;
     public CanvasGroup UICanvasGroup;
+    public bool firstTime;
 
     void Start()
     {
         OldPlayerSpeed = ctrllor1.playerspeed;
         UICanvasGroup = UI.GetComponent<CanvasGroup>();
+        firstTime = true;
     }
-
 
     void Update()
     {
-        if (a == true && Input.GetKeyDown(KeyCode.F))
+        if (a == true && Input.GetKeyDown(KeyCode.F) && firstTime)
         {
-            //talking = true;
             talkingField.SetActive(true);
-
-            //if (talking == true)
-            //{
             ctrllor1.NPC = true;
             ctrllor1.Sstand();
             UICanvasGroup.alpha = 0;
-            //}
+            firstTime = false;
+        }
+        if(a == true && Input.GetKeyDown(KeyCode.F) && firstTime == false)
+        {
+            talkingField1.SetActive(true);
+            ctrllor1.NPC = true;
+            ctrllor1.Sstand();
+            UICanvasGroup.alpha = 0;
         }
     }
 
