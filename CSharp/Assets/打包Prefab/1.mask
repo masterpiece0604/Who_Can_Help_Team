@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 1
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: head
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.L"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.L/Leg2.L"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.L/Leg2.L/Leg3.L"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.L/Leg2.L/Leg3.L/Leg3.L_end"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.R"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.R/Leg2.R"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.R/Leg2.R/Leg3.R"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/Leg1.R/Leg2.R/Leg3.R/Leg3.R_end"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/head 1"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/head 1/head_end"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderL"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderL/hand2.L"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderL/hand2.L/hand3.L"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderL/hand2.L/hand3.L/hand3.L_end"
+    m_Weight: 0
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderR"
+    m_Weight: 1
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderR/hand2.R"
+    m_Weight: 1
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderR/hand2.R/hand3.R"
+    m_Weight: 1
+  - m_Path: "\u9AA8\u67B6/pelvis/spine/neck/shouderR/hand2.R/hand3.R/hand3.R_end"
+    m_Weight: 1
