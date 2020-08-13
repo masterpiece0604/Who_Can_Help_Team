@@ -12,17 +12,14 @@ public class NPC_Teaching : MonoBehaviour
     [Header("文字文件")]
     public TextAsset textFile;
     public int index;
-    public NPC NPC;
+    public CanvasGroup UI;
     public ctrllor1 ctrllor1;
     public float textSpeed;
     public bool textFinished;
     bool cancelTyping;
-
-
-    public Atk_Teaching Atk_Teaching;
+    public bool isStart;
 
     public List<string> textList = new List<string>();
-
 
     private void Awake()
     {
@@ -31,20 +28,14 @@ public class NPC_Teaching : MonoBehaviour
 
     private void OnEnable()
     {
-        //NPC_Says.text = textList[index];
-        //index++;
-        
         StartCoroutine(SetTextUI());
-
-        //print("456");
     }
 
     private void Start()
     {
         index = 2;
-        //StartCoroutine(SetTextUI());
         gameObject.SetActive(false);
-        //Atk_Teaching.AtkTeachingCanvas.SetActive(false);
+        isStart = true;
     }
 
     private void Update()
@@ -54,29 +45,13 @@ public class NPC_Teaching : MonoBehaviour
             if (index == textList.Count)
             {
                 ctrllor1.NPC = false;
-                NPC.UICanvasGroup.alpha = 1;    // 開UI
-                // NPC.UI.SetActive(true);      // 開UI
-                // NPC.talking = false;
-                NPC.talkingField.SetActive(false);
-                Atk_Teaching.AtkTeachingCanvas.SetActive(false);
+                UI.alpha = 1;    // 開UI
+                gameObject.SetActive(false);
                 index = 2;
                 return;
             }
         }
         
-        /*if (Input.GetKeyDown(KeyCode.F) && textFinished==true)
-        {
-            //NPC_Says.text = textList[index];
-            //index++;
-            /*switch (textList[index])
-            {
-                case "A":
-                    print("123");
-                    index++;
-                    break;
-            }*/
-        // StartCoroutine(SetTextUI());
-        //}*/
         if (Input.GetKeyDown(KeyCode.F)||Input.GetMouseButtonDown(0))
         {
             if(textFinished && !cancelTyping)
@@ -114,12 +89,6 @@ public class NPC_Teaching : MonoBehaviour
             index++;
         }
 
-        /*for (int i = 0; i < textList[index].Length; i++)
-        {
-            NPC_Says.text += textList[index][i];
-
-            yield return new WaitForSeconds(textSpeed);
-        }*/
         int letter = 0;
         while (!cancelTyping&& letter<textList[index].Length-1)
         {

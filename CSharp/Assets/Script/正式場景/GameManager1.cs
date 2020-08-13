@@ -1,0 +1,74 @@
+﻿using UnityEngine;
+
+public class GameManager1 : MonoBehaviour
+{
+    [Header("暫停圖")]
+    public GameObject pause;
+    [Header("暫停文字")]
+    public GameObject pause1;
+    [Header("存檔文字")]
+    public GameObject save;
+    [Header("訊息對話框")]
+    public GameObject LogIsOpen;
+    public GameObject LogIsClosed;
+
+    public PauseUIManager PauseUIManager;
+
+    public bool onOpenPause;
+    public bool onOpenPause1;
+    public bool clickSave;
+    public bool logState;
+
+    private void Start()
+    {
+        onOpenPause1 = true;
+        logState = false;
+        MoveLogMsg();
+    }
+
+    /// <summary>
+    /// 遊戲中按暫停彈出暫停視窗
+    /// </summary>
+    public void Pause_When_Gaming()
+    {
+        onOpenPause = !onOpenPause;
+        if (onOpenPause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        pause.gameObject.SetActive(onOpenPause);
+        PauseUIManager.onPause = true;
+        PauseUIManager.onSaveGame = false;
+    }
+    /// <summary>
+    /// 按下設定的Save
+    /// </summary>
+    public void Press_Save()
+    {
+        onOpenPause1 = !onOpenPause1;
+        clickSave = !clickSave;
+        pause1.gameObject.SetActive(onOpenPause1);
+        save.gameObject.SetActive(clickSave);
+    }
+    /// <summary>
+    /// 訊息彈窗
+    /// </summary>
+    public void MoveLogMsg()
+    {
+        logState = !logState;
+        if (logState == false)
+        {
+            LogIsOpen.SetActive(false);
+            LogIsClosed.SetActive(true);
+        }
+        if (logState == true)
+        {
+            LogIsOpen.SetActive(true);
+            LogIsClosed.SetActive(false);
+        }
+    }
+}
