@@ -29,7 +29,7 @@ public class Arms : MonoBehaviour
     [Header("攻速")]
     public float ArmSpeed;
 
-    private void Start()
+    private void Awake()
     {
         Mask();
         
