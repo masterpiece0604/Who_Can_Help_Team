@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<GameObject> slots = new List<GameObject> ();
 
-    
+
 
     /*void Update()
     {
@@ -43,12 +43,13 @@ public class InventoryManager : MonoBehaviour
         controlText = !controlText;
     }*/
 
-    void Awake()
+    private void Awake()
     {
         if (instance != null)
             Destroy(this);
-        instance = this;        
+        instance = this; 
     }
+    
 
     /*private void Update()
     {
@@ -86,7 +87,7 @@ public class InventoryManager : MonoBehaviour
 
     public static void RefreshItem()
     {
-      
+
         for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
         {
             if (instance.slotGrid.transform.childCount == 0)

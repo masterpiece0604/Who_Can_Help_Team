@@ -19,6 +19,8 @@ public class ctrllor1 : MonoBehaviour
 
     private Rigidbody rig;
 
+    public Animator ani;
+
 
     //上一次點擊順移的時間
     private float lastTouchTime = 0f;
@@ -79,6 +81,9 @@ public class ctrllor1 : MonoBehaviour
             else
             {
                 moving(playerspeed);
+                ani.SetBool("run", true);
+                ani.SetBool("idle", false);
+                ani.SetBool("attack", false);
             }
         }
 
@@ -102,7 +107,11 @@ public class ctrllor1 : MonoBehaviour
         }
         else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) < 1f)
         {
-            rig.velocity = Vector3.zero;
+            rig.velocity = Vector3.zero; 
+            ani.SetBool("run", false);
+            ani.SetBool("idle", true);
+            ani.SetBool("attack", false);
+           
         }
     }
 

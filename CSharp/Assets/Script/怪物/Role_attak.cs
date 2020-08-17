@@ -15,10 +15,13 @@ public class Role_attak : MonoBehaviour
     [Header("主角")]
     public GameObject Role;
 
+    public Animator ani;
+
     private void Start()
     {
         W_cooling = Time.time;
         ArmsAttak = gameObject.GetComponent<Role_quality>().prop.GetComponent<Arms>().ArmAttack;
+        ani = this.gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -28,12 +31,9 @@ public class Role_attak : MonoBehaviour
         if (Time.time-W_cooling > 3f)
         {
             W_atk();
-            // 攻擊動畫可以加這裡
+           
         }
-        else
-        {
-            //print("冷卻中");
-        }
+      
     }
 
     private void W_atk()
@@ -44,40 +44,56 @@ public class Role_attak : MonoBehaviour
                 // 按鍵按下去的時候就要執行攻擊或攻擊續力的動畫
                 print("按下W鍵");
                 KeyUpTime = Time.time; //儲存現在的時間
-         
+                ani.SetTrigger("Wattack");
+                ani.SetBool("WSP3", false);
+                ani.SetTrigger("WSP2");
+                ani.SetBool("run", false);
+                ani.SetBool("idle", false);
+                ani.SetBool("attack", false);
+
 
         }
-        if(Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            KeyUpTime = Time.time - KeyUpTime; //判斷按了多久的W
-            W_cooling = Time.time;
-            if (KeyUpTime>2f)
+            ani.SetBool("WSP2", true);
+
+
+           
+        } 
+        if (Input.GetKeyUp(KeyCode.W))
             {
-                WAttak = ArmsAttak*2;
-                KeyUpTime = Time.time;
+                KeyUpTime = Time.time - KeyUpTime; //判斷按了多久的W
+                W_cooling = Time.time;
+                if (KeyUpTime>2f)
+                {
+                    WAttak = ArmsAttak*2;
+                    KeyUpTime = Time.time;
+                }
+                else if (KeyUpTime>1.5f)
+                {
+                    WAttak = ArmsAttak * 1.75f;
+                    KeyUpTime = Time.time;
+                }
+                else if(KeyUpTime>1f)
+                {
+                    WAttak = ArmsAttak * 1.5f;
+                    KeyUpTime = Time.time;
+                }
+                else if(KeyUpTime>0.5f)
+                {
+                    WAttak = ArmsAttak * 1.25f;
+                    KeyUpTime = Time.time;
+                }
+                else
+                {
+                    WAttak = ArmsAttak;
+                    KeyUpTime = Time.time;
+                }
+                ani.SetBool("WSP2", false);
+                ani.SetBool("WSP3", true);
+                
+                ani.SetBool("idle", true);
             }
-            else if (KeyUpTime>1.5f)
-            {
-                WAttak = ArmsAttak * 1.75f;
-                KeyUpTime = Time.time;
-            }
-            else if(KeyUpTime>1f)
-            {
-                WAttak = ArmsAttak * 1.5f;
-                KeyUpTime = Time.time;
-            }
-            else if(KeyUpTime>0.5f)
-            {
-                WAttak = ArmsAttak * 1.25f;
-                KeyUpTime = Time.time;
-            }
-            else
-            {
-                WAttak = ArmsAttak;
-                KeyUpTime = Time.time;
-            }
-            
-        }
     }
 
    

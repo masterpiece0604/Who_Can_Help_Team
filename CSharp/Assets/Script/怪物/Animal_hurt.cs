@@ -9,6 +9,7 @@ public class Animal_hurt : MonoBehaviour
     public Ray ray;
     public Camera main_camera;
     private Animator animator;
+    private Animator Rani;
 
     
    
@@ -25,7 +26,7 @@ public class Animal_hurt : MonoBehaviour
         Role = GameObject.FindGameObjectWithTag("Player");
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         main_camera = gameObject.GetComponent<Camera>();
-        
+        Rani = Role.gameObject.GetComponentInChildren<Animator>();
         animator = GetComponent<Animator>();
         ori_HP = ani.HP;
        
@@ -39,10 +40,16 @@ public class Animal_hurt : MonoBehaviour
         {
             MonsterHurt();
            
+
+
         }
         if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 3f))
         {
              Mouse_atk();
+            Rani.SetBool("attack", true);
+            Rani.SetBool("idle", false);
+            Rani.SetBool("run", false);
+            
         }
 
     }

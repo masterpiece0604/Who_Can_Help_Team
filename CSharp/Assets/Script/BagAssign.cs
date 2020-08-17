@@ -34,8 +34,7 @@ public class BagAssign : MonoBehaviour
 
 
     private void Assgin_Eqi()
-    {
-        
+    { 
             IEnumerable<Item> Get_Prop =
             from A in prop
             where A.equipment == true
