@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     bool mission6dontRepeat;
 
     public CanvasGroup UICanvasG;
-    public Inventory playerInventory;
+    public Inventory MyBag;
 
     private void Start()
     {
@@ -132,15 +132,15 @@ public class GameManager : MonoBehaviour
     // 給研磨砵
     public void giveMedicineMachine()
     {
-        if (!playerInventory.itemList.Contains(MedicineMachine))
+        if (!MyBag.itemList.Contains(MedicineMachine))
         {
             MedicineMachine.itemHold += 1;
-            playerInventory.itemList.Add(MedicineMachine);
-            for (int i = 0; i < playerInventory.itemList.Count; i++)
+            MyBag.itemList.Add(MedicineMachine);
+            for (int i = 0; i < MyBag.itemList.Count; i++)
             {
-                if (playerInventory.itemList[i] == null)
+                if (MyBag.itemList[i] == null)
                 {
-                    playerInventory.itemList[i] = MedicineMachine;
+                    MyBag.itemList[i] = MedicineMachine;
                     
                     break;
                 }
@@ -175,15 +175,15 @@ public class GameManager : MonoBehaviour
     // 給小木屋
     public void giveHub()
     {
-        if (!playerInventory.itemList.Contains(Hub))
+        if (!MyBag.itemList.Contains(Hub))
         {
             Hub.itemHold += 1;
-            playerInventory.itemList.Add(Hub);
-            for (int i = 0; i < playerInventory.itemList.Count; i++)
+            MyBag.itemList.Add(Hub);
+            for (int i = 0; i < MyBag.itemList.Count; i++)
             {
-                if (playerInventory.itemList[i] == null)
+                if (MyBag.itemList[i] == null)
                 {
-                    playerInventory.itemList[i] = Hub;
+                    MyBag.itemList[i] = Hub;
 
                     break;
                 }

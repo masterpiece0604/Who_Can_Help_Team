@@ -26,8 +26,8 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /*public void ItemDescription()
     {
         InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-    }*/    
-   
+    }*/
+
 
 
 
@@ -43,11 +43,11 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //UpdateItemInfo(slotItem.itemInfo);
         //print(slotItem.itemInfo);
     }
-    
+
 
     public void SetupSlot(Item item)
     {
-        if(item == null)
+        if (item == null)
         {
             itemInSlot.SetActive(false);
             return;
@@ -57,15 +57,16 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         slotNum.text = item.itemHold.ToString();
         slotInfo = item.itemInfo;
         slotName = item.itemName;
-       
+
     }
 
     private Transform info;
 
-    private void Start()
+    private void Awake()
     {
         info = GameObject.Find("iteminfoimage").transform;
         info.gameObject.GetComponent<CanvasGroup>().alpha = 0;
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)

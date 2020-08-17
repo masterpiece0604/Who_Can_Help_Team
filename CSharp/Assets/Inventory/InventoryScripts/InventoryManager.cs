@@ -45,6 +45,7 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
+        myBag.itemList.Clear();
         if (instance != null)
             Destroy(this);
         instance = this;        
@@ -156,7 +157,4 @@ public class InventoryManager : MonoBehaviour
         }
         instance.Bag.GetComponent<BagAssign>().reassign();
     }
-
-
-
 }

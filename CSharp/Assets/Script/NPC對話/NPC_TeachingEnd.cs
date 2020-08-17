@@ -26,22 +26,13 @@ public class NPC_TeachingEnd : MonoBehaviour
     bool meatEnough;
 
     public Atk_Teaching Atk_Teaching;
-
+    
     public List<string> textList = new List<string>();
 
 
     private void Awake()
     {
-        if (MonkeyMeat.itemHold >= 2)
-        {
-            GetTextFromFile(textFile1);
-            meatEnough = true;
-        }
-        else
-        {
-            GetTextFromFile(textFile2);
-            meatEnough = false;
-        }
+
     }
 
     private void OnEnable()
@@ -57,10 +48,20 @@ public class NPC_TeachingEnd : MonoBehaviour
 
     private void Update()
     {
+        if (MonkeyMeat.itemHold >= 2)
+        {
+            meatEnough = true;
+        }
+        else
+        {
+            meatEnough = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
         {
             if (meatEnough)
             {
+                GetTextFromFile(textFile1);
                 if (index == textList.Count)
                 {
                     NPC.talkingField.SetActive(false);
@@ -70,6 +71,7 @@ public class NPC_TeachingEnd : MonoBehaviour
             }
             else
             {
+                GetTextFromFile(textFile2);
                 if (index == textList.Count)
                 {
                     ctrllor1.NPC = false;
