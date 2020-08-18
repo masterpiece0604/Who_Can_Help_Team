@@ -30,19 +30,23 @@ public class NoviceHouse : MonoBehaviour
     }
     public void PassNight()
     {
-        if (Naticehouse.itemHold > 0)
-        {
-            time_count.Time_Date();
-            Naticehouse.itemHold--;
-            if (Naticehouse.itemHold==0)
-            {
-                Destroy(Naticehouse);
-            }
-            CloseUI.Open_UI();
-            Destroy(Natice_House);
-        }
+        Night();
+       
     }
 
+    public void Night()
+    {
+     if (Naticehouse.itemHold > 0)
+            {
+                time_count.Time_Date();
+                Naticehouse.itemHold--;
+                if (Naticehouse.itemHold==0)
+                {
+                    Destroy(Naticehouse);
+                }
+                CloseUI.Open_UI();
+            }
+    }
 
     public void Close()
     {

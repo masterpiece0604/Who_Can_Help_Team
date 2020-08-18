@@ -45,6 +45,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        myBag.itemList.Clear();
+        
         if (instance != null)
             Destroy(this);
         instance = this; 
@@ -96,13 +98,19 @@ public class InventoryManager : MonoBehaviour
             instance.slots.Clear();
         }
 
+        List<GameObject> listBag = new List<GameObject>();
+
         for (int i = 0; i < instance.myBag.itemList.Count; i++)
         {
             //CreateNewItem(instance.myBag.itemList[i]);
-            instance.slots.Add(Instantiate(instance.emptySlot));
-            instance.slots[i].transform.SetParent(instance.slotGrid.transform);
-            instance.slots[i].GetComponent<Slot>().slotID = i;
-            instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
+            //instance.slots.Add(Instantiate(instance.emptySlot, instance.slotGrid.transform));
+            //instance.slots[i].transform.SetParent(instance.slotGrid.transform);
+            //instance.slots[i].GetComponent<Slot>().slotID = i;
+            //instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
+
+            listBag.Add(Instantiate(instance.emptySlot, instance.slotGrid.transform));
+            listBag[i].GetComponent<Slot>().slotID = i;
+            listBag[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
         }
 
         for (int i = 0; i < instance.slotGridEQI.transform.childCount; i++)

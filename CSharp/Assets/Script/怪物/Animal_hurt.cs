@@ -39,16 +39,15 @@ public class Animal_hurt : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W) && Vector3.Distance(Role.transform.position, transform.position) < 3f)
         {
             MonsterHurt();
-           
+            
+
 
 
         }
         if (Input.GetMouseButtonDown(1) && (Vector3.Distance(Role.transform.position, transform.position) < 3f))
         {
              Mouse_atk();
-            Rani.SetBool("attack", true);
-            Rani.SetBool("idle", false);
-            Rani.SetBool("run", false);
+            
             
         }
 
@@ -57,7 +56,6 @@ public class Animal_hurt : MonoBehaviour
     {
         if ((Time.time - Last_Attack) > 1f)
         {
-
            
             Last_Attack = Time.time;
             ani.HP -= Role.GetComponent<Role_attak>().WAttak;
@@ -95,6 +93,10 @@ public class Animal_hurt : MonoBehaviour
                 if (raycasthit[i].collider.tag == gameObject.tag)
                 {
                     ani.HP -= Role.GetComponent<Role_attak>().ArmsAttak;
+                    Rani.SetTrigger("Wattack");
+                    Rani.SetBool("WSP3", true);
+                    Rani.SetBool("run", false);
+                    Rani.SetBool("idle", false);
                     HP.fillAmount = ani.HP  / ori_HP;
                   
                     if (HP.fillAmount <= 0)

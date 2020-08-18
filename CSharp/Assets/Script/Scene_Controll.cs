@@ -38,7 +38,7 @@ public class Scene_Controll : MonoBehaviour
 
     public void New_Game()
     {
-        SceneManager.LoadScene("動起來測試");
+        SceneManager.LoadScene("新遊戲");
     }
 
     public void press_anykey()

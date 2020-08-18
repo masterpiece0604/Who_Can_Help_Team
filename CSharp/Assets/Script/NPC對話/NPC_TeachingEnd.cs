@@ -30,29 +30,27 @@ public class NPC_TeachingEnd : MonoBehaviour
     public List<string> textList = new List<string>();
 
 
-    private void Awake()
+    private void OnEnable()
     {
         if (MonkeyMeat.itemHold >= 2)
         {
+            print("讓他說點話" + MonkeyMeat.itemHold);
             GetTextFromFile(textFile1);
             meatEnough = true;
         }
         else
         {
+            print("點話" + MonkeyMeat.itemHold);
             GetTextFromFile(textFile2);
             meatEnough = false;
         }
-    }
-
-    private void OnEnable()
-    {
         StartCoroutine(SetTextUI());
     }
 
     private void Start()
     {
+        
         index = 2;
-        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -85,6 +83,7 @@ public class NPC_TeachingEnd : MonoBehaviour
         {
             if (textFinished && !cancelTyping)
             {
+                if (!NPC_Says.gameObject.activeInHierarchy) return;
                 StartCoroutine(SetTextUI());
             }
             else if (!textFinished)

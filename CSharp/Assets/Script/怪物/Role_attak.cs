@@ -49,7 +49,7 @@ public class Role_attak : MonoBehaviour
                 ani.SetTrigger("WSP2");
                 ani.SetBool("run", false);
                 ani.SetBool("idle", false);
-                ani.SetBool("attack", false);
+               
 
 
         }

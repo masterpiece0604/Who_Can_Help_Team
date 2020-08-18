@@ -25,6 +25,9 @@ public class ctrllor1 : MonoBehaviour
     //上一次點擊順移的時間
     private float lastTouchTime = 0f;
 
+    public CanvasGroup Bag;
+    public int BagAlpha;
+
 
     private void Awake()
     {
@@ -94,24 +97,33 @@ public class ctrllor1 : MonoBehaviour
     {
         //開啟玩家背包
         openplayerbag();
-        playerbag.SetActive(openbag);
+        if (openbag == true)
+        {
+            BagAlpha = 1;
+        }
+        else if (openbag == false)
+        {
+            BagAlpha = 0;
+        }
+        Bag.alpha = BagAlpha;
     }
 
     private void MoveAddForce()
     {
-        if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) > 2f)
+        if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) > 0.5f)
         {
             transform.LookAt(look_at_point.transform);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            rig.AddForce(transform.forward * playerspeed);
+            //rig.AddForce(transform.forward * playerspeed);
+            rig.MovePosition(transform.position + transform.forward * playerspeed);
         }
-        else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) < 1f)
+        else if (Vector3.Distance(gameObject.transform.position, look_at_point.transform.position) < 0.5f)
         {
-            rig.velocity = Vector3.zero; 
+            Sstand();
             ani.SetBool("run", false);
             ani.SetBool("idle", true);
             ani.SetBool("attack", false);
-           
+
         }
     }
 
@@ -166,6 +178,7 @@ public class ctrllor1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
+            InventoryManager.RefreshItem();
             openbag = !openbag;
         }
 
